@@ -1,0 +1,15 @@
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\bin\Debug\netcoreapp3.1\SatellitePermanente.exe
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\bin\Debug\netcoreapp3.1\SatellitePermanente.deps.json
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\bin\Debug\netcoreapp3.1\SatellitePermanente.runtimeconfig.json
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\bin\Debug\netcoreapp3.1\SatellitePermanente.runtimeconfig.dev.json
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\bin\Debug\netcoreapp3.1\SatellitePermanente.dll
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\bin\Debug\netcoreapp3.1\SatellitePermanente.pdb
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.csprojAssemblyReference.cache
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.Form1.resources
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.csproj.GenerateResource.cache
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.AssemblyInfoInputs.cache
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.AssemblyInfo.cs
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.csproj.CoreCompileInputs.cache
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.dll
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.pdb
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.genruntimeconfig.cache

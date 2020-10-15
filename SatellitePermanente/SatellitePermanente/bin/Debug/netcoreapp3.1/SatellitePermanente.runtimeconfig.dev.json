@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Rombo\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Rombo\\.nuget\\packages"
+    ]
+  }
+}
