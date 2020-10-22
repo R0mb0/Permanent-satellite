@@ -4,21 +4,14 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
-    class Utility
+    interface Utility
     {
-        private const decimal eartRadius = 6372.795477598m;
-        public Utility() { }
+        public decimal AllNumberLate(decimal n);
 
-        public decimal AllNumberLate(decimal n)
-        {
-            decimal number = n;
+        public decimal CalculateDistance(Point pointA, Point pointB);
 
-            while (number > 0.9m)
-            {
-                number = number / 10.0m;
-            }
+        public DateTime CalculateTimeDifference(Point pointA, Point pointB);
 
-            return number;
-        }
+        public decimal CalculateSpeed(Point pointA, Point pointB);
     }
 }
