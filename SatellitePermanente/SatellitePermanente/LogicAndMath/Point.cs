@@ -14,6 +14,8 @@ namespace SatellitePermanente.LogicAndMath
 
         public Boolean GetMeetingPoint();
 
+        public int? GetAngle();
+
         public int? GetAltitude();
 
     }

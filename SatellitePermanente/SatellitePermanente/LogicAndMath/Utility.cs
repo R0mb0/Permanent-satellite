@@ -10,7 +10,11 @@ namespace SatellitePermanente.LogicAndMath
 
         public decimal CalculateDistance(Point pointA, Point pointB);
 
-        public DateTime CalculateTimeDifference(Point pointA, Point pointB);
+        public decimal CalculateDirection(Point pointA, Point pointB);
+
+        public TimeSpan CalculateTimeDifference(Point pointA, Point pointB);
+
+        public int ? CalculateAltitudeDifference(Point pointA, Point pointB);
 
         public decimal CalculateSpeed(Point pointA, Point pointB);
     }

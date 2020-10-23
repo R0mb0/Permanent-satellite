@@ -6,7 +6,7 @@ namespace SatellitePermanente.LogicAndMath
 {
     class LatitudeImpl: OriginImpl ,Latitude
     {
-        Utility util = new Utility();
+       private static readonly Utility util = new UtilityImpl();
 
         public LatitudeImpl (char sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
@@ -33,9 +33,9 @@ namespace SatellitePermanente.LogicAndMath
         decimal Latitude.GetLatitude()
         {
             decimal temp = util.AllNumberLate(base.GetLatter());
-            temp = temp + base.GetPrime();
+            temp =+ base.GetPrime();
             temp = util.AllNumberLate(temp);
-            temp = temp + base.GetDegrees();
+            temp =+ base.GetDegrees();
 
             if (char.ToLower(base.GetSign()) == 's')
             {

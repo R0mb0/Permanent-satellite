@@ -8,7 +8,9 @@ namespace SatellitePermanente.LogicAndMath
     {
         public decimal GetDistance();
 
-        public DateTime GetTimeDiffrence();
+        public decimal GetDirection();
+
+        public TimeSpan GetTimeDiffrence();
 
         public decimal GetSpeed();
 

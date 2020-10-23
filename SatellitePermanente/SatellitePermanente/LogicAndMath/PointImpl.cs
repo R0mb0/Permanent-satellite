@@ -11,6 +11,7 @@ namespace SatellitePermanente.LogicAndMath
         private readonly Latitude latitude;
         private readonly DateTime dateTime;
         private readonly Boolean meetingPoint;
+        private readonly int ? angle;
         private readonly int ? altitude;
 
         public PointImpl(Longitude longitude, Latitude latitude, DateTime dateTime, Boolean meetingPoint)
@@ -21,12 +22,13 @@ namespace SatellitePermanente.LogicAndMath
             this.meetingPoint = meetingPoint;
         }
 
-        public PointImpl(Longitude longitude, Latitude latitude, DateTime dateTime, Boolean meetingPoint, int altitude)
+        public PointImpl(Longitude longitude, Latitude latitude, DateTime dateTime, Boolean meetingPoint, int ? angle, int ? altitude)
         {
             this.longitude = longitude;
             this.latitude = latitude;
             this.dateTime = dateTime;
             this.meetingPoint = meetingPoint;
+            this.angle = angle;
             this.altitude = altitude;
         }
 
@@ -50,16 +52,25 @@ namespace SatellitePermanente.LogicAndMath
             return this.meetingPoint;
         }
 
+        public int? GetAngle()
+        {
+            if (this.angle != null)
+            {
+                return this.angle;
+            }
+
+            return null;
+        }
+
         public int? GetAltitude()
         {
             if(this.altitude != null)
             {
                 return this.altitude;
             }
-            else
-            {
+           
                 return null;
-            }
+           
 
         }
     }
