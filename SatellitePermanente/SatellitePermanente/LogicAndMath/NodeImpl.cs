@@ -4,6 +4,7 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
+    /*This class shape a Node from two Point*/
     class NodeImpl: Node
     {
         private readonly Point pointA;
@@ -15,6 +16,20 @@ namespace SatellitePermanente.LogicAndMath
             this.pointA = pointA;
             this.pointB = pointB;
         }
+
+        /*Get methods*/
+
+        public Point GetPointA()
+        {
+            return this.pointA;
+        }
+
+        public Point GetPointB()
+        {
+            return this.pointB;
+        }
+
+        /*Get Property of nodes*/
 
         public decimal GetDistance()
         {

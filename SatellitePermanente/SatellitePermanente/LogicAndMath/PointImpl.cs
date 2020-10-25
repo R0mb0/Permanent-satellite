@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
+    /*This Class shape a detection Point*/
     class PointImpl : Point
     {
         private readonly Longitude longitude;
@@ -22,6 +23,7 @@ namespace SatellitePermanente.LogicAndMath
             this.meetingPoint = meetingPoint;
         }
 
+        /*Builder with optional param*/
         public PointImpl(Longitude longitude, Latitude latitude, DateTime dateTime, Boolean meetingPoint, int ? angle, int ? altitude)
         {
             this.longitude = longitude;
@@ -31,6 +33,8 @@ namespace SatellitePermanente.LogicAndMath
             this.angle = angle;
             this.altitude = altitude;
         }
+
+        /*Get methods*/
 
         public Longitude GetPointLongitude()
         {
@@ -51,6 +55,8 @@ namespace SatellitePermanente.LogicAndMath
         {
             return this.meetingPoint;
         }
+
+        /*Get optional param*/
 
         public int? GetAngle()
         {

@@ -4,8 +4,15 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
+    /*This Interfare shape a Node form two Point. For working the associate class use Utility Class*/
     interface Node
     {
+        public Point GetPointA();
+
+        public Point GetPointB();
+        
+        /*Property of the node*/
+
         public decimal GetDistance();
 
         public decimal GetDirection();

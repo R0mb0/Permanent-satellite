@@ -4,9 +4,13 @@ using System.Text;
 
 namespace SatellitePermanente
 {
+
+    /*This Class in usefull to shape a short of standar Point of detecion in DMS format.
+     This Class will be extended to Latitude Class and Longitude Class in way to specialize the coordinates*/
+
     public class OriginImpl: Origin
     {
-        private readonly char sign;
+        private readonly char sign; /*Sign = 'N' 'E' 'S' 'O'*/
         private readonly int degrees;
         private readonly int prime;
         private readonly decimal latter;
@@ -41,6 +45,7 @@ namespace SatellitePermanente
             return this.latter;
         }
 
+        /*This method serves to print the coordinates salved*/
         public String GetString()
         {
             return Convert.ToString(this.sign) + " " + Convert.ToString(this.degrees) + "° " + Convert.ToString(this.prime) + "' " + Convert.ToString(this.latter) + "''";

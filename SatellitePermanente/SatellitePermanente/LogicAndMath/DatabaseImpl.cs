@@ -9,12 +9,14 @@ namespace SatellitePermanente.LogicAndMath
 {
     class DatabaseImpl: Database
     {
-        private Point? meetingPoint;
+        private Point? meetingPoint = null;
         private Boolean flag = true;
         
         private List<Point> pointList = new List<Point>();
         private List<Node> nodeList = new List<Node>();
         private List<Node> lastNodeAdded = new List<Node>();
+        private List<Node> lastNodeDelected = new List<Node>();
+        private Point lastPointDelected;
 
 
         public DatabaseImpl() { }
@@ -76,9 +78,46 @@ namespace SatellitePermanente.LogicAndMath
             return this.pointList.Contains(point);
         }
 
+        public Boolean DelettePoint(Point point)
+        {
+            if (!this.pointList.Contains(point))
+            {
+                return false;
+            }
+
+            this.lastNodeDelected.Clear();
+
+            this.nodeList.ForEach(delegate (Node myNode){
+
+                if(myNode.GetPointA() == point || myNode.GetPointB() == point)
+                {
+                    this.lastNodeDelected.Add(myNode);
+                }
+            });
+
+            if(this.lastNodeDelected.Count > 0)
+            {
+                this.lastNodeDelected.ForEach(delegate (Node myNode) {
+                    this.nodeList.Remove(myNode);
+                });
+
+                this.lastPointDelected = point;
+                this.pointList.Remove(point);
+
+                return true;
+            }
+
+            return false;
+        }
+
         public Point GetLastPointAdded()
         {
             return this.pointList.Last();
+        }
+
+        public Point GetLastPointDelected()
+        {
+            return this.lastPointDelected;
         }
 
         public Point GetSpecificPoint(int index)
@@ -94,6 +133,11 @@ namespace SatellitePermanente.LogicAndMath
         public List<Node> GetLastNodeInserted()
         {
             return this.lastNodeAdded;
+        }
+
+        public List<Node> GetLastNodeRemoved()
+        {
+            return this.lastNodeDelected;
         }
 
         public List<Node> GetAllNodes()

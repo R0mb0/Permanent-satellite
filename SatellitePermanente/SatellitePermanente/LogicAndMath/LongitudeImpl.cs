@@ -5,10 +5,12 @@ using System.Text;
 
 namespace SatellitePermanente
 {
+    /*This Class specialized the Origin Class, in way to is possible register a coordinate compatible with the Longitude*/
     class LongitudeImpl : OriginImpl ,Longitude
     {
         private static readonly Utility util = new UtilityImpl();
 
+        /*In the builder it specialize the coordinates, in way to make compatible with the Longitude*/
         public LongitudeImpl(char sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
             if (char.ToLower(sign) != 'e' || char.ToLower(sign) != 'o') { }
@@ -31,6 +33,7 @@ namespace SatellitePermanente
             }
         }
 
+        /*Return the raw data, in this format: XX°,XX'XXXXX''*/
         decimal Longitude.GetLongitude()
         {
             decimal temp = util.AllNumberLate(base.GetLatter());
