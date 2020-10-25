@@ -7,6 +7,7 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
+    /*This Class shape a Database where il possible salve Points and Nodes*/
     class DatabaseImpl: Database
     {
         private Point? meetingPoint = null;
@@ -21,6 +22,7 @@ namespace SatellitePermanente.LogicAndMath
 
         public DatabaseImpl() { }
 
+        /*This private method try to add Node from allocated point*/
         private void TryToAllocateNode(Point point)
         {
             if(this.pointList.Count >=2 && this.meetingPoint == null)
@@ -52,6 +54,7 @@ namespace SatellitePermanente.LogicAndMath
             }
         }
 
+        /*This method return true if the Point is allocated, otherwise return false*/
         public Boolean AddPoint(Point point)
         {
             if (this.pointList.Contains(point))
@@ -78,6 +81,7 @@ namespace SatellitePermanente.LogicAndMath
             return this.pointList.Contains(point);
         }
 
+        /*This method return true if the Point is disallocated, otherwise return false*/
         public Boolean DelettePoint(Point point)
         {
             if (!this.pointList.Contains(point))
@@ -109,6 +113,8 @@ namespace SatellitePermanente.LogicAndMath
 
             return false;
         }
+
+        /*Get methods*/
 
         public Point GetLastPointAdded()
         {
