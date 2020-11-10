@@ -8,19 +8,17 @@ namespace SatellitePermanente.LogicAndMath
      * and the Longitude Class*/
     interface Point
     {
-        public Latitude GetPointLatitude();
+        public Longitude longitude { get; }
 
-        public Longitude GetPointLongitude();
+        public Latitude latitude { get; }
 
-        public DateTime GetDateTime();
+        public DateTime dateTime { get; }
 
-        public Boolean GetMeetingPoint();
+        public Boolean meetingPoint { get; }
 
-        /*Opzional param to the detection*/
+        public int? angle { get; }
 
-        public int? GetAngle();
-
-        public int? GetAltitude();
+        public int? altitude { get; }
 
     }
 }

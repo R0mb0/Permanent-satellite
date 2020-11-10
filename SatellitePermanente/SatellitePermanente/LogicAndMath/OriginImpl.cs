@@ -10,11 +10,16 @@ namespace SatellitePermanente
 
     public class OriginImpl: Origin
     {
-        private readonly char sign; /*Sign = 'N' 'E' 'S' 'O'*/
-        private readonly int degrees;
-        private readonly int prime;
-        private readonly decimal latter;
+        /*Fields*/
+        public char sign { get; } /*Sign = 'N' 'E' 'S' 'O'*/
 
+        public int degrees { get; }
+
+        public int prime { get; }
+
+        public decimal latter { get; }
+
+        /*Builder*/
         public OriginImpl(char sign, int degrees, int prime, decimal latter)
         {
             this.sign = sign;
@@ -23,28 +28,7 @@ namespace SatellitePermanente
             this.latter = latter;
         }
 
-        /*Gets Method*/
-
-        public char GetSign()
-        {
-            return this.sign;
-        }
-
-        public int GetDegrees()
-        {
-            return this.degrees;
-        }
-
-        public int GetPrime()
-        {
-            return this.prime;
-        }
-
-        public decimal GetLatter()
-        {
-            return this.latter;
-        }
-
+        
         /*This method serves to print the coordinates salved*/
         public String GetString()
         {

@@ -36,12 +36,12 @@ namespace SatellitePermanente
         /*Return the raw data, in this format: XX°,XX'XXXXX''*/
         decimal Longitude.GetLongitude()
         {
-            decimal temp = util.AllNumberLate(base.GetLatter());
-            temp =+ base.GetPrime();
+            decimal temp = util.AllNumberLate(base.latter);
+            temp =+ base.prime;
             temp = util.AllNumberLate(temp);
-            temp =+ base.GetDegrees();
+            temp =+ base.degrees;
 
-            if(char.ToLower(base.GetSign()) == 'o')
+            if(char.ToLower(base.sign) == 'o')
             {
                 temp = (temp * (-1));
             }

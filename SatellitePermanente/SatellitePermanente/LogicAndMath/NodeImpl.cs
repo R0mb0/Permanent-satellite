@@ -7,8 +7,9 @@ namespace SatellitePermanente.LogicAndMath
     /*This class shape a Node from two Point*/
     class NodeImpl: Node
     {
-        private readonly Point pointA;
-        private readonly Point pointB;
+        /*Fields*/
+        public Point pointA { get; }
+        public Point pointB { get; }
         private static readonly Utility util = new UtilityImpl();
 
         public NodeImpl(Point pointA, Point pointB)
@@ -17,18 +18,7 @@ namespace SatellitePermanente.LogicAndMath
             this.pointB = pointB;
         }
 
-        /*Get methods*/
-
-        public Point GetPointA()
-        {
-            return this.pointA;
-        }
-
-        public Point GetPointB()
-        {
-            return this.pointB;
-        }
-
+        
         /*Get Property of nodes*/
 
         public decimal GetDistance()

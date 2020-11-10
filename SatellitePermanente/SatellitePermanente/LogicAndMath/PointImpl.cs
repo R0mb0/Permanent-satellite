@@ -8,12 +8,18 @@ namespace SatellitePermanente.LogicAndMath
     /*This Class shape a detection Point*/
     class PointImpl : Point
     {
-        private readonly Longitude longitude;
-        private readonly Latitude latitude;
-        private readonly DateTime dateTime;
-        private readonly Boolean meetingPoint;
-        private readonly int ? angle;
-        private readonly int ? altitude;
+        /*Fields*/
+        public Longitude longitude { get; }
+
+        public Latitude latitude { get; }
+
+        public DateTime dateTime { get; }
+
+        public Boolean meetingPoint { get; }
+
+        public int ? angle { get; }
+
+        public int ? altitude { get; }
 
         public PointImpl(Longitude longitude, Latitude latitude, DateTime dateTime, Boolean meetingPoint)
         {
@@ -34,50 +40,6 @@ namespace SatellitePermanente.LogicAndMath
             this.altitude = altitude;
         }
 
-        /*Get methods*/
-
-        public Longitude GetPointLongitude()
-        {
-            return this.longitude;
-        }
-
-        public Latitude GetPointLatitude()
-        {
-            return this.latitude;
-        }
-
-        public DateTime GetDateTime()
-        {
-            return this.dateTime;
-        }
-
-        public Boolean GetMeetingPoint()
-        {
-            return this.meetingPoint;
-        }
-
-        /*Get optional param*/
-
-        public int? GetAngle()
-        {
-            if (this.angle != null)
-            {
-                return this.angle;
-            }
-
-            return null;
-        }
-
-        public int? GetAltitude()
-        {
-            if(this.altitude != null)
-            {
-                return this.altitude;
-            }
-           
-                return null;
-           
-
-        }
+        
     }
 }

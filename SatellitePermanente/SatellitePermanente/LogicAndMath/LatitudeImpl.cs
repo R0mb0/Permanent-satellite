@@ -35,12 +35,12 @@ namespace SatellitePermanente.LogicAndMath
         /*Return the raw data, in this format: XX°,XX'XXXXX''*/
         decimal Latitude.GetLatitude()
         {
-            decimal temp = util.AllNumberLate(base.GetLatter());
-            temp =+ base.GetPrime();
+            decimal temp = util.AllNumberLate(base.latter);
+            temp =+ base.prime;
             temp = util.AllNumberLate(temp);
-            temp =+ base.GetDegrees();
+            temp =+ base.degrees;
 
-            if (char.ToLower(base.GetSign()) == 's')
+            if (char.ToLower(base.sign) == 's')
             {
                 temp = (temp * (-1));
             }

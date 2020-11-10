@@ -9,14 +9,14 @@ namespace SatellitePermanente
     interface Origin
     {
         /*Sign = 'N' 'E' 'S' 'O'*/
-        public char GetSign();
+        public char sign { get; }
 
-        public int GetDegrees();
+        public int degrees { get; }
 
-        public int GetPrime();
+        public int prime { get; }
 
-        public decimal GetLatter();
- 
+        public decimal latter { get; }
+
         public String GetString();
 
     }

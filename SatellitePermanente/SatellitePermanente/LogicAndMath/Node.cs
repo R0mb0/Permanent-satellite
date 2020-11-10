@@ -7,10 +7,9 @@ namespace SatellitePermanente.LogicAndMath
     /*This Interfare shape a Node form two Point. For working the associate class use Utility Class*/
     interface Node
     {
-        public Point GetPointA();
+        public Point pointA { get; }
+        public Point pointB { get; }
 
-        public Point GetPointB();
-        
         /*Property of the node*/
 
         public decimal GetDistance();
