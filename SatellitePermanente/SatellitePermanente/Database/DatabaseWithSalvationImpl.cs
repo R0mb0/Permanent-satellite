@@ -4,7 +4,8 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
-    class DatabaseWithSalvationImpl
+    class DatabaseWithSalvationImpl: DatabaseWithSalvatation
     {
+
     }
 }

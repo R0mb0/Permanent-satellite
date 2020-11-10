@@ -4,23 +4,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Forms;
 
 namespace SatellitePermanente.LogicAndMath
 {
     /*This Class shape a Database where il possible salve Points and Nodes*/
-    class DatabaseImpl: Database
+    class DatabaseImpl : Database
     {
         private Point? meetingPoint = null;
         private Boolean flag = true;
-        
-        private List<Point> pointList = new List<Point>();
-        private List<Node> nodeList = new List<Node>();
-        private List<Node> lastNodeAdded = new List<Node>();
-        private List<Node> lastNodeDelected = new List<Node>();
-        private Point lastPointDelected;
 
+        public List<Point> pointList { get; }
 
-        public DatabaseImpl() { }
+        public List<Node> nodeList { get; }
+
+        public List<Node> lastNodeAdded { get; }
+
+        public List<Node> lastNodeDelected { get; }
+
+        public Point lastPointDelected { get; private set; }
+
+        /*Builder*/
+        public DatabaseImpl() 
+        {
+            this.pointList = new List<Point>();
+            this.nodeList = new List<Node>();
+            this.lastNodeAdded = new List<Node>();
+            this.lastNodeDelected = new List<Node>();
+        }
 
         /*This private method try to add Node from allocated point*/
         private void TryToAllocateNode(Point point)
@@ -62,7 +73,7 @@ namespace SatellitePermanente.LogicAndMath
                 throw new Exception("Trying to add a point already added!");
             }
 
-            if (point.GetMeetingPoint())
+            if (point.meetingPoint)
             {
                 if(this.meetingPoint != null)
                 {
@@ -93,7 +104,7 @@ namespace SatellitePermanente.LogicAndMath
 
             this.nodeList.ForEach(delegate (Node myNode){
 
-                if(myNode.GetPointA() == point || myNode.GetPointB() == point)
+                if(myNode.pointA == point || myNode.pointB == point)
                 {
                     this.lastNodeDelected.Add(myNode);
                 }
@@ -113,44 +124,6 @@ namespace SatellitePermanente.LogicAndMath
 
             return false;
         }
-
-        /*Get methods*/
-
-        public Point GetLastPointAdded()
-        {
-            return this.pointList.Last();
-        }
-
-        public Point GetLastPointDelected()
-        {
-            return this.lastPointDelected;
-        }
-
-        public Point GetSpecificPoint(int index)
-        {
-            return this.pointList[index];
-        }
-
-        public List<Point> GetAllPoints()
-        {
-            return this.pointList;
-        }
-
-        public List<Node> GetLastNodeInserted()
-        {
-            return this.lastNodeAdded;
-        }
-
-        public List<Node> GetLastNodeRemoved()
-        {
-            return this.lastNodeDelected;
-        }
-
-        public List<Node> GetAllNodes()
-        {
-            return this.nodeList;
-        }
-
         
     }
 }
