@@ -13,5 +13,4 @@ D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePerm
 D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.genruntimeconfig.cache
 D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.Home.resources
 D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.csproj.CoreCompileInputs.cache
 D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.csproj.CopyComplete

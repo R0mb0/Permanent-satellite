@@ -5,12 +5,8 @@ using System.Text;
 namespace SatellitePermanente.LogicAndMath
 {
     /*This Interface shape a Database where is possible salve Points and Nodes, this informaction will be used from GUI*/
-    interface Database
+    interface Database : OriginDatabase
     {
-        public List<Point> pointList { get; }
-
-        public List<Node> nodeList { get; }
-
         public List<Node> lastNodeAdded { get; }
 
         public List<Node> lastNodeDelected { get; }

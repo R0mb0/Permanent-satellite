@@ -8,9 +8,7 @@ namespace SatellitePermanente.LogicAndMath
     {
         public Boolean SalveDatabase();
 
-        public List<Point> GetSavedPointList();
-
-        public List<Node> GetSavedNodeList();
+        public Boolean LoadDatabase();
        
     }
 }
