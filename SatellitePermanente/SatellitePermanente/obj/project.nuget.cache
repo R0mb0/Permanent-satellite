@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "29Wpioo1lv8I1Qy0ezQ9wVmVTb0MHcZ/f6D6cXFmI9esEmYEZQwZs7/xjMJcZK5D4UEdkR9tD9+DiUcznkVOyA==",
+  "dgSpecHash": "Mo2ru/aHcpIHalkIvou3AXoxU7pn3XYWYEPR9TeDhpJ3s+w+D4lIW/KW00WjNoFpZX3ipWGmc+3Le5P9NJOxpQ==",
   "success": true,
   "projectFilePath": "D:\\DOCUMENTI\\UNIVERSITÀ\\URBINO\\PROGRAMMAZIONE AD OGGETTI\\PROGETTO\\SatellitePermanente\\SatellitePermanente\\SatellitePermanente.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Rombo\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\Rombo\\.nuget\\packages\\envdte\\16.8.30705.32\\envdte.16.8.30705.32.nupkg.sha512",
+    "C:\\Users\\Rombo\\.nuget\\packages\\envdte80\\16.8.30705.32\\envdte80.16.8.30705.32.nupkg.sha512",
+    "C:\\Users\\Rombo\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Rombo\\.nuget\\packages\\stdole\\16.8.30705.32\\stdole.16.8.30705.32.nupkg.sha512"
   ],
   "logs": []
 }

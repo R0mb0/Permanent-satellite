@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SatellitePermanente.GUI;
+using SatellitePermanente.LogicAndMath;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace SatellitePermanente
 {
     public partial class Home : Form
     {
+        private DatabaseWithSalvatation database = new DatabaseWithSalvationImpl();
+
         public Home()
         {
             InitializeComponent();
@@ -19,8 +23,24 @@ namespace SatellitePermanente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
+            AddPoint addPoint = new AddPoint();
+            addPoint.ShowDialog();
+
+        }
+
+        private void DeletePoint_Click(object sender, EventArgs e)
+        {
+            DeletePoint deletePoint = new DeletePoint();
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            this.database.SaveDatabase();
+        }
+
+        private void Load_Click(object sender, EventArgs e)
+        {
+            this.database.LoadDatabase();
         }
     }
 }

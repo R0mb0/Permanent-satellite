@@ -1,3 +1,4 @@
+using SatellitePermanente.LogicAndMath;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,6 @@ namespace SatellitePermanente
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Home());
-
-            
-
-            
 
         }
     }

@@ -57,11 +57,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Disclamer:
-This application is made for helping the people who practise "Urban Exploration".
-The goal of this application is to ease the normal orientation procedures.
-This application is not tested in a real dangerous contest; 
-in case of real dangerous is recommended use a real emergency strument. </value>
-  </data>
 </root>

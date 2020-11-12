@@ -21,7 +21,7 @@ namespace SatellitePermanente.LogicAndMath
            
         }
 
-        public Boolean SalveDatabase()
+        public Boolean SaveDatabase()
         {
             this.database.pointList = base.pointList;
             this.database.nodeList = base.nodeList;

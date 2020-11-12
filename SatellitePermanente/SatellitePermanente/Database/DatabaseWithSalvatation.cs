@@ -6,7 +6,7 @@ namespace SatellitePermanente.LogicAndMath
 {
     interface DatabaseWithSalvatation: Database
     {
-        public Boolean SalveDatabase();
+        public Boolean SaveDatabase();
 
         public Boolean LoadDatabase();
        
