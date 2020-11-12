@@ -30,18 +30,18 @@ namespace SatellitePermanente
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.monitor = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // monitor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-2876, -144);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "HomeLabel";
+            this.monitor.AutoSize = true;
+            this.monitor.Location = new System.Drawing.Point(-2876, -144);
+            this.monitor.Name = "label1";
+            this.monitor.Size = new System.Drawing.Size(102, 25);
+            this.monitor.TabIndex = 0;
+            this.monitor.Text = "HomeLabel";
             // 
             // button1
             // 
@@ -60,7 +60,7 @@ namespace SatellitePermanente
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1924, 889);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.monitor);
             this.Name = "Home";
             this.Text = "Relative system of orientation to permanent satellite";
             this.ResumeLayout(false);
@@ -70,10 +70,8 @@ namespace SatellitePermanente
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label monitor;
         private System.Windows.Forms.Button button1;
-
-        
     }
 }
 
