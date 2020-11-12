@@ -8,13 +8,11 @@ using System.Windows.Forms;
 
 namespace SatellitePermanente.GUI
 {
-    public partial class AddPoint : Form
+    public partial class Debug : Form
     {
-        public AddPoint()
+        public Debug()
         {
             InitializeComponent();
         }
-
-       
     }
 }

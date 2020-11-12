@@ -37,6 +37,7 @@ namespace SatellitePermanente
             this.DeletePoint = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.Load = new System.Windows.Forms.Button();
+            this.Debug = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // monitor
@@ -109,12 +110,23 @@ namespace SatellitePermanente
             this.Load.UseVisualStyleBackColor = true;
             this.Load.Click += new System.EventHandler(this.Load_Click);
             // 
+            // Debug
+            // 
+            this.Debug.Location = new System.Drawing.Point(14, 227);
+            this.Debug.Name = "Debug";
+            this.Debug.Size = new System.Drawing.Size(134, 34);
+            this.Debug.TabIndex = 6;
+            this.Debug.Text = "DEBUG";
+            this.Debug.UseVisualStyleBackColor = true;
+            this.Debug.Click += new System.EventHandler(this.Debug_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1139, 620);
+            this.Controls.Add(this.Debug);
             this.Controls.Add(this.Load);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.DeletePoint);
@@ -138,6 +150,7 @@ namespace SatellitePermanente
         private System.Windows.Forms.Button DeletePoint;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Load;
+        private System.Windows.Forms.Button Debug;
     }
 }
 

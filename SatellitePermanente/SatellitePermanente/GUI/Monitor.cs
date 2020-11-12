@@ -31,6 +31,7 @@ namespace SatellitePermanente
         private void DeletePoint_Click(object sender, EventArgs e)
         {
             DeletePoint deletePoint = new DeletePoint();
+            deletePoint.ShowDialog();
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -41,6 +42,12 @@ namespace SatellitePermanente
         private void Load_Click(object sender, EventArgs e)
         {
             this.database.LoadDatabase();
+        }
+
+        private void Debug_Click(object sender, EventArgs e)
+        {
+            Debug debug = new Debug();
+            debug.ShowDialog();
         }
     }
 }
