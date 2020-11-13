@@ -13,12 +13,11 @@ namespace SatellitePermanente
         /*In the builder it specialize the coordinates, in way to make compatible with the Longitude*/
         public LongitudeImpl(char sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
-            if (char.ToLower(sign) != 'e' || char.ToLower(sign) != 'o') { }
-            else
+            if (char.ToLower(sign) != 'e' || char.ToLower(sign) != 'w') 
             {
                 throw new ArgumentException("Sign is not valid!");
             }
-
+           
             if (degrees < 0 || degrees > 180)
             {
                 throw new ArgumentException("Degree are not valid!");

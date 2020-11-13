@@ -21,7 +21,7 @@ namespace SatellitePermanente.LogicAndMath
 
         public int ? altitude { get; }
 
-        public PointImpl(Longitude longitude, Latitude latitude, DateTime dateTime, Boolean meetingPoint)
+        public PointImpl(Latitude latitude, Longitude longitude, DateTime dateTime, Boolean meetingPoint)
         {
             this.longitude = longitude;
             this.latitude = latitude;
@@ -30,7 +30,7 @@ namespace SatellitePermanente.LogicAndMath
         }
 
         /*Builder with optional param*/
-        public PointImpl(Longitude longitude, Latitude latitude, DateTime dateTime, Boolean meetingPoint, int ? angle, int ? altitude)
+        public PointImpl(Latitude latitude, Longitude longitude, DateTime dateTime, Boolean meetingPoint, int ? angle, int ? altitude)
         {
             this.longitude = longitude;
             this.latitude = latitude;

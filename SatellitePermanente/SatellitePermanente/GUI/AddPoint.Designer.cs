@@ -35,10 +35,10 @@
             this.LatitudeDegreeText = new System.Windows.Forms.TextBox();
             this.LatitudePrime = new System.Windows.Forms.Label();
             this.LatitudePrimeText = new System.Windows.Forms.TextBox();
-            this.LatitudeSecond = new System.Windows.Forms.Label();
-            this.LatitudeSecondText = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.LongitudeSecondText = new System.Windows.Forms.Label();
+            this.LatitudeLatter = new System.Windows.Forms.Label();
+            this.LatitudeLatterText = new System.Windows.Forms.TextBox();
+            this.LongitudeLatterText = new System.Windows.Forms.TextBox();
+            this.LongitudeLatter = new System.Windows.Forms.Label();
             this.LongitudePrimeText = new System.Windows.Forms.TextBox();
             this.LongitudePrime = new System.Windows.Forms.Label();
             this.LongitudeDegreeText = new System.Windows.Forms.TextBox();
@@ -46,9 +46,8 @@
             this.LongitudeSignText = new System.Windows.Forms.TextBox();
             this.LongitudeSign = new System.Windows.Forms.Label();
             this.Longitude = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.DateAndTimeHour = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.DateAndTimeHourText = new System.Windows.Forms.TextBox();
+            this.DateAndTimeDayText = new System.Windows.Forms.TextBox();
             this.DateAndTimeDay = new System.Windows.Forms.Label();
             this.DateAndTimeMonthText = new System.Windows.Forms.TextBox();
             this.DateAndTimeMonth = new System.Windows.Forms.Label();
@@ -60,9 +59,10 @@
             this.Angle = new System.Windows.Forms.CheckBox();
             this.AngleText = new System.Windows.Forms.TextBox();
             this.Altitude = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.AltitudeText = new System.Windows.Forms.TextBox();
             this.MeetingPoint = new System.Windows.Forms.CheckBox();
             this.ButtonAddPoint = new System.Windows.Forms.Button();
+            this.DateAndTimeHour = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Latitude
@@ -123,37 +123,37 @@
             this.LatitudePrimeText.Size = new System.Drawing.Size(76, 30);
             this.LatitudePrimeText.TabIndex = 6;
             // 
-            // LatitudeSecond
+            // LatitudeLatter
             // 
-            this.LatitudeSecond.AutoSize = true;
-            this.LatitudeSecond.Location = new System.Drawing.Point(574, 55);
-            this.LatitudeSecond.Name = "LatitudeSecond";
-            this.LatitudeSecond.Size = new System.Drawing.Size(84, 23);
-            this.LatitudeSecond.TabIndex = 7;
-            this.LatitudeSecond.Text = "SECOND:";
+            this.LatitudeLatter.AutoSize = true;
+            this.LatitudeLatter.Location = new System.Drawing.Point(574, 55);
+            this.LatitudeLatter.Name = "LatitudeLatter";
+            this.LatitudeLatter.Size = new System.Drawing.Size(81, 23);
+            this.LatitudeLatter.TabIndex = 7;
+            this.LatitudeLatter.Text = "LATTER:";
             // 
-            // LatitudeSecondText
+            // LatitudeLatterText
             // 
-            this.LatitudeSecondText.Location = new System.Drawing.Point(664, 48);
-            this.LatitudeSecondText.Name = "LatitudeSecondText";
-            this.LatitudeSecondText.Size = new System.Drawing.Size(150, 30);
-            this.LatitudeSecondText.TabIndex = 8;
+            this.LatitudeLatterText.Location = new System.Drawing.Point(664, 48);
+            this.LatitudeLatterText.Name = "LatitudeLatterText";
+            this.LatitudeLatterText.Size = new System.Drawing.Size(150, 30);
+            this.LatitudeLatterText.TabIndex = 8;
             // 
-            // textBox1
+            // LongitudeLatterText
             // 
-            this.textBox1.Location = new System.Drawing.Point(664, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 30);
-            this.textBox1.TabIndex = 8;
+            this.LongitudeLatterText.Location = new System.Drawing.Point(664, 150);
+            this.LongitudeLatterText.Name = "LongitudeLatterText";
+            this.LongitudeLatterText.Size = new System.Drawing.Size(150, 30);
+            this.LongitudeLatterText.TabIndex = 8;
             // 
-            // LongitudeSecondText
+            // LongitudeLatter
             // 
-            this.LongitudeSecondText.AutoSize = true;
-            this.LongitudeSecondText.Location = new System.Drawing.Point(574, 157);
-            this.LongitudeSecondText.Name = "LongitudeSecondText";
-            this.LongitudeSecondText.Size = new System.Drawing.Size(84, 23);
-            this.LongitudeSecondText.TabIndex = 7;
-            this.LongitudeSecondText.Text = "SECOND:";
+            this.LongitudeLatter.AutoSize = true;
+            this.LongitudeLatter.Location = new System.Drawing.Point(574, 157);
+            this.LongitudeLatter.Name = "LongitudeLatter";
+            this.LongitudeLatter.Size = new System.Drawing.Size(81, 23);
+            this.LongitudeLatter.TabIndex = 7;
+            this.LongitudeLatter.Text = "LATTER:";
             // 
             // LongitudePrimeText
             // 
@@ -213,28 +213,19 @@
             this.Longitude.TabIndex = 0;
             this.Longitude.Text = "LONGITUDE:";
             // 
-            // textBox2
+            // DateAndTimeHourText
             // 
-            this.textBox2.Location = new System.Drawing.Point(664, 250);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(69, 30);
-            this.textBox2.TabIndex = 8;
+            this.DateAndTimeHourText.Location = new System.Drawing.Point(664, 250);
+            this.DateAndTimeHourText.Name = "DateAndTimeHourText";
+            this.DateAndTimeHourText.Size = new System.Drawing.Size(69, 30);
+            this.DateAndTimeHourText.TabIndex = 8;
             // 
-            // DateAndTimeHour
+            // DateAndTimeDayText
             // 
-            this.DateAndTimeHour.AutoSize = true;
-            this.DateAndTimeHour.Location = new System.Drawing.Point(574, 257);
-            this.DateAndTimeHour.Name = "DateAndTimeHour";
-            this.DateAndTimeHour.Size = new System.Drawing.Size(68, 23);
-            this.DateAndTimeHour.TabIndex = 7;
-            this.DateAndTimeHour.Text = "HOUR:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(459, 250);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(76, 30);
-            this.textBox3.TabIndex = 6;
+            this.DateAndTimeDayText.Location = new System.Drawing.Point(459, 250);
+            this.DateAndTimeDayText.Name = "DateAndTimeDayText";
+            this.DateAndTimeDayText.Size = new System.Drawing.Size(76, 30);
+            this.DateAndTimeDayText.TabIndex = 6;
             // 
             // DateAndTimeDay
             // 
@@ -332,12 +323,12 @@
             this.Altitude.Text = "ALTIUDE:";
             this.Altitude.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // AltitudeText
             // 
-            this.textBox4.Location = new System.Drawing.Point(346, 323);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(69, 30);
-            this.textBox4.TabIndex = 8;
+            this.AltitudeText.Location = new System.Drawing.Point(346, 323);
+            this.AltitudeText.Name = "AltitudeText";
+            this.AltitudeText.Size = new System.Drawing.Size(69, 30);
+            this.AltitudeText.TabIndex = 8;
             // 
             // MeetingPoint
             // 
@@ -352,22 +343,33 @@
             // 
             // ButtonAddPoint
             // 
-            this.ButtonAddPoint.Location = new System.Drawing.Point(966, 48);
+            this.ButtonAddPoint.Location = new System.Drawing.Point(842, 55);
             this.ButtonAddPoint.Name = "ButtonAddPoint";
-            this.ButtonAddPoint.Size = new System.Drawing.Size(154, 111);
+            this.ButtonAddPoint.Size = new System.Drawing.Size(85, 111);
             this.ButtonAddPoint.TabIndex = 10;
             this.ButtonAddPoint.Text = "ADD POINT";
             this.ButtonAddPoint.UseVisualStyleBackColor = true;
+            this.ButtonAddPoint.Click += new System.EventHandler(this.ButtonAddPoint_Click);
+            // 
+            // DateAndTimeHour
+            // 
+            this.DateAndTimeHour.AutoSize = true;
+            this.DateAndTimeHour.Location = new System.Drawing.Point(587, 257);
+            this.DateAndTimeHour.Name = "DateAndTimeHour";
+            this.DateAndTimeHour.Size = new System.Drawing.Size(68, 23);
+            this.DateAndTimeHour.TabIndex = 5;
+            this.DateAndTimeHour.Text = "HOUR:";
             // 
             // AddPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1135, 373);
+            this.ClientSize = new System.Drawing.Size(938, 373);
+            this.Controls.Add(this.DateAndTimeHour);
             this.Controls.Add(this.ButtonAddPoint);
             this.Controls.Add(this.MeetingPoint);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.AltitudeText);
             this.Controls.Add(this.Altitude);
             this.Controls.Add(this.AngleText);
             this.Controls.Add(this.Angle);
@@ -379,9 +381,8 @@
             this.Controls.Add(this.DateAndTimeMonth);
             this.Controls.Add(this.DateAndTimeMonthText);
             this.Controls.Add(this.DateAndTimeDay);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.DateAndTimeHour);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.DateAndTimeDayText);
+            this.Controls.Add(this.DateAndTimeHourText);
             this.Controls.Add(this.Longitude);
             this.Controls.Add(this.LongitudeSign);
             this.Controls.Add(this.LongitudeSignText);
@@ -389,10 +390,10 @@
             this.Controls.Add(this.LongitudeDegreeText);
             this.Controls.Add(this.LongitudePrime);
             this.Controls.Add(this.LongitudePrimeText);
-            this.Controls.Add(this.LongitudeSecondText);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.LatitudeSecondText);
-            this.Controls.Add(this.LatitudeSecond);
+            this.Controls.Add(this.LongitudeLatter);
+            this.Controls.Add(this.LongitudeLatterText);
+            this.Controls.Add(this.LatitudeLatterText);
+            this.Controls.Add(this.LatitudeLatter);
             this.Controls.Add(this.LatitudePrimeText);
             this.Controls.Add(this.LatitudePrime);
             this.Controls.Add(this.LatitudeDegreeText);
@@ -418,10 +419,10 @@
         private System.Windows.Forms.TextBox LatitudeDegreeText;
         private System.Windows.Forms.Label LatitudePrime;
         private System.Windows.Forms.TextBox LatitudePrimeText;
-        private System.Windows.Forms.Label LatitudeSecond;
-        private System.Windows.Forms.TextBox LatitudeSecondText;
+        private System.Windows.Forms.Label LatitudeLatter;
+        private System.Windows.Forms.TextBox LatitudeLatterText;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label LongitudeSecondText;
+        private System.Windows.Forms.Label LongitudeLatter;
         private System.Windows.Forms.TextBox LongitudePrimeText;
         private System.Windows.Forms.Label LongitudePrime;
         private System.Windows.Forms.TextBox LongitudeDegreeText;
@@ -429,9 +430,8 @@
         private System.Windows.Forms.TextBox LongitudeSignText;
         private System.Windows.Forms.Label LongitudeSign;
         private System.Windows.Forms.Label Longitude;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label DateAndTimeHour;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox DateAndTimeHourText;
+        private System.Windows.Forms.TextBox DateAndTimeDayText;
         private System.Windows.Forms.Label DateAndTimeDay;
         private System.Windows.Forms.TextBox DateAndTimeMonthText;
         private System.Windows.Forms.Label DateAndTimeMonth;
@@ -443,8 +443,10 @@
         private System.Windows.Forms.CheckBox Angle;
         private System.Windows.Forms.TextBox AngleText;
         private System.Windows.Forms.CheckBox Altitude;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox AltitudeText;
         private System.Windows.Forms.CheckBox MeetingPoint;
         private System.Windows.Forms.Button ButtonAddPoint;
+        private System.Windows.Forms.TextBox LongitudeLatterText;
+        private System.Windows.Forms.Label DateAndTimeHour;
     }
 }

@@ -12,12 +12,11 @@ namespace SatellitePermanente.LogicAndMath
         /*In the builder it specialize the coordinates, in way to make compatible with the Latitude*/
         public LatitudeImpl (char sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
-            if (char.ToLower(sign) != 'n' || char.ToLower(sign) != 's') { }
-            else
+            if (char.ToLower(sign) != 'n' || char.ToLower(sign) != 's') 
             {
                 throw new ArgumentException("Sign is not valid!");
             }
-
+            
             if (degrees < 0 || degrees > 90)
             {
                 throw new ArgumentException("Degree are not valid!");
