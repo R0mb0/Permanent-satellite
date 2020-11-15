@@ -19,33 +19,46 @@ namespace SatellitePermanente.GUI
         private void ButtonAddPoint_Click(object sender, EventArgs e)
         {
             LogicAndMath.Point point;
-            Latitude latitude = new LatitudeImpl(Convert.ToChar("N"),00,00,00000);
-            Longitude longitude = new LongitudeImpl(Convert.ToChar("E"), 00, 00, 00000);
+            Latitude latitude = new LatitudeImpl("N",00,00,00000);
+            Longitude longitude = new LongitudeImpl("E", 00, 00, 00000);
             DateTime time;
             int angle =0;
             int altitude =0;
             bool meetingPoint = false;
             bool error = false;
 
+            if (LatitudeSignText.Text.Length >1)
+            {
+                MessageBox.Show("LATITUDE IS NOT VALID!\n" + "This is the acepted format: N/S - XX - XX - XX,XXX\n");
+                return;
+            }
+
+            if(LongitudeSignText.Text.Length > 1)
+            {
+                MessageBox.Show("LATITUDE IS NOT VALID!\n" + "This is the acepted format: N/S - XX - XX - XX,XXX\n");
+                return;
+            }
             
             try
             {
-                latitude = new LatitudeImpl(char.ToLower(Convert.ToChar(LatitudeSignText.Text)), Convert.ToInt32(this.LatitudeDegreeText.Text), Convert.ToInt32(LatitudePrimeText.Text), Convert.ToDecimal(LatitudeLatterText.Text));
+                latitude = new LatitudeImpl(LatitudeSignText.Text, Convert.ToInt32(this.LatitudeDegreeText.Text), Convert.ToInt32(LatitudePrimeText.Text), Convert.ToDecimal(LatitudeLatterText.Text));
             }
-            catch (ArgumentException)
+            catch (ArgumentException Error)
             {
                 error = true;
-                MessageBox.Show("LATITUDE IS NOT VALID!\n" + "This is the acepted format: N/S - XX - XX - XX,XXX");
+                MessageBox.Show("LATITUDE IS NOT VALID!\n" + "This is the acepted format: N/S - XX - XX - XX,XXX\n"+"Error message:"+Error.Message);
+                return;
             }
 
             try 
             {
-                longitude = new LongitudeImpl(Convert.ToChar(LongitudeSignText.Text), Convert.ToInt32(this.LongitudeDegreeText.Text), Convert.ToInt32(LongitudePrimeText.Text), Convert.ToDecimal(LongitudeLatterText.Text));
+                longitude = new LongitudeImpl(LongitudeSignText.Text, Convert.ToInt32(this.LongitudeDegreeText.Text), Convert.ToInt32(LongitudePrimeText.Text), Convert.ToDecimal(LongitudeLatterText.Text));
             }
-            catch (ArgumentException)
+            catch (ArgumentException Error)
             {
                 error = true;
-                MessageBox.Show("LONGITUDE IS NOT VALID!\n" + "This is the acepted format: E/W - XX - XX - XX,XXX");
+                MessageBox.Show("LONGITUDE IS NOT VALID!\n" + "This is the acepted format: E/W - XX - XX - XX,XXX\n" + "Error message:" + Error.Message);
+                return;
             }
 
             time = new DateTime(Convert.ToInt32(this.DateAndTimeYearText.Text), Convert.ToInt32(this.DateAndTimeMonthText.Text), Convert.ToInt32(this.DateAndTimeDayText.Text), Convert.ToInt32(this.DateAndTimeHourText.Text), Convert.ToInt32(this.DateAndTimeMinutesText.Text), 00);
@@ -70,12 +83,16 @@ namespace SatellitePermanente.GUI
                 if(this.Angle.Checked|| this.Altitude.Checked)
                 {
                     point = new PointImpl(latitude, longitude, time, meetingPoint, angle, altitude);
+                    FormBridge.returnPoint = point;
                     MessageBox.Show("THE POINT IS VALID!\n");
+                    this.Close();
                 }
                 else
                 {
                     point = new PointImpl(latitude, longitude, time, meetingPoint);
+                    FormBridge.returnPoint = point;
                     MessageBox.Show("THE POINT IS VALID!\n");
+                    this.Close();
                 }
             }
         }

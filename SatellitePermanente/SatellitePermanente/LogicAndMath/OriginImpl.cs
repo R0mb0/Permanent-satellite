@@ -11,7 +11,7 @@ namespace SatellitePermanente
     public class OriginImpl: Origin
     {
         /*Fields*/
-        public char sign { get; } /*Sign = 'N' 'E' 'S' 'O'*/
+        public String sign { get; } /*Sign = 'N' 'E' 'S' 'O'*/
 
         public int degrees { get; }
 
@@ -20,7 +20,7 @@ namespace SatellitePermanente
         public decimal latter { get; }
 
         /*Builder*/
-        public OriginImpl(char sign, int degrees, int prime, decimal latter)
+        public OriginImpl(String sign, int degrees, int prime, decimal latter)
         {
             this.sign = sign;
             this.degrees = degrees;

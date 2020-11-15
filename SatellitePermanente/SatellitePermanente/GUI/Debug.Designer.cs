@@ -179,13 +179,6 @@
             this.ButtonRefresh.Text = "REFRESH";
             this.ButtonRefresh.UseVisualStyleBackColor = true;
             // 
-            // Debug
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1289, 483);
-            // 
             // DataGridNodes
             // 
             this.DataGridNodes.AllowUserToAddRows = false;
@@ -228,12 +221,20 @@
             this.DataGridPoints.Size = new System.Drawing.Size(1117, 225);
             this.DataGridPoints.TabIndex = 0;
             this.DataGridPoints.Text = "dataGridView1";
+            // 
+            // Debug
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(1289, 483);
             this.Controls.Add(this.ButtonRefresh);
             this.Controls.Add(this.DataGridNodes);
             this.Controls.Add(this.DataGridPoints);
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Debug";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Debug";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridNodes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridPoints)).EndInit();

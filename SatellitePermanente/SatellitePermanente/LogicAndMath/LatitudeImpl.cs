@@ -10,13 +10,12 @@ namespace SatellitePermanente.LogicAndMath
        private static readonly Utility util = new UtilityImpl();
 
         /*In the builder it specialize the coordinates, in way to make compatible with the Latitude*/
-        public LatitudeImpl (char sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
+        public LatitudeImpl (String sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
-            if (char.ToLower(sign) != 'n' || char.ToLower(sign) != 's') 
+            if (sign.ToLower() != "n" && sign.ToLower() != "s") 
             {
                 throw new ArgumentException("Sign is not valid!");
             }
-            
             if (degrees < 0 || degrees > 90)
             {
                 throw new ArgumentException("Degree are not valid!");
@@ -39,7 +38,7 @@ namespace SatellitePermanente.LogicAndMath
             temp = util.AllNumberLate(temp);
             temp =+ base.degrees;
 
-            if (char.ToLower(base.sign) == 's')
+            if (sign.ToLower() == "s")
             {
                 temp = (temp * (-1));
             }

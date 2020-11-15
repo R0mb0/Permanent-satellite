@@ -36,12 +36,26 @@ namespace SatellitePermanente
 
         private void Save_Click(object sender, EventArgs e)
         {
-            this.database.SaveDatabase();
+            if (this.database.SaveDatabase())
+            {
+                MessageBox.Show("Successfully saved!");
+            }
+            else
+            {
+                MessageBox.Show("Error while saving!");
+            }
         }
 
         private void Load_Click(object sender, EventArgs e)
         {
-            this.database.LoadDatabase();
+            if (this.database.LoadDatabase())
+            {
+                MessageBox.Show("Successfully loaded!");
+            }
+            else
+            {
+                MessageBox.Show("Error while loading!");
+            }
         }
 
         private void Debug_Click(object sender, EventArgs e)

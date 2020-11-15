@@ -11,13 +11,12 @@ namespace SatellitePermanente
         private static readonly Utility util = new UtilityImpl();
 
         /*In the builder it specialize the coordinates, in way to make compatible with the Longitude*/
-        public LongitudeImpl(char sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
+        public LongitudeImpl(String sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
-            if (char.ToLower(sign) != 'e' || char.ToLower(sign) != 'w') 
+            if (sign.ToLower() != "e" && sign.ToLower() != "w") 
             {
                 throw new ArgumentException("Sign is not valid!");
             }
-           
             if (degrees < 0 || degrees > 180)
             {
                 throw new ArgumentException("Degree are not valid!");
@@ -40,7 +39,7 @@ namespace SatellitePermanente
             temp = util.AllNumberLate(temp);
             temp =+ base.degrees;
 
-            if(char.ToLower(base.sign) == 'o')
+            if(sign.ToLower() == "o")
             {
                 temp = (temp * (-1));
             }
