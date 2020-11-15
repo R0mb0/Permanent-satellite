@@ -12,7 +12,7 @@ namespace SatellitePermanente.LogicAndMath
         /*In the builder it specialize the coordinates, in way to make compatible with the Latitude*/
         public LatitudeImpl (String sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
-            if (sign.ToLower() != "n" && sign.ToLower() != "s") 
+            if (sign.Length > 1 || sign.ToLower() != "n" && sign.ToLower() != "s") 
             {
                 throw new ArgumentException("Sign is not valid!");
             }

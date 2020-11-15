@@ -13,7 +13,7 @@ namespace SatellitePermanente
         /*In the builder it specialize the coordinates, in way to make compatible with the Longitude*/
         public LongitudeImpl(String sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
-            if (sign.ToLower() != "e" && sign.ToLower() != "w") 
+            if (sign.Length > 1 || sign.ToLower() != "e" && sign.ToLower() != "w") 
             {
                 throw new ArgumentException("Sign is not valid!");
             }

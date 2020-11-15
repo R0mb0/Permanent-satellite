@@ -7,13 +7,13 @@ using System.Text.Json;
 
 namespace SatellitePermanente.LogicAndMath
 {
-    class DatabaseWithSalvationImpl: DatabaseImpl,DatabaseWithSalvatation
+    class DatabaseWithRescueImpl: DatabaseImpl,DatabaseWithRescue
     {
         private OriginDatabase database { get; set; }
         private Boolean saved, loaded;
 
         /*Builder*/
-        public DatabaseWithSalvationImpl()
+        public DatabaseWithRescueImpl()
         {
             this.database = new OriginDatabaseImpl();
             this.saved = false;
@@ -37,7 +37,8 @@ namespace SatellitePermanente.LogicAndMath
         {
             if (File.Exists("Database.txt"))
             {
-                this.database = JsonConvert.DeserializeObject<OriginDatabase>("Database.txt");
+                String json = File.ReadAllText("Database.txt");
+                this.database = JsonConvert.DeserializeObject<OriginDatabase>(json);
 
                 if (this.database.pointList.Count >0)
                 {

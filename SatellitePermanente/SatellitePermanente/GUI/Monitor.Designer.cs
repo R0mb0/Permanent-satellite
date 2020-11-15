@@ -32,7 +32,7 @@ namespace SatellitePermanente
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.monitor = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddPoint = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.DeletePoint = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
@@ -50,17 +50,17 @@ namespace SatellitePermanente
             this.monitor.TabIndex = 0;
             this.monitor.Text = "HomeLabel";
             // 
-            // button1
+            // AddPoint
             // 
-            this.button1.Font = new System.Drawing.Font("Showcard Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(14, 27);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 31);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add Point";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddPoint.Font = new System.Drawing.Font("Showcard Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddPoint.Location = new System.Drawing.Point(14, 27);
+            this.AddPoint.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.AddPoint.Name = "AddPoint";
+            this.AddPoint.Size = new System.Drawing.Size(134, 31);
+            this.AddPoint.TabIndex = 1;
+            this.AddPoint.Text = "Add Point";
+            this.AddPoint.UseVisualStyleBackColor = true;
+            this.AddPoint.Click += new System.EventHandler(this.AddPoint_Click);
             // 
             // label1
             // 
@@ -131,7 +131,7 @@ namespace SatellitePermanente
             this.Controls.Add(this.Save);
             this.Controls.Add(this.DeletePoint);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddPoint);
             this.Controls.Add(this.monitor);
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -146,7 +146,7 @@ namespace SatellitePermanente
         #endregion
 
         private System.Windows.Forms.Label monitor;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddPoint;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button DeletePoint;
         private System.Windows.Forms.Button Save;

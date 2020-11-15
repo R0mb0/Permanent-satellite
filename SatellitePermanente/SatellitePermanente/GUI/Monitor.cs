@@ -14,18 +14,33 @@ namespace SatellitePermanente
 {
     public partial class Home : Form
     {
-        private DatabaseWithSalvatation database = new DatabaseWithSalvationImpl();
+        private DatabaseWithRescue database = new DatabaseWithRescueImpl();
 
         public Home()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddPoint_Click(object sender, EventArgs e)
         {
             AddPoint addPoint = new AddPoint();
             addPoint.ShowDialog();
 
+            if (FormBridge.returnPoint == null)
+            {
+                return;
+            }
+
+            try
+            {
+                
+                this.database.AddPoint(FormBridge.returnPoint);
+            }
+            catch (Exception error) 
+            {
+                MessageBox.Show("DATABASE ERROR!\n"+"Error message:" + error.Message);
+                return;
+            }
         }
 
         private void DeletePoint_Click(object sender, EventArgs e)
@@ -60,6 +75,8 @@ namespace SatellitePermanente
 
         private void Debug_Click(object sender, EventArgs e)
         {
+            FormBridge.returnDatabase = this.database;
+
             Debug debug = new Debug();
             debug.ShowDialog();
         }

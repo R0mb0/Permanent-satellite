@@ -178,6 +178,7 @@
             this.ButtonRefresh.TabIndex = 2;
             this.ButtonRefresh.Text = "REFRESH";
             this.ButtonRefresh.UseVisualStyleBackColor = true;
+            this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
             // DataGridNodes
             // 

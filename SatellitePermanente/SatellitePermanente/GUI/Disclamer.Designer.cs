@@ -51,6 +51,7 @@
             this.ButtonYes.TabIndex = 1;
             this.ButtonYes.Text = "YES";
             this.ButtonYes.UseVisualStyleBackColor = true;
+            this.ButtonYes.Click += new System.EventHandler(this.ButtonYes_Click);
             // 
             // Disclamer
             // 

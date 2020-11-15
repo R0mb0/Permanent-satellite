@@ -14,5 +14,11 @@ namespace SatellitePermanente.GUI
         {
             InitializeComponent();
         }
+
+        private void ButtonYes_Click(object sender, EventArgs e)
+        {
+            FormBridge.retunrBoolean = true;
+            this.Close();
+        }
     }
 }

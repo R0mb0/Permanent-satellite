@@ -1,0 +1,1 @@
+{"pointList":[{"longitude":{"sign":"e","degrees":12,"prime":12,"latter":12.0},"latitude":{"sign":"n","degrees":12,"prime":12,"latter":12.0},"dateTime":"1221-12-12T12:12:00","meetingPoint":false,"angle":null,"altitude":null}],"nodeList":[]}

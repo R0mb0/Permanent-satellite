@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
-    interface DatabaseWithSalvatation: Database
+    interface DatabaseWithRescue: Database
     {
         public Boolean SaveDatabase();
 

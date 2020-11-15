@@ -76,8 +76,6 @@ namespace SatellitePermanente.LogicAndMath
                 }
 
                 this.meetingPoint = point;
-
-                return true;
             }
 
             base.pointList.Add(point);
