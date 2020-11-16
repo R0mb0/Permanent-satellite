@@ -69,6 +69,7 @@
             this.DataGridPoints.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Points});
             this.DataGridPoints.Location = new System.Drawing.Point(12, 12);
+            this.DataGridPoints.MultiSelect = false;
             this.DataGridPoints.Name = "DataGridPoints";
             this.DataGridPoints.ReadOnly = true;
             this.DataGridPoints.RowHeadersWidth = 62;

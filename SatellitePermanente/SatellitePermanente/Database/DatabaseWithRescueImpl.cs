@@ -38,7 +38,7 @@ namespace SatellitePermanente.LogicAndMath
             if (File.Exists("Database.txt"))
             {
                 String json = File.ReadAllText("Database.txt");
-                this.database = JsonConvert.DeserializeObject<OriginDatabase>(json);
+                this.database = JsonConvert.DeserializeObject<OriginDatabaseImpl>(json);
 
                 if (this.database.pointList.Count >0)
                 {

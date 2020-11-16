@@ -10,7 +10,6 @@ namespace SatellitePermanente.LogicAndMath
         /*Fields*/
         public Point pointA { get; }
         public Point pointB { get; }
-        private static readonly Utility util = new UtilityImpl();
 
         public NodeImpl(Point pointA, Point pointB)
         {
@@ -23,27 +22,27 @@ namespace SatellitePermanente.LogicAndMath
 
         public decimal GetDistance()
         {
-            return util.CalculateDistance(pointA, pointB);
+            return Utility.CalculateDistance(pointA, pointB);
         }
 
         public decimal GetDirection()
         {
-            return util.CalculateDirection(pointA, pointB);
+            return Utility.CalculateDirection(pointA, pointB);
         }
 
         public TimeSpan GetTimeDiffrence()
         {
-            return util.CalculateTimeDifference(pointA, pointB);
+            return Utility.CalculateTimeDifference(pointA, pointB);
         }
 
         public decimal GetSpeed()
         {
-            return util.CalculateSpeed(pointA, pointB);
+            return Utility.CalculateSpeed(pointA, pointB);
         }
 
         public int? GetAltitudeDifference()
         {
-            return util.CalculateAltitudeDifference(pointA, pointB);
+            return Utility.CalculateAltitudeDifference(pointA, pointB);
         }
     }
 }

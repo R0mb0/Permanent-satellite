@@ -36,6 +36,12 @@ namespace SatellitePermanente.GUI
         private void ButtonDelette_Click(object sender, EventArgs e)
         {
             FormBridge.retunrBoolean = false;
+            Disclamer disclamer = new Disclamer();
+            disclamer.Show();
+            if (FormBridge.retunrBoolean)
+            {
+                //FormBridge.returnPoint = FormBridge.returnDatabase.pointList[DataGridPoints.SelectedRows[0]];
+            }
         }
     }
 }
