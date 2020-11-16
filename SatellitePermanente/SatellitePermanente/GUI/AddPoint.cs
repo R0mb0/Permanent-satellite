@@ -19,18 +19,18 @@ namespace SatellitePermanente.GUI
         private void ButtonAddPoint_Click(object sender, EventArgs e)
         {
             LogicAndMath.Point point;
-            Latitude latitude = new LatitudeImpl("N",00,00,00000);
-            Longitude longitude = new LongitudeImpl("E", 00, 00, 00000);
+            Latitude latitude = new Latitude("N",00,00,00000);
+            Longitude longitude = new Longitude("E", 00, 00, 00000);
             DateTime time;
-            int angle =0;
-            int altitude =0;
+            int ? angle =null;
+            int ? altitude =null;
             bool meetingPoint = false;
             bool error = false;
 
            
             try
             {
-                latitude = new LatitudeImpl(LatitudeSignText.Text, Convert.ToInt32(this.LatitudeDegreeText.Text), Convert.ToInt32(LatitudePrimeText.Text), Convert.ToDecimal(LatitudeLatterText.Text));
+                latitude = new Latitude(LatitudeSignText.Text, Convert.ToInt32(this.LatitudeDegreeText.Text), Convert.ToInt32(LatitudePrimeText.Text), Convert.ToDecimal(LatitudeLatterText.Text));
             }
             catch (ArgumentException catchError)
             {
@@ -41,7 +41,7 @@ namespace SatellitePermanente.GUI
 
             try 
             {
-                longitude = new LongitudeImpl(LongitudeSignText.Text, Convert.ToInt32(this.LongitudeDegreeText.Text), Convert.ToInt32(LongitudePrimeText.Text), Convert.ToDecimal(LongitudeLatterText.Text));
+                longitude = new Longitude(LongitudeSignText.Text, Convert.ToInt32(this.LongitudeDegreeText.Text), Convert.ToInt32(LongitudePrimeText.Text), Convert.ToDecimal(LongitudeLatterText.Text));
             }
             catch (ArgumentException catchError)
             {
@@ -69,20 +69,10 @@ namespace SatellitePermanente.GUI
 
             if (!error)
             {
-                if(this.Angle.Checked|| this.Altitude.Checked)
-                {
-                    point = new PointImpl(latitude, longitude, time, meetingPoint, angle, altitude);
-                    FormBridge.returnPoint = point;
-                    MessageBox.Show("THE POINT IS VALID!\n");
-                    this.Close();
-                }
-                else
-                {
-                    point = new PointImpl(latitude, longitude, time, meetingPoint);
-                    FormBridge.returnPoint = point;
-                    MessageBox.Show("THE POINT IS VALID!\n");
-                    this.Close();
-                }
+                point = new LogicAndMath.Point(latitude, longitude, time, meetingPoint, angle, altitude);
+                FormBridge.returnPoint = point;
+                MessageBox.Show("THE POINT IS VALID!\n");
+                this.Close();               
             }
         }
     }

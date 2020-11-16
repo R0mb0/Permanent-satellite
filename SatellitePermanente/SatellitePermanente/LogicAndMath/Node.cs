@@ -4,22 +4,45 @@ using System.Text;
 
 namespace SatellitePermanente.LogicAndMath
 {
-    /*This Interfare shape a Node form two Point. For working the associate class use Utility Class*/
-    interface Node
+    /*This class shape a Node from two Point*/
+     class Node
     {
+        /*Fields*/
         public Point pointA { get; }
         public Point pointB { get; }
 
-        /*Property of the node*/
+        public Node(Point pointA, Point pointB)
+        {
+            this.pointA = pointA;
+            this.pointB = pointB;
+        }
 
-        public decimal GetDistance();
+        
+        /*Get Property of nodes*/
 
-        public decimal GetDirection();
+        public decimal GetDistance()
+        {
+            return Utility.CalculateDistance(pointA, pointB);
+        }
 
-        public TimeSpan GetTimeDiffrence();
+        public decimal GetDirection()
+        {
+            return Utility.CalculateDirection(pointA, pointB);
+        }
 
-        public decimal GetSpeed();
+        public TimeSpan GetTimeDiffrence()
+        {
+            return Utility.CalculateTimeDifference(pointA, pointB);
+        }
 
-        public int? GetAltitudeDifference();
+        public decimal GetSpeed()
+        {
+            return Utility.CalculateSpeed(pointA, pointB);
+        }
+
+        public int? GetAltitudeDifference()
+        {
+            return Utility.CalculateAltitudeDifference(pointA, pointB);
+        }
     }
 }

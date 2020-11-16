@@ -40,7 +40,8 @@ namespace SatellitePermanente.GUI
             disclamer.Show();
             if (FormBridge.retunrBoolean)
             {
-                //FormBridge.returnPoint = FormBridge.returnDatabase.pointList[DataGridPoints.SelectedRows[0]];
+                FormBridge.returnPoint = FormBridge.returnDatabase.pointList[Convert.ToInt32(DataGridPoints.SelectedRows[0].Cells[0].Value)];
+                this.Close();
             }
         }
     }

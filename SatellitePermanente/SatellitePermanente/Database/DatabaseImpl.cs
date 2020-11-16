@@ -34,8 +34,8 @@ namespace SatellitePermanente.LogicAndMath
             if(base.pointList.Count >=2 && this.meetingPoint == null)
             {
                 this.lastNodeAdded.Clear();
-                base.nodeList.Add(new NodeImpl(base.pointList.Last(), point));
-                this.lastNodeAdded.Add(new NodeImpl(base.pointList.Last(), point));
+                base.nodeList.Add(new Node(base.pointList.Last(), point));
+                this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
             }
 
             if(base.pointList.Count >= 2 && this.meetingPoint != null && this.flag)
@@ -44,18 +44,18 @@ namespace SatellitePermanente.LogicAndMath
 
                 this.lastNodeAdded.Clear();
                 base.pointList.ForEach(delegate(Point myPoint){
-                    base.nodeList.Add(new NodeImpl(this.meetingPoint, myPoint));
-                    this.lastNodeAdded.Add(new NodeImpl(this.meetingPoint, myPoint));
+                    base.nodeList.Add(new Node(this.meetingPoint, myPoint));
+                    this.lastNodeAdded.Add(new Node(this.meetingPoint, myPoint));
                 });
             }
 
             if(base.pointList.Count >= 2 && this.meetingPoint != null && !this.flag)
             {
                 this.lastNodeAdded.Clear();
-                base.nodeList.Add(new NodeImpl(this.meetingPoint, point));
-                base.nodeList.Add(new NodeImpl(base.pointList.Last(), point));
-                this.lastNodeAdded.Add(new NodeImpl(this.meetingPoint, point));
-                this.lastNodeAdded.Add(new NodeImpl(base.pointList.Last(), point));
+                base.nodeList.Add(new Node(this.meetingPoint, point));
+                base.nodeList.Add(new Node(base.pointList.Last(), point));
+                this.lastNodeAdded.Add(new Node(this.meetingPoint, point));
+                this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
 
             }
         }
