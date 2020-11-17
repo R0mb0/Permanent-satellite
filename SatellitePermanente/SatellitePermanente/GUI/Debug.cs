@@ -14,19 +14,18 @@ namespace SatellitePermanente.GUI
 
         private void write()
         {
-            DatabaseWithRescue database = FormBridge.returnDatabase;
-
-            database.pointList.ForEach(delegate (LogicAndMath.Point myPoint)
+            
+            FormBridge.returnDatabase.pointList.ForEach(delegate (LogicAndMath.Point myPoint)
             {
-                DataGridPoints.Rows.Add(new String[] {database.pointList.IndexOf(myPoint).ToString(), myPoint.latitude.GetLatitude().ToString(), 
+                DataGridPoints.Rows.Add(new String[] {FormBridge.returnDatabase.pointList.IndexOf(myPoint).ToString(), myPoint.latitude.GetLatitude().ToString(), 
                     myPoint.longitude.GetLongitude().ToString(), myPoint.dateTime.ToString(), myPoint.angle.ToString(), 
                     myPoint.altitude.ToString(),myPoint.meetingPoint.ToString()});
             });
 
-            database.nodeList.ForEach(delegate (Node myNode)
+            FormBridge.returnDatabase.nodeList.ForEach(delegate (Node myNode)
             {
-                DataGridNodes.Rows.Add(new String[] {database.nodeList.IndexOf(myNode).ToString(), database.pointList.IndexOf(myNode.pointA).ToString(),
-                database.pointList.IndexOf(myNode.pointB).ToString(), myNode.GetDistance().ToString(), myNode.GetDirection().ToString(), 
+                DataGridNodes.Rows.Add(new String[] {FormBridge.returnDatabase.nodeList.IndexOf(myNode).ToString(), FormBridge.returnDatabase.pointList.IndexOf(myNode.pointA).ToString(),
+                FormBridge.returnDatabase.pointList.IndexOf(myNode.pointB).ToString(), myNode.GetDistance().ToString(), myNode.GetDirection().ToString(), 
                 myNode.GetTimeDiffrence().ToString(), myNode.GetSpeed().ToString(), myNode.GetAltitudeDifference().ToString()});
             });
 

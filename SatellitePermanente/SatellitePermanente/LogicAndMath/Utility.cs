@@ -28,9 +28,9 @@ namespace SatellitePermanente.LogicAndMath
          distance (A,B) = R * arccos(sin(latA) * sin(latB) + cos(latA) * cos(latB) * cos(lonA-lonB))*/
         public static decimal CalculateDistance(Point pointA, Point pointB)
         {
-            return (eartRadius * DecimalMath.Acos( (DecimalMath.Sin(pointA.latitude.GetLatitude() * pointB.latitude.GetLatitude()))
-                + (DecimalMath.Cos(pointA.latitude.GetLatitude()) * DecimalMath.Cos(pointB.latitude.GetLatitude())) 
-                * DecimalMath.Cos( pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude())));
+            return (eartRadius * DecimalMath.Acos( DecimalMath.Sin(pointA.latitude.GetLatitude()) * DecimalMath.Sin(pointB.latitude.GetLatitude())
+                + DecimalMath.Cos(pointA.latitude.GetLatitude()) * DecimalMath.Cos(pointB.latitude.GetLatitude())
+                * DecimalMath.Cos(pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude())));
         }
 
         /*This method implement this formula:
@@ -68,7 +68,8 @@ namespace SatellitePermanente.LogicAndMath
          Speed= space/time  */
         public static decimal CalculateSpeed(Point pointA, Point pointB)
         {
-            return CalculateDistance(pointA, pointB) / Convert.ToDecimal(CalculateTimeDifference(pointA, pointB).TotalHours);
+            //return Convert.ToDecimal((Convert.ToDouble( CalculateDistance(pointA, pointB)) / (CalculateTimeDifference(pointA, pointB).TotalHours)));
+            return 100;
         }
 
     }

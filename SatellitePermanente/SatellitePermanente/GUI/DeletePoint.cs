@@ -14,11 +14,9 @@ namespace SatellitePermanente.GUI
 
         private void write()
         {
-            DatabaseWithRescue database = FormBridge.returnDatabase;
-
-            database.pointList.ForEach(delegate (LogicAndMath.Point myPoint)
+            FormBridge.returnDatabase.pointList.ForEach(delegate (LogicAndMath.Point myPoint)
             {
-                DataGridPoints.Rows.Add(database.pointList.IndexOf(myPoint).ToString());
+                DataGridPoints.Rows.Add(FormBridge.returnDatabase.pointList.IndexOf(myPoint).ToString());
             });
         }
         public DeletePoint()
@@ -37,10 +35,11 @@ namespace SatellitePermanente.GUI
         {
             FormBridge.retunrBoolean = false;
             Disclamer disclamer = new Disclamer();
-            disclamer.Show();
+            disclamer.ShowDialog();
+        
             if (FormBridge.retunrBoolean)
             {
-                FormBridge.returnPoint = FormBridge.returnDatabase.pointList[Convert.ToInt32(DataGridPoints.SelectedRows[0].Cells[0].Value)];
+                FormBridge.returnPoint = FormBridge.returnDatabase.pointList[Convert.ToInt32(DataGridPoints.SelectedCells[0].Value)];
                 this.Close();
             }
         }

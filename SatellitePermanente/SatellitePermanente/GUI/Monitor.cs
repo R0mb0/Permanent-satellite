@@ -33,7 +33,6 @@ namespace SatellitePermanente
 
             try
             {
-                
                 this.database.AddPoint(FormBridge.returnPoint);
             }
             catch (Exception error) 
@@ -45,8 +44,18 @@ namespace SatellitePermanente
 
         private void DeletePoint_Click(object sender, EventArgs e)
         {
+            FormBridge.returnDatabase = this.database;
             DeletePoint deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
+            MessageBox.Show(this.database.pointList.FindIndex(FormBridge.returnPoint))
+            if (this.database.DelettePoint(FormBridge.returnPoint))
+            {
+                MessageBox.Show("Point removed with success!");
+            }
+            else
+            {
+                MessageBox.Show("Error while removing!");
+            }
         }
 
         private void Save_Click(object sender, EventArgs e)
