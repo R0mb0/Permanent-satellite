@@ -19,6 +19,9 @@ namespace SatellitePermanente.LogicAndMath
         /*This Method return true if the Point is disallocated, otherwise return false*/
         public Boolean DelettePoint(Point point);
 
-        
+        public Boolean DeletePointFromIndex(int index);
+
+
+
     }
 }

@@ -12,7 +12,8 @@ namespace SatellitePermanente.LogicAndMath
     class DatabaseImpl :OriginDatabaseImpl, Database
     {
         private Point? meetingPoint = null;
-        private Boolean flag = true;
+
+        private Boolean flag = false; //-> this field is for register when the points (before at the meeting point) have its meeting point nodes 
 
         public List<Node> lastNodeAdded { get; }
 
@@ -31,33 +32,54 @@ namespace SatellitePermanente.LogicAndMath
         /*This private method try to add Node from allocated point*/
         private void TryToAllocateNode(Point point)
         {
-            if(base.pointList.Count >=2 && this.meetingPoint == null)
+            if (base.pointList.Count >= 1)
             {
-                this.lastNodeAdded.Clear();
-                base.nodeList.Add(new Node(base.pointList.Last(), point));
-                this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
+
+                if (this.meetingPoint != null)
+                {
+                    this.lastNodeAdded.Clear();
+
+                    if (point.meetingPoint && !this.flag)// risk condiction
+                    {
+                        base.pointList.ForEach(delegate (Point myPoint)
+                        {
+                            base.nodeList.Add(new Node(point, myPoint));
+                            this.lastNodeAdded.Add(new Node(point, myPoint));
+                        });
+
+                        this.flag = true;
+                    }
+                    else
+                    {
+                        if (base.pointList.Last().meetingPoint)
+                        {
+                            base.nodeList.Add(new Node(base.pointList.Last(), point));
+                            this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
+                        }
+                        else
+                        {
+                            base.nodeList.Add(new Node(meetingPoint, point));
+                            base.nodeList.Add(new Node(base.pointList.Last(), point));
+                            this.lastNodeAdded.Add(new Node(meetingPoint, point));
+                            this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
+                        }
+                        
+                    }
+                }
+
+                if (this.meetingPoint == null)
+                {
+                    this.lastNodeAdded.Clear();
+
+                    if (!base.pointList.Last().meetingPoint)
+                    {
+                        base.nodeList.Add(new Node(base.pointList.Last(), point));
+                        this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
+                    }
+                }
             }
 
-            if(base.pointList.Count >= 2 && this.meetingPoint != null && this.flag)
-            {
-                this.flag = false;
-
-                this.lastNodeAdded.Clear();
-                base.pointList.ForEach(delegate(Point myPoint){
-                    base.nodeList.Add(new Node(this.meetingPoint, myPoint));
-                    this.lastNodeAdded.Add(new Node(this.meetingPoint, myPoint));
-                });
-            }
-
-            if(base.pointList.Count >= 2 && this.meetingPoint != null && !this.flag)
-            {
-                this.lastNodeAdded.Clear();
-                base.nodeList.Add(new Node(this.meetingPoint, point));
-                base.nodeList.Add(new Node(base.pointList.Last(), point));
-                this.lastNodeAdded.Add(new Node(this.meetingPoint, point));
-                this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
-
-            }
+            base.pointList.Add(point);
         }
 
         /*This method return true if the Point is allocated, otherwise return false*/
@@ -76,9 +98,8 @@ namespace SatellitePermanente.LogicAndMath
                 }
 
                 this.meetingPoint = point;
-            }
 
-            base.pointList.Add(point);
+            }
 
             TryToAllocateNode(point);
 
@@ -116,6 +137,11 @@ namespace SatellitePermanente.LogicAndMath
             }
 
             return false;
+        }
+
+        public Boolean DeletePointFromIndex(int index)
+        {
+            return DelettePoint(base.pointList[index]);
         }
         
     }

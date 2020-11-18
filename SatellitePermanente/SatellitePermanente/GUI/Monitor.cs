@@ -47,8 +47,10 @@ namespace SatellitePermanente
             FormBridge.returnDatabase = this.database;
             DeletePoint deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
-            MessageBox.Show(this.database.pointList.FindIndex(FormBridge.returnPoint))
-            if (this.database.DelettePoint(FormBridge.returnPoint))
+
+            MessageBox.Show("Punto tornato: "+ FormBridge.returnInteger);
+
+            if (this.database.DeletePointFromIndex(FormBridge.returnInteger))
             {
                 MessageBox.Show("Point removed with success!");
             }

@@ -39,7 +39,7 @@ namespace SatellitePermanente.GUI
         
             if (FormBridge.retunrBoolean)
             {
-                FormBridge.returnPoint = FormBridge.returnDatabase.pointList[Convert.ToInt32(DataGridPoints.SelectedCells[0].Value)];
+                FormBridge.returnInteger = Convert.ToInt32(DataGridPoints.SelectedCells[0].Value);
                 this.Close();
             }
         }
