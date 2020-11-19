@@ -22,27 +22,27 @@ namespace SatellitePermanente.LogicAndMath
 
         public decimal GetDistance()
         {
-            return Utility.CalculateDistance(pointA, pointB);
+            return Utility.CalculateDistance(this.pointA, this.pointB);
         }
 
         public decimal GetDirection()
         {
-            return Utility.CalculateDirection(pointA, pointB);
+            return Utility.CalculateDirection(this.pointA, this.pointB);
         }
 
-        public TimeSpan GetTimeDiffrence()
+        public decimal GetTimeDiffrence()
         {
-            return Utility.CalculateTimeDifference(pointA, pointB);
+            return Utility.CalculateTimeDifference(this.pointA, this.pointB);
         }
 
         public decimal GetSpeed()
         {
-            return Utility.CalculateSpeed(pointA, pointB);
+            return Utility.CalculateSpeed(this.pointA, this.pointB);
         }
 
         public int? GetAltitudeDifference()
         {
-            return Utility.CalculateAltitudeDifference(pointA, pointB);
+            return Utility.CalculateAltitudeDifference(this.pointA, this.pointB);
         }
     }
 }

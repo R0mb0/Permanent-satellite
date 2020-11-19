@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Windows.Forms;
 
 namespace SatellitePermanente.LogicAndMath
 {
@@ -39,18 +39,23 @@ namespace SatellitePermanente.LogicAndMath
          direction :  θ = atan2( Δlon ,  Δφ ) */
         public static decimal CalculateDirection(Point pointA, Point pointB)
         {
-            decimal phi = DecimalMath.Log( DecimalMath.Tan( (pointB.latitude.GetLatitude() /2) + (Convert.ToDecimal(Math.PI) /4)) 
-                / DecimalMath.Tan((pointA.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)));
+            decimal phi = DecimalMath.Log( 
+                (DecimalMath.Tan( pointB.latitude.GetLatitude() /2 + Convert.ToDecimal(Math.PI) /4)) 
+                / DecimalMath.Tan(pointA.latitude.GetLatitude() / 2 + Convert.ToDecimal(Math.PI) / 4));
 
             decimal lon = DecimalMath.Abs(pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude());
 
+            /*MessageBox.Show("Phi :" + phi+"\n"+
+                "Lon :" + lon);*/
+
             return DecimalMath.Atan2(lon, phi);
+            //return -1;
         }
 
         /*This method calculate the difference of time from two Points, it is usefull for calculate the Speed*/
-        public static TimeSpan CalculateTimeDifference(Point pointA, Point pointB)
+        public static decimal CalculateTimeDifference(Point pointA, Point pointB)
         {
-           return pointA.dateTime.Subtract(pointB.dateTime);
+           return Math.Abs(Convert.ToDecimal(pointA.dateTime.Subtract(pointB.dateTime).TotalHours));
         }
 
         /*This method calculate the difference of altitude from two Points*/
@@ -68,8 +73,7 @@ namespace SatellitePermanente.LogicAndMath
          Speed= space/time  */
         public static decimal CalculateSpeed(Point pointA, Point pointB)
         {
-            //return Convert.ToDecimal((Convert.ToDouble( CalculateDistance(pointA, pointB)) / (CalculateTimeDifference(pointA, pointB).TotalHours)));
-            return 100;
+            return(CalculateDistance(pointA, pointB)) / CalculateTimeDifference(pointA, pointB);
         }
 
     }

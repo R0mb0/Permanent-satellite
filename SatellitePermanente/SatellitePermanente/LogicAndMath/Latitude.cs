@@ -32,9 +32,9 @@ namespace SatellitePermanente.LogicAndMath
         public decimal GetLatitude()
         {
             decimal temp = Utility.AllNumberLate(base.latter);
-            temp =+ base.prime;
+            temp = temp + base.prime;
             temp = Utility.AllNumberLate(temp);
-            temp =+ base.degrees;
+            temp = temp+ base.degrees;
 
             if (sign.ToLower() == "s")
             {

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace SatellitePermanente
 {
@@ -29,18 +30,20 @@ namespace SatellitePermanente
             }
         }
 
-        /*Return the raw data, in this format: XX°,XX'XXXXX''*/
+        /*Return the raw data, in this format: XX°,XX'XXXXX''*/ /*Il codice si spacca qui*/
         public decimal GetLongitude()
         {
             decimal temp = Utility.AllNumberLate(base.latter);
-            temp =+ base.prime;
+            temp = temp+ base.prime;
             temp = Utility.AllNumberLate(temp);
-            temp =+ base.degrees;
+            temp = temp+ base.degrees;
 
             if(sign.ToLower() == "o")
             {
                 temp = (temp * (-1));
             }
+
+            
 
             return temp;
         }

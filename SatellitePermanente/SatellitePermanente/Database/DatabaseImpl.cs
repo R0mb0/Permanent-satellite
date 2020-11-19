@@ -111,26 +111,33 @@ namespace SatellitePermanente.LogicAndMath
         {
             if (!base.pointList.Contains(point))
             {
-                return false;
+                throw new ArgumentException("The point doesn`t exsist!");
             }
 
             this.lastNodeDelected.Clear();
 
             base.nodeList.ForEach(delegate (Node myNode){
 
-                if(myNode.pointA == point || myNode.pointB == point)
+                if(PointUtility.EqualsPoints(myNode.pointA, point) || PointUtility.EqualsPoints(myNode.pointB, point))
                 {
                     this.lastNodeDelected.Add(myNode);
                 }
             });
-
-            if(this.lastNodeDelected.Count > 0)
+            
+            if (this.lastNodeDelected.Count > 0)
             {
                 this.lastNodeDelected.ForEach(delegate (Node myNode) {
                     base.nodeList.Remove(myNode);
                 });
 
                 this.lastPointDelected = point;
+                
+                if (point.meetingPoint)
+                {
+                    this.meetingPoint = null;
+                    this.flag = false;
+                }
+
                 base.pointList.Remove(point);
 
                 return true;

@@ -48,15 +48,21 @@ namespace SatellitePermanente
             DeletePoint deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
 
-            MessageBox.Show("Punto tornato: "+ FormBridge.returnInteger);
+            try
+            {
 
-            if (this.database.DeletePointFromIndex(FormBridge.returnInteger))
-            {
-                MessageBox.Show("Point removed with success!");
+                if (this.database.DeletePointFromIndex(FormBridge.returnInteger))
+                {
+                    MessageBox.Show("Point removed successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Error while removing!");
+                }
             }
-            else
+            catch (ArgumentException error)
             {
-                MessageBox.Show("Error while removing!");
+                MessageBox.Show(error.Message);
             }
         }
 

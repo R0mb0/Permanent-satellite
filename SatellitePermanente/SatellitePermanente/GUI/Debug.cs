@@ -24,9 +24,14 @@ namespace SatellitePermanente.GUI
 
             FormBridge.returnDatabase.nodeList.ForEach(delegate (Node myNode)
             {
-                DataGridNodes.Rows.Add(new String[] {FormBridge.returnDatabase.nodeList.IndexOf(myNode).ToString(), FormBridge.returnDatabase.pointList.IndexOf(myNode.pointA).ToString(),
-                FormBridge.returnDatabase.pointList.IndexOf(myNode.pointB).ToString(), myNode.GetDistance().ToString(), myNode.GetDirection().ToString(), 
-                myNode.GetTimeDiffrence().ToString(), myNode.GetSpeed().ToString(), myNode.GetAltitudeDifference().ToString()});
+                DataGridNodes.Rows.Add(new String[] {FormBridge.returnDatabase.nodeList.IndexOf(myNode).ToString(), 
+
+                FormBridge.returnDatabase.pointList.IndexOf(PointUtility.GetCorrespondingPoint(FormBridge.returnDatabase.pointList,myNode.pointA)).ToString(),
+                FormBridge.returnDatabase.pointList.IndexOf(PointUtility.GetCorrespondingPoint(FormBridge.returnDatabase.pointList,myNode.pointB)).ToString(),
+                
+                myNode.GetDistance().ToString(), myNode.GetDirection().ToString(), 
+                myNode.GetTimeDiffrence().ToString(), myNode.GetSpeed().ToString(), 
+                myNode.GetAltitudeDifference().ToString()});
             });
 
         }
