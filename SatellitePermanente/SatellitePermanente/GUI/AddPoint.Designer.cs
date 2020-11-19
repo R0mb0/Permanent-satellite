@@ -65,6 +65,7 @@
             this.DateAndTimeHour = new System.Windows.Forms.Label();
             this.Names = new System.Windows.Forms.CheckBox();
             this.NameText = new System.Windows.Forms.TextBox();
+            this.DefaultValuesBotton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Latitude
@@ -347,7 +348,7 @@
             // 
             this.ButtonAddPoint.Location = new System.Drawing.Point(842, 55);
             this.ButtonAddPoint.Name = "ButtonAddPoint";
-            this.ButtonAddPoint.Size = new System.Drawing.Size(85, 111);
+            this.ButtonAddPoint.Size = new System.Drawing.Size(85, 79);
             this.ButtonAddPoint.TabIndex = 10;
             this.ButtonAddPoint.Text = "ADD POINT";
             this.ButtonAddPoint.UseVisualStyleBackColor = true;
@@ -380,12 +381,24 @@
             this.NameText.Size = new System.Drawing.Size(113, 30);
             this.NameText.TabIndex = 8;
             // 
+            // DefaultValuesBotton
+            // 
+            this.DefaultValuesBotton.Font = new System.Drawing.Font("Showcard Gothic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DefaultValuesBotton.Location = new System.Drawing.Point(842, 150);
+            this.DefaultValuesBotton.Name = "DefaultValuesBotton";
+            this.DefaultValuesBotton.Size = new System.Drawing.Size(85, 79);
+            this.DefaultValuesBotton.TabIndex = 10;
+            this.DefaultValuesBotton.Text = "SET DEFAULT VALUES";
+            this.DefaultValuesBotton.UseVisualStyleBackColor = true;
+            this.DefaultValuesBotton.Click += new System.EventHandler(this.ButtonAddPoint_Click);
+            // 
             // AddPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(938, 373);
+            this.ClientSize = new System.Drawing.Size(940, 373);
+            this.Controls.Add(this.DefaultValuesBotton);
             this.Controls.Add(this.NameText);
             this.Controls.Add(this.Names);
             this.Controls.Add(this.DateAndTimeHour);
@@ -472,5 +485,6 @@
         private System.Windows.Forms.Label DateAndTimeHour;
         private System.Windows.Forms.CheckBox Names;
         private System.Windows.Forms.TextBox NameText;
+        private System.Windows.Forms.Button DefaultValuesBotton;
     }
 }

@@ -81,5 +81,12 @@ namespace SatellitePermanente.GUI
                 this.Close();               
             }
         }
+
+        private void DefaultValuesBotton_Click(object sender, EventArgs e)
+        {
+            DefaultValue value = new DefaultValue();
+            value.ShowDialog();
+        }
+
     }
 }
