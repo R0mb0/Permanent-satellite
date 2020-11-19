@@ -21,8 +21,10 @@ namespace SatellitePermanente.LogicAndMath
 
         public int ? altitude { get; private set; }
 
+        public String? name { get; private set; }
+
         /*Builder with optional param*/
-        public Point(Latitude latitude, Longitude longitude, DateTime dateTime, Boolean meetingPoint, int ? angle, int ? altitude)
+        public Point(Latitude latitude, Longitude longitude, DateTime dateTime, Boolean meetingPoint, int ? angle, int ? altitude, String name)
         {
             this.longitude = longitude;
             this.latitude = latitude;
@@ -30,6 +32,7 @@ namespace SatellitePermanente.LogicAndMath
             this.meetingPoint = meetingPoint;
             this.angle = angle;
             this.altitude = altitude;
+            this.name = name;
         }
 
         

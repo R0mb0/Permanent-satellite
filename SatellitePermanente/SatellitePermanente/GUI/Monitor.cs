@@ -23,6 +23,7 @@ namespace SatellitePermanente
 
         private void AddPoint_Click(object sender, EventArgs e)
         {
+            FormBridge.returnPoint = null;
             AddPoint addPoint = new AddPoint();
             addPoint.ShowDialog();
 
@@ -45,13 +46,20 @@ namespace SatellitePermanente
         private void DeletePoint_Click(object sender, EventArgs e)
         {
             FormBridge.returnDatabase = this.database;
+            FormBridge.returnInteger = null;
             DeletePoint deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
+
+            if(FormBridge.returnInteger == null)
+            {
+                return;
+            }
+            
 
             try
             {
 
-                if (this.database.DeletePointFromIndex(FormBridge.returnInteger))
+                if (this.database.DeletePointFromIndex(Convert.ToInt32(FormBridge.returnInteger)))
                 {
                     MessageBox.Show("Point removed successfully!");
                 }

@@ -24,6 +24,7 @@ namespace SatellitePermanente.GUI
             DateTime time;
             int ? angle =null;
             int ? altitude =null;
+            String? name = null;
             bool meetingPoint = false;
             bool error = false;
 
@@ -67,9 +68,14 @@ namespace SatellitePermanente.GUI
                 meetingPoint = true;
             }
 
+            if (this.Names.Checked)
+            {
+                name = NameText.Text;
+            }
+
             if (!error)
             {
-                point = new LogicAndMath.Point(latitude, longitude, time, meetingPoint, angle, altitude);
+                point = new LogicAndMath.Point(latitude, longitude, time, meetingPoint, angle, altitude, name);
                 FormBridge.returnPoint = point;
                 MessageBox.Show("THE POINT IS VALID!\n");
                 this.Close();               

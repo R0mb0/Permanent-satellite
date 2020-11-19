@@ -63,6 +63,8 @@
             this.MeetingPoint = new System.Windows.Forms.CheckBox();
             this.ButtonAddPoint = new System.Windows.Forms.Button();
             this.DateAndTimeHour = new System.Windows.Forms.Label();
+            this.Names = new System.Windows.Forms.CheckBox();
+            this.NameText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Latitude
@@ -360,12 +362,32 @@
             this.DateAndTimeHour.TabIndex = 5;
             this.DateAndTimeHour.Text = "HOUR:";
             // 
+            // Names
+            // 
+            this.Names.AutoSize = true;
+            this.Names.ForeColor = System.Drawing.Color.Olive;
+            this.Names.Location = new System.Drawing.Point(651, 325);
+            this.Names.Name = "Names";
+            this.Names.Size = new System.Drawing.Size(90, 27);
+            this.Names.TabIndex = 9;
+            this.Names.Text = "NAME:";
+            this.Names.UseVisualStyleBackColor = true;
+            // 
+            // NameText
+            // 
+            this.NameText.Location = new System.Drawing.Point(747, 323);
+            this.NameText.Name = "NameText";
+            this.NameText.Size = new System.Drawing.Size(113, 30);
+            this.NameText.TabIndex = 8;
+            // 
             // AddPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(938, 373);
+            this.Controls.Add(this.NameText);
+            this.Controls.Add(this.Names);
             this.Controls.Add(this.DateAndTimeHour);
             this.Controls.Add(this.ButtonAddPoint);
             this.Controls.Add(this.MeetingPoint);
@@ -422,7 +444,6 @@
         private System.Windows.Forms.TextBox LatitudePrimeText;
         private System.Windows.Forms.Label LatitudeLatter;
         private System.Windows.Forms.TextBox LatitudeLatterText;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label LongitudeLatter;
         private System.Windows.Forms.TextBox LongitudePrimeText;
         private System.Windows.Forms.Label LongitudePrime;
@@ -449,5 +470,7 @@
         private System.Windows.Forms.Button ButtonAddPoint;
         private System.Windows.Forms.TextBox LongitudeLatterText;
         private System.Windows.Forms.Label DateAndTimeHour;
+        private System.Windows.Forms.CheckBox Names;
+        private System.Windows.Forms.TextBox NameText;
     }
 }

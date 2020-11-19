@@ -31,13 +31,14 @@
             this.ButtonDelette = new System.Windows.Forms.Button();
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridPoints = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridPoints)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonDelette
             // 
-            this.ButtonDelette.Location = new System.Drawing.Point(249, 300);
+            this.ButtonDelette.Location = new System.Drawing.Point(393, 294);
             this.ButtonDelette.Name = "ButtonDelette";
             this.ButtonDelette.Size = new System.Drawing.Size(165, 106);
             this.ButtonDelette.TabIndex = 2;
@@ -47,7 +48,7 @@
             // 
             // ButtonRefresh
             // 
-            this.ButtonRefresh.Location = new System.Drawing.Point(249, 140);
+            this.ButtonRefresh.Location = new System.Drawing.Point(393, 130);
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(165, 106);
             this.ButtonRefresh.TabIndex = 2;
@@ -64,24 +65,34 @@
             this.Points.ReadOnly = true;
             this.Points.Width = 150;
             // 
+            // Names
+            // 
+            this.Names.Frozen = true;
+            this.Names.HeaderText = "NAMES";
+            this.Names.MinimumWidth = 8;
+            this.Names.Name = "Names";
+            this.Names.ReadOnly = true;
+            this.Names.Width = 150;
+            // 
             // DeletePoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(430, 681);
+            this.ClientSize = new System.Drawing.Size(569, 681);
             // 
             // DataGridPoints
             // 
             this.DataGridPoints.AllowUserToAddRows = false;
             this.DataGridPoints.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridPoints.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Points});
+            this.Points,
+            this.Names});
             this.DataGridPoints.Location = new System.Drawing.Point(13, 12);
             this.DataGridPoints.Name = "DataGridPoints";
             this.DataGridPoints.ReadOnly = true;
             this.DataGridPoints.RowHeadersWidth = 62;
-            this.DataGridPoints.Size = new System.Drawing.Size(217, 657);
+            this.DataGridPoints.Size = new System.Drawing.Size(365, 657);
             this.DataGridPoints.TabIndex = 3;
             this.DataGridPoints.Text = "dataGridView1";
             this.Controls.Add(this.DataGridPoints);
@@ -102,5 +113,6 @@
         private System.Windows.Forms.Button ButtonRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Points;
         private System.Windows.Forms.DataGridView DataGridPoints;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Names;
     }
 }
