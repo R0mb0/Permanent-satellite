@@ -39,17 +39,31 @@ namespace SatellitePermanente.LogicAndMath
          direction :  θ = atan2( Δlon ,  Δφ ) */
         public static decimal CalculateDirection(Point pointA, Point pointB)
         {
-            decimal phi = DecimalMath.Log( 
-                (DecimalMath.Tan( pointB.latitude.GetLatitude() /2 + Convert.ToDecimal(Math.PI) /4)) 
-                / DecimalMath.Tan(pointA.latitude.GetLatitude() / 2 + Convert.ToDecimal(Math.PI) / 4));
+            decimal phi;
+            decimal lon;
 
-            decimal lon = DecimalMath.Abs(pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude());
+            if (pointB.latitude.GetLatitude() == pointA.latitude.GetLatitude())
+            {
+                phi = 0.000000000000001M;
+            }
+            else
+            {
+                phi= DecimalMath.Log(
+                (DecimalMath.Tan(((pointB.latitude.GetLatitude() / 2) + Convert.ToDecimal(Math.PI)) / 4))
+                / DecimalMath.Tan(((pointA.latitude.GetLatitude() / 2) + Convert.ToDecimal(Math.PI)) / 4));
+            }
 
-            /*MessageBox.Show("Phi :" + phi+"\n"+
-                "Lon :" + lon);*/
+            if (pointA.longitude.GetLongitude() == pointB.longitude.GetLongitude())
+            {
+                lon = 0.000000000000001M;
+            }
+            else
+            {
+                lon = DecimalMath.Abs(pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude());
+            }
 
             return DecimalMath.Atan2(lon, phi);
-            //return -1;
+           
         }
 
         /*This method calculate the difference of time from two Points, it is usefull for calculate the Speed*/
