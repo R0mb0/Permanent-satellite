@@ -14,9 +14,9 @@ namespace SatellitePermanente
 {
     public partial class Home : Form
     {
-        AddPoint addPoint = new AddPoint();
-        DeletePoint deletePoint = new DeletePoint();
-        Debug debug = new Debug();
+        
+        
+       
 
         private DatabaseWithRescue database = new DatabaseWithRescueImpl();
        
@@ -28,6 +28,7 @@ namespace SatellitePermanente
         private void AddPoint_Click(object sender, EventArgs e)
         {
             FormBridge.returnPoint = null;
+            AddPoint addPoint = new AddPoint();
             addPoint.ShowDialog();
 
             if (FormBridge.returnPoint == null)
@@ -50,7 +51,7 @@ namespace SatellitePermanente
         {
             FormBridge.returnDatabase = this.database;
             FormBridge.returnInteger = null;
-            
+            DeletePoint deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
 
             if(FormBridge.returnInteger == null)
@@ -104,7 +105,7 @@ namespace SatellitePermanente
         private void Debug_Click(object sender, EventArgs e)
         {
             FormBridge.returnDatabase = this.database;
-
+            Debug debug = new Debug();
             debug.ShowDialog();
         }
     }

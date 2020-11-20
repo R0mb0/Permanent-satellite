@@ -22,3 +22,4 @@ D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePerm
 D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.GUI.Debug.resources
 D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.GUI.DeletePoint.resources
 D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.GUI.Disclamer.resources
+D:\DOCUMENTI\UNIVERSITÀ\URBINO\PROGRAMMAZIONE AD OGGETTI\PROGETTO\SatellitePermanente\SatellitePermanente\obj\Debug\netcoreapp3.1\SatellitePermanente.GUI.DefaultValue.resources
