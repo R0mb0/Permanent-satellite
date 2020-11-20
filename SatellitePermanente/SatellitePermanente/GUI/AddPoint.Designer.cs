@@ -391,7 +391,7 @@
             this.DefaultValuesBotton.TabIndex = 10;
             this.DefaultValuesBotton.Text = "SET DEFAULT VALUES";
             this.DefaultValuesBotton.UseVisualStyleBackColor = true;
-            this.DefaultValuesBotton.Click += new System.EventHandler(this.ButtonAddPoint_Click);
+            this.DefaultValuesBotton.Click += new System.EventHandler(this.DefaultValuesBotton_Click);
             // 
             // DefaultValue
             // 

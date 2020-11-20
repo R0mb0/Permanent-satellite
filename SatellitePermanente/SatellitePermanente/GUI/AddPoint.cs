@@ -11,7 +11,7 @@ namespace SatellitePermanente.GUI
 {
     public partial class AddPoint : Form
     {
-        
+        DefaultValue value;
 
         public AddPoint()
         {
@@ -33,7 +33,7 @@ namespace SatellitePermanente.GUI
         private void DefaultValuesBotton_Click(object sender, EventArgs e)
         {
             DefaultValueBridge.controll = false;
-            DefaultValue value = new DefaultValue();
+             value = new DefaultValue();
             value.ShowDialog();
         }
 
