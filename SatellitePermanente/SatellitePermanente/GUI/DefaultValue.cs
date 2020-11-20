@@ -13,11 +13,36 @@ namespace SatellitePermanente.GUI
         public DefaultValue()
         {
             InitializeComponent();
+
+
+            LatitudeSignText.Text = DefaultValueBridge.latitudeSign;
+            LatitudeDegreeText.Text = DefaultValueBridge.latitudeDegree.ToString();
+            LatitudePrimeText.Text = DefaultValueBridge.latitudePrime.ToString();
+            LatitudeLatterText.Text = DefaultValueBridge.latitudeLatter.ToString();
+
+            LongitudeSignText.Text = DefaultValueBridge.longitudeSign;
+            LongitudeDegreeText.Text = DefaultValueBridge.longitudeDegree.ToString();
+            LongitudePrimeText.Text = DefaultValueBridge.longitudePrime.ToString();
+            LongitudeLatterText.Text = DefaultValueBridge.longitudeLatter.ToString();
+
+            DateAndTimeYearText.Text = DefaultValueBridge.year.ToString();
+            DateAndTimeMonthText.Text = DefaultValueBridge.month.ToString();
+            DateAndTimeDayText.Text = DefaultValueBridge.day.ToString();
+            DateAndTimeHourText.Text = DefaultValueBridge.hour.ToString();
+            DateAndTimeMinutesText.Text = DefaultValueBridge.minutes.ToString();
+
+            Angle.Checked = DefaultValueBridge.checkAngle;
+            AngleText.Text = DefaultValueBridge.angle.ToString();
+
+            Altitude.Checked = DefaultValueBridge.checkAltitude;
+            AltitudeText.Text = DefaultValueBridge.altitude.ToString();
         }
 
-        private void ButtonAddPoint_Click(object sender, EventArgs e)
+        private void SetValues_Click(object sender, EventArgs e)
         {
             DefaultValueBridge.ResetValue();
+
+            DefaultValueBridge.controll = true;
 
             if (LatitudeSignText.Text.Length > 0)
             {
@@ -38,6 +63,7 @@ namespace SatellitePermanente.GUI
             {
                 DefaultValueBridge.latitudeLatter = Convert.ToDecimal(LatitudeLatterText.Text);
             }
+
 
 
             if (LongitudeSignText.Text.Length > 0)
@@ -61,6 +87,35 @@ namespace SatellitePermanente.GUI
             }
 
 
+
+
+            if(DateAndTimeYearText.Text.Length > 0)
+            {
+                DefaultValueBridge.year = Convert.ToInt32(DateAndTimeYearText.Text);
+            }
+
+            if(DateAndTimeMonthText.Text.Length > 0)
+            {
+                DefaultValueBridge.month = Convert.ToInt32(DateAndTimeMonthText.Text);
+            }
+
+            if (DateAndTimeDayText.Text.Length > 0)
+            {
+                DefaultValueBridge.day = Convert.ToInt32(DateAndTimeDayText.Text);
+            }
+
+            if(DateAndTimeHourText.Text.Length > 0)
+            {
+                DefaultValueBridge.hour = Convert.ToInt32(DateAndTimeHourText.Text);
+            }
+
+            if (DateAndTimeMinutesText.Text.Length > 0)
+            {
+                DefaultValueBridge.minutes = Convert.ToInt32(DateAndTimeMinutesText.Text);
+            }
+
+
+
             if (Angle.Checked)
             {
                 DefaultValueBridge.checkAngle = true;
@@ -75,10 +130,7 @@ namespace SatellitePermanente.GUI
                 DefaultValueBridge.altitude = Convert.ToInt32(AltitudeText.Text);
             }
 
-
-
-
-
+            this.Close();
         }
     }
 }

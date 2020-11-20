@@ -226,7 +226,7 @@
             this.SetValues.TabIndex = 10;
             this.SetValues.Text = "SET VALUES";
             this.SetValues.UseVisualStyleBackColor = true;
-            this.SetValues.Click += new System.EventHandler(this.ButtonAddPoint_Click);
+            this.SetValues.Click += new System.EventHandler(this.SetValues_Click);
             // 
             // DateAndTimeHour
             // 
@@ -392,6 +392,7 @@
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DefaultValue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DefaultValue";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -66,6 +66,7 @@
             this.Names = new System.Windows.Forms.CheckBox();
             this.NameText = new System.Windows.Forms.TextBox();
             this.DefaultValuesBotton = new System.Windows.Forms.Button();
+            this.DefaultValue = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Latitude
@@ -346,9 +347,9 @@
             // 
             // ButtonAddPoint
             // 
-            this.ButtonAddPoint.Location = new System.Drawing.Point(842, 55);
+            this.ButtonAddPoint.Location = new System.Drawing.Point(842, 15);
             this.ButtonAddPoint.Name = "ButtonAddPoint";
-            this.ButtonAddPoint.Size = new System.Drawing.Size(85, 79);
+            this.ButtonAddPoint.Size = new System.Drawing.Size(224, 102);
             this.ButtonAddPoint.TabIndex = 10;
             this.ButtonAddPoint.Text = "ADD POINT";
             this.ButtonAddPoint.UseVisualStyleBackColor = true;
@@ -383,21 +384,33 @@
             // 
             // DefaultValuesBotton
             // 
-            this.DefaultValuesBotton.Font = new System.Drawing.Font("Showcard Gothic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DefaultValuesBotton.Location = new System.Drawing.Point(842, 150);
+            this.DefaultValuesBotton.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DefaultValuesBotton.Location = new System.Drawing.Point(842, 130);
             this.DefaultValuesBotton.Name = "DefaultValuesBotton";
-            this.DefaultValuesBotton.Size = new System.Drawing.Size(85, 79);
+            this.DefaultValuesBotton.Size = new System.Drawing.Size(224, 104);
             this.DefaultValuesBotton.TabIndex = 10;
             this.DefaultValuesBotton.Text = "SET DEFAULT VALUES";
             this.DefaultValuesBotton.UseVisualStyleBackColor = true;
             this.DefaultValuesBotton.Click += new System.EventHandler(this.ButtonAddPoint_Click);
+            // 
+            // DefaultValue
+            // 
+            this.DefaultValue.AutoSize = true;
+            this.DefaultValue.ForeColor = System.Drawing.Color.Olive;
+            this.DefaultValue.Location = new System.Drawing.Point(891, 325);
+            this.DefaultValue.Name = "DefaultValue";
+            this.DefaultValue.Size = new System.Drawing.Size(219, 27);
+            this.DefaultValue.TabIndex = 9;
+            this.DefaultValue.Text = "USE DAFAULT VALUES";
+            this.DefaultValue.UseVisualStyleBackColor = true;
             // 
             // AddPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(940, 373);
+            this.ClientSize = new System.Drawing.Size(1111, 373);
+            this.Controls.Add(this.DefaultValue);
             this.Controls.Add(this.DefaultValuesBotton);
             this.Controls.Add(this.NameText);
             this.Controls.Add(this.Names);
@@ -486,5 +499,6 @@
         private System.Windows.Forms.CheckBox Names;
         private System.Windows.Forms.TextBox NameText;
         private System.Windows.Forms.Button DefaultValuesBotton;
+        private System.Windows.Forms.CheckBox DefaultValue;
     }
 }

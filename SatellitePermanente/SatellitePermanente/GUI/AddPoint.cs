@@ -11,6 +11,8 @@ namespace SatellitePermanente.GUI
 {
     public partial class AddPoint : Form
     {
+        DefaultValue value = new DefaultValue();
+
         public AddPoint()
         {
             InitializeComponent();
@@ -18,17 +20,36 @@ namespace SatellitePermanente.GUI
 
         private void ButtonAddPoint_Click(object sender, EventArgs e)
         {
+            if (DefaultValue.Checked && DefaultValueBridge.controll)
+            {
+                DefaultAddPoint();
+            }
+            else
+            {
+                NormalAddPoint();
+            }
+        }
+
+        private void DefaultValuesBotton_Click(object sender, EventArgs e)
+        {
+            DefaultValueBridge.controll = false;
+            
+            value.ShowDialog();
+        }
+
+
+        private void NormalAddPoint()
+        {
             LogicAndMath.Point point;
-            Latitude latitude = new Latitude("N",00,00,00000);
+            Latitude latitude = new Latitude("N", 00, 00, 00000);
             Longitude longitude = new Longitude("E", 00, 00, 00000);
             DateTime time;
-            int ? angle =null;
-            int ? altitude =null;
+            int? angle = null;
+            int? altitude = null;
             String? name = null;
             bool meetingPoint = false;
             bool error = false;
 
-           
             try
             {
                 latitude = new Latitude(LatitudeSignText.Text, Convert.ToInt32(this.LatitudeDegreeText.Text), Convert.ToInt32(LatitudePrimeText.Text), Convert.ToDecimal(LatitudeLatterText.Text));
@@ -36,11 +57,11 @@ namespace SatellitePermanente.GUI
             catch (ArgumentException catchError)
             {
                 error = true;
-                MessageBox.Show("LATITUDE IS NOT VALID!\n" + "This is the acepted format: N/S - XX - XX - XX,XXX\n"+"Error message:"+ catchError.Message);
+                MessageBox.Show("LATITUDE IS NOT VALID!\n" + "This is the acepted format: N/S - XX - XX - XX,XXX\n" + "Error message:" + catchError.Message);
                 return;
             }
 
-            try 
+            try
             {
                 longitude = new Longitude(LongitudeSignText.Text, Convert.ToInt32(this.LongitudeDegreeText.Text), Convert.ToInt32(LongitudePrimeText.Text), Convert.ToDecimal(LongitudeLatterText.Text));
             }
@@ -78,14 +99,230 @@ namespace SatellitePermanente.GUI
                 point = new LogicAndMath.Point(latitude, longitude, time, meetingPoint, angle, altitude, name);
                 FormBridge.returnPoint = point;
                 MessageBox.Show("THE POINT IS VALID!\n");
-                this.Close();               
+                this.Close();
             }
+
         }
 
-        private void DefaultValuesBotton_Click(object sender, EventArgs e)
+        private void DefaultAddPoint()
         {
-            DefaultValue value = new DefaultValue();
-            value.ShowDialog();
+            String latitudeSign;
+            int latitudeDegree;
+            int latitudePrime;
+            decimal latitudeLatter;
+
+            String longitudeSign;
+            int longitudeDegree;
+            int longitudePrime;
+            decimal longitudeLatter;
+
+            int year;
+            int month;
+            int day;
+            int hour;
+            int minutes;
+
+            int? angle = null;
+            int? altitude = null;
+
+            if(DefaultValueBridge.latitudeSign != null)
+            {
+                latitudeSign = DefaultValueBridge.latitudeSign;
+            }
+            else
+            {
+                latitudeSign = LatitudeSignText.Text;
+            }
+
+            if (DefaultValueBridge.latitudeDegree != null)
+            {
+                latitudeDegree = Convert.ToInt32(DefaultValueBridge.latitudeDegree);
+            }
+            else
+            {
+                latitudeDegree = Convert.ToInt32(LatitudeDegreeText.Text);
+            }
+
+            if (DefaultValueBridge.latitudePrime != null)
+            {
+                latitudePrime = Convert.ToInt32(DefaultValueBridge.latitudePrime);
+            }
+            else
+            {
+                latitudePrime = Convert.ToInt32(LatitudePrimeText.Text);
+            }
+
+            if (DefaultValueBridge.latitudeLatter != null)
+            {
+                latitudeLatter = Convert.ToDecimal(DefaultValueBridge.latitudeLatter);
+            }
+            else
+            {
+                latitudeLatter = Convert.ToDecimal(LatitudeLatterText.Text);
+            }
+
+
+
+            if (DefaultValueBridge.longitudeSign != null)
+            {
+                longitudeSign = DefaultValueBridge.longitudeSign;
+            }
+            else
+            {
+                longitudeSign = LongitudeSignText.Text;
+            }
+
+            if (DefaultValueBridge.longitudeDegree != null)
+            {
+                longitudeDegree = Convert.ToInt32(DefaultValueBridge.longitudeDegree);
+            }
+            else
+            {
+                longitudeDegree = Convert.ToInt32(LongitudeDegreeText.Text);
+            }
+
+            if (DefaultValueBridge.longitudePrime != null)
+            {
+                longitudePrime = Convert.ToInt32(DefaultValueBridge.longitudePrime);
+            }
+            else
+            {
+                longitudePrime = Convert.ToInt32(LongitudePrimeText.Text);
+            }
+
+            if (DefaultValueBridge.longitudeLatter != null)
+            {
+                longitudeLatter = Convert.ToDecimal(DefaultValueBridge.longitudeLatter);
+            }
+            else
+            {
+                longitudeLatter = Convert.ToDecimal(LongitudeLatterText.Text);
+            }
+
+
+
+            if(DefaultValueBridge.year != null)
+            {
+                year = Convert.ToInt32(DefaultValueBridge.year);
+            }
+            else
+            {
+                year = Convert.ToInt32(DateAndTimeYearText.Text);
+            }
+
+            if (DefaultValueBridge.month != null)
+            {
+                month = Convert.ToInt32(DefaultValueBridge.month);
+            }
+            else
+            {
+                month = Convert.ToInt32(DateAndTimeMonthText.Text);
+            }
+
+            if (DefaultValueBridge.day != null)
+            {
+                day = Convert.ToInt32(DefaultValueBridge.day);
+            }
+            else
+            {
+                day = Convert.ToInt32(DateAndTimeDayText.Text);
+            }
+
+            if (DefaultValueBridge.hour != null)
+            {
+                hour = Convert.ToInt32(DefaultValueBridge.hour);
+            }
+            else
+            {
+                hour = Convert.ToInt32(DateAndTimeHourText.Text);
+            }
+
+            if (DefaultValueBridge.minutes != null)
+            {
+                minutes = Convert.ToInt32(DefaultValueBridge.minutes);
+            }
+            else
+            {
+                minutes = Convert.ToInt32(DateAndTimeMinutesText.Text);
+            }
+
+
+            if (DefaultValueBridge.checkAngle)
+            {
+                angle = DefaultValueBridge.angle;
+            }
+            else
+            {
+                if (Angle.Checked)
+                {
+                    angle = Convert.ToInt32(AngleText.Text);
+                }
+            }
+
+
+            if (DefaultValueBridge.checkAltitude)
+            {
+                altitude = DefaultValueBridge.altitude;
+            }
+            else
+            {
+                if (Angle.Checked)
+                {
+                    altitude = Convert.ToInt32(AltitudeText.Text);
+                }
+            }
+
+            LogicAndMath.Point point;
+            Latitude latitude = new Latitude("N", 00, 00, 00000);
+            Longitude longitude = new Longitude("E", 00, 00, 00000);
+            DateTime time;
+            String? name = null;
+            bool meetingPoint = false;
+            bool error = false;
+
+            try
+            {
+                latitude = new Latitude(latitudeSign, latitudeDegree, latitudePrime, latitudeLatter);
+            }
+            catch (ArgumentException catchError)
+            {
+                error = true;
+                MessageBox.Show("DEFAULT LATITUDE IS NOT VALID!\n" + "This is the acepted format: N/S - XX - XX - XX,XXX\n" + "Error message:" + catchError.Message);
+                return;
+            }
+
+            try
+            {
+                longitude = new Longitude(longitudeSign, longitudeDegree,longitudePrime, longitudeLatter);
+            }
+            catch (ArgumentException catchError)
+            {
+                error = true;
+                MessageBox.Show("DEFAULD LONGITUDE IS NOT VALID!\n" + "This is the acepted format: E/W - XX - XX - XX,XXX\n" + "Error message:" + catchError.Message);
+                return;
+            }
+
+            time = new DateTime(year, month, day, hour, minutes, 00);
+
+            if (this.MeetingPoint.Checked)
+            {
+                meetingPoint = true;
+            }
+
+            if (this.Names.Checked)
+            {
+                name = NameText.Text;
+            }
+
+            if (!error)
+            {
+                point = new LogicAndMath.Point(latitude, longitude, time, meetingPoint, angle, altitude, name);
+                FormBridge.returnPoint = point;
+                MessageBox.Show("THE POINT IS VALID!\n");
+                this.Close();
+            }
+
+
         }
 
     }
