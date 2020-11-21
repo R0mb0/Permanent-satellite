@@ -10,6 +10,7 @@ namespace SatellitePermanente.GUI
 {
     public partial class Disclamer : Form
     {
+        /*This is like a messagge box, but in this case this form return a value usefull for confirm operations*/
         public Disclamer()
         {
             InitializeComponent();

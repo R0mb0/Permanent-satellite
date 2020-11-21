@@ -13,6 +13,7 @@ namespace SatellitePermanente.GUI
     {
         Disclamer disclamer;
 
+        /*this method is usefull for write the DataGrid of this page*/
         private void write()
         {
             FormBridge.returnDatabase.pointList.ForEach(delegate (LogicAndMath.Point myPoint)
@@ -20,22 +21,27 @@ namespace SatellitePermanente.GUI
                 DataGridPoints.Rows.Add(new String[]{ FormBridge.returnDatabase.pointList.IndexOf(myPoint).ToString(), myPoint.name});
             });
         }
+
+        /*This is the method that initialize the gui*/
         public DeletePoint()
         {
             InitializeComponent();
+            disclamer = new Disclamer();
             write();
         }
 
+        /*This method serves to refresh the DataGrid, in case of some values is broked (in sense of: the value is difficult to read)*/
         private void ButtonRefresh_Click(object sender, EventArgs e)
         {
             DataGridPoints.Rows.Clear();
             write();
         }
 
+        /*This method return the index number of the point that the user want to eliminate*/
         private void ButtonDelette_Click(object sender, EventArgs e)
         {
             FormBridge.retunrBoolean = false;
-            disclamer = new Disclamer();
+            
             disclamer.ShowDialog();
         
             if (Convert.ToBoolean(FormBridge.retunrBoolean))

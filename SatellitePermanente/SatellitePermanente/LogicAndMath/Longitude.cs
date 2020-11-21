@@ -30,7 +30,7 @@ namespace SatellitePermanente
             }
         }
 
-        /*Return the raw data, in this format: XX°,XX'XXXXX''*/ /*Il codice si spacca qui*/
+        /*Return the raw data, in this format: XX°,XX'XXXXX''*/
         public decimal GetLongitude()
         {
             decimal temp = Utility.AllNumberLate(base.latter);
@@ -42,8 +42,6 @@ namespace SatellitePermanente
             {
                 temp = (temp * (-1));
             }
-
-            
 
             return temp;
         }

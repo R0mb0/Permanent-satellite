@@ -12,31 +12,40 @@ using System.Windows.Forms;
 
 namespace SatellitePermanente
 {
+
+
     public partial class Home : Form
     {
-
-        AddPoint addPoint;
-        DeletePoint deletePoint;
-        Debug debug;
-
-        private DatabaseWithRescue database = new DatabaseWithRescueImpl();
+        /*Fields*/
+        private AddPoint addPoint;
+        private DeletePoint deletePoint;
+        private Debug debug;
+        private bool status = false;
+        private DatabaseWithRescue database; 
        
+        /*Builder*/
         public Home()
         {
             InitializeComponent();
+            addPoint = new AddPoint();
+            deletePoint = new DeletePoint();
+            database = new DatabaseWithRescueImpl();
         }
 
+        /*In this method is launched the "AddPoint gui", and is the part of code where the point created in AddPoint gui is added to database*/
         private void AddPoint_Click(object sender, EventArgs e)
         {
             FormBridge.returnPoint = null;
-            addPoint = new AddPoint();
+           
             addPoint.ShowDialog();
 
+            /*In case of the gui is closed without any action from the user*/
             if (FormBridge.returnPoint == null)
             {
                 return;
             }
 
+            /*Verify the corretly add of the new point*/
             try
             {
                 this.database.AddPoint(FormBridge.returnPoint);
@@ -48,14 +57,16 @@ namespace SatellitePermanente
             }
         }
 
+        /*This method launch the "DeletePoint" gui and eliminate the returned point*/
         private void DeletePoint_Click(object sender, EventArgs e)
         {
             FormBridge.returnDatabase = this.database;
             FormBridge.returnInteger = null;
-            deletePoint = new DeletePoint();
+            
             deletePoint.ShowDialog();
 
-            if(FormBridge.returnInteger == null)
+            /*In case of the gui is closed without any action from the user*/
+            if (FormBridge.returnInteger == null)
             {
                 return;
             }
@@ -79,6 +90,7 @@ namespace SatellitePermanente
             }
         }
 
+        /*This method invokes the procedure for save the current database*/
         private void Save_Click(object sender, EventArgs e)
         {
             if (this.database.SaveDatabase())
@@ -91,10 +103,12 @@ namespace SatellitePermanente
             }
         }
 
+        /*this method invokes the procedure for load the last database salved*/
         private void Load_Click(object sender, EventArgs e)
         {
             if (this.database.LoadDatabase())
             {
+                this.status = true;
                 MessageBox.Show("Successfully loaded!");
             }
             else
@@ -103,11 +117,20 @@ namespace SatellitePermanente
             }
         }
 
+        /*This is a method of debug, where is possible to look the state of the current database*/
         private void Debug_Click(object sender, EventArgs e)
         {
-            FormBridge.returnDatabase = this.database;
-            debug = new Debug();
-            debug.ShowDialog();
+            /*If doesn`t exsist a current database in memory, the user must be unable to acces the debug page*/
+            if (this.status)
+            {
+                FormBridge.returnDatabase = this.database;
+                debug = new Debug();
+                debug.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("The database dosn`t exsist, you need to load it!");
+            }
         }
     }
 }

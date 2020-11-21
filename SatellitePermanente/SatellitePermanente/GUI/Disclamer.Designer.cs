@@ -45,7 +45,7 @@
             // 
             // ButtonYes
             // 
-            this.ButtonYes.Location = new System.Drawing.Point(137, 83);
+            this.ButtonYes.Location = new System.Drawing.Point(145, 84);
             this.ButtonYes.Name = "ButtonYes";
             this.ButtonYes.Size = new System.Drawing.Size(136, 57);
             this.ButtonYes.TabIndex = 1;

@@ -17,14 +17,14 @@ namespace SatellitePermanente.LogicAndMath
 
         public Boolean meetingPoint { get; private set; }
 
-        public int ? angle { get; private set; }
+        public int? angle { get; private set; }
 
-        public int ? altitude { get; private set; }
+        public int? altitude { get; private set; }
 
         public String? name { get; private set; }
 
-        /*Builder with optional param*/
-        public Point(Latitude latitude, Longitude longitude, DateTime dateTime, Boolean meetingPoint, int ? angle, int ? altitude, String name)
+        /*Builder with optional params that are usefull for a more precision, but are unnecessary in the application contest*/
+        public Point(Latitude latitude, Longitude longitude, DateTime dateTime, Boolean meetingPoint, int? angle, int? altitude, String? name)
         {
             this.longitude = longitude;
             this.latitude = latitude;

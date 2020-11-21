@@ -11,13 +11,17 @@ namespace SatellitePermanente.GUI
 {
     public partial class AddPoint : Form
     {
+        /*Fields*/
         DefaultValue value;
 
+        /*Builder*/
         public AddPoint()
         {
             InitializeComponent();
+            value = new DefaultValue();
         }
 
+        /*this is the part of code where are call back two method for create a node*/
         private void ButtonAddPoint_Click(object sender, EventArgs e)
         {
             if (DefaultValue.Checked && DefaultValueBridge.controll)
@@ -30,14 +34,14 @@ namespace SatellitePermanente.GUI
             }
         }
 
+        /*This is the method for set the default values*/
         private void DefaultValuesBotton_Click(object sender, EventArgs e)
         {
             DefaultValueBridge.controll = false;
-             value = new DefaultValue();
             value.ShowDialog();
         }
 
-
+        /*this methos create (and load into the bridge class) a new point without using the default values*/
         private void NormalAddPoint()
         {
             LogicAndMath.Point point;
@@ -104,6 +108,7 @@ namespace SatellitePermanente.GUI
 
         }
 
+        /*this method create a new point (and load into the bridge class) unsing the default values jointed whioth the current values fron the gui*/
         private void DefaultAddPoint()
         {
             String latitudeSign;

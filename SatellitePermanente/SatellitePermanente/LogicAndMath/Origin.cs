@@ -29,7 +29,7 @@ namespace SatellitePermanente
         }
 
         
-        /*This method serves to print the coordinates salved*/
+        /*This method serves to print the coordinates salved in standard format*/
         public String GetString()
         {
             return Convert.ToString(this.sign) + " " + Convert.ToString(this.degrees) + "° " + Convert.ToString(this.prime) + "' " + Convert.ToString(this.latter) + "''";

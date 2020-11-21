@@ -10,6 +10,10 @@ namespace SatellitePermanente.GUI
 {
     public partial class DefaultValue : Form
     {
+        /*In this gui is possible to set a default values in way to accelerate/ semplfy (for the user) the process fo adding point
+         in the specific this class is usefull to set determinates condiction, like a "a day trip, then I imposte to default year, month and day"*/
+
+        /*in the builder the default values are setted with the last impposted values, in case of is possible to see this values later the form closed*/
         public DefaultValue()
         {
             InitializeComponent();
@@ -19,25 +23,26 @@ namespace SatellitePermanente.GUI
             LatitudeDegreeText.Text = DefaultValueBridge.latitudeDegree.ToString();
             LatitudePrimeText.Text = DefaultValueBridge.latitudePrime.ToString();
             LatitudeLatterText.Text = DefaultValueBridge.latitudeLatter.ToString();
-
+            /*-------------------------------------------------------------------------------------------*/
             LongitudeSignText.Text = DefaultValueBridge.longitudeSign;
             LongitudeDegreeText.Text = DefaultValueBridge.longitudeDegree.ToString();
             LongitudePrimeText.Text = DefaultValueBridge.longitudePrime.ToString();
             LongitudeLatterText.Text = DefaultValueBridge.longitudeLatter.ToString();
-
+            /*-------------------------------------------------------------------------------------------*/
             DateAndTimeYearText.Text = DefaultValueBridge.year.ToString();
             DateAndTimeMonthText.Text = DefaultValueBridge.month.ToString();
             DateAndTimeDayText.Text = DefaultValueBridge.day.ToString();
             DateAndTimeHourText.Text = DefaultValueBridge.hour.ToString();
             DateAndTimeMinutesText.Text = DefaultValueBridge.minutes.ToString();
-
+            /*-------------------------------------------------------------------------------------------*/
             Angle.Checked = DefaultValueBridge.checkAngle;
             AngleText.Text = DefaultValueBridge.angle.ToString();
-
+            /*-------------------------------------------------------------------------------------------*/
             Altitude.Checked = DefaultValueBridge.checkAltitude;
             AltitudeText.Text = DefaultValueBridge.altitude.ToString();
         }
 
+        /*This method impost the dafeult values in a static class that acts like a bridge between the forms*/
         private void SetValues_Click(object sender, EventArgs e)
         {
             DefaultValueBridge.ResetValue();
@@ -65,7 +70,7 @@ namespace SatellitePermanente.GUI
             }
 
 
-
+            /*----------------------------------------------------------------------------------------------------------------------------------------*/
             if (LongitudeSignText.Text.Length > 0)
             {
                 DefaultValueBridge.longitudeSign = LongitudeSignText.Text;
@@ -88,7 +93,7 @@ namespace SatellitePermanente.GUI
 
 
 
-
+            /*----------------------------------------------------------------------------------------------------------------------------------------*/
             if(DateAndTimeYearText.Text.Length > 0)
             {
                 DefaultValueBridge.year = Convert.ToInt32(DateAndTimeYearText.Text);
@@ -115,7 +120,7 @@ namespace SatellitePermanente.GUI
             }
 
 
-
+            /*----------------------------------------------------------------------------------------------------------------------------------------*/
             if (Angle.Checked)
             {
                 DefaultValueBridge.checkAngle = true;
@@ -123,7 +128,7 @@ namespace SatellitePermanente.GUI
             }
 
 
-
+            /*----------------------------------------------------------------------------------------------------------------------------------------*/
             if (Altitude.Checked)
             {
                 DefaultValueBridge.checkAltitude = true;

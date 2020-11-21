@@ -3,7 +3,9 @@ using SatellitePermanente.LogicAndMath;
 using System.Collections.Generic;
 
 static class PointUtility 
-{ 
+{ /*This static class permitt to do some operation that semplify the point management*/
+
+    /*This Static method verify the equality of two points (because in some database operation the points can lost it`s track number)*/
 public static bool EqualsPoints(Point pointA, Point pointB)
     {
         if(pointA.latitude.GetLatitude() != pointB.latitude.GetLatitude())
@@ -33,7 +35,7 @@ public static bool EqualsPoints(Point pointA, Point pointB)
 
         return true;
     }
-
+    /*This Static method verify the equality of two nodes, this method was added in way to rendere this class a more generic class */
     public static bool EqualsNodes(Node nodeA, Node nodeB)
     {
         if(EqualsPoints(nodeA.pointA, nodeB.pointA) && EqualsPoints(nodeA.pointB, nodeB.pointB))
@@ -49,6 +51,7 @@ public static bool EqualsPoints(Point pointA, Point pointB)
         return false;
     }
 
+    /*This static methos search in a list the corrispettive point, in this way is possible simplify the code in other class.*/
     public static Point GetCorrespondingPoint(List<Point> listPoint, Point point)
     {
 

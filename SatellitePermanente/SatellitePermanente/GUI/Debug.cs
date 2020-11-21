@@ -11,7 +11,7 @@ namespace SatellitePermanente.GUI
 {
     public partial class Debug : Form
     {
-
+        /*This method wrote the two DataGrid of this form, with the database values passed with a bdridge class*/
         private void write()
         {
             
@@ -39,6 +39,7 @@ namespace SatellitePermanente.GUI
 
         }
 
+        /*builder*/
         public Debug()
         {
             InitializeComponent();
