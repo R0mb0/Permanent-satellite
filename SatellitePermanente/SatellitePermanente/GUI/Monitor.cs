@@ -28,7 +28,7 @@ namespace SatellitePermanente
         {
             InitializeComponent();
             addPoint = new AddPoint();
-            deletePoint = new DeletePoint();
+            
             database = new DatabaseWithRescueImpl();
         }
 
@@ -45,6 +45,8 @@ namespace SatellitePermanente
                 return;
             }
 
+            this.status = true;
+
             /*Verify the corretly add of the new point*/
             try
             {
@@ -60,9 +62,14 @@ namespace SatellitePermanente
         /*This method launch the "DeletePoint" gui and eliminate the returned point*/
         private void DeletePoint_Click(object sender, EventArgs e)
         {
+            if (!status)
+            {
+                MessageBox.Show("The database dosn`t exsist, you need to load it!");
+                return;
+            }
             FormBridge.returnDatabase = this.database;
             FormBridge.returnInteger = null;
-            
+            deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
 
             /*In case of the gui is closed without any action from the user*/
@@ -95,6 +102,7 @@ namespace SatellitePermanente
         {
             if (this.database.SaveDatabase())
             {
+                this.status = true;
                 MessageBox.Show("Successfully saved!");
             }
             else
