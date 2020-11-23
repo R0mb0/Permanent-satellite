@@ -18,6 +18,7 @@ namespace SatellitePermanente.GUI
         {
             InitializeComponent();
 
+            /*This part is usefull for see the last default values setted */
 
             LatitudeSignText.Text = DefaultValueBridge.latitudeSign;
             LatitudeDegreeText.Text = DefaultValueBridge.latitudeDegree.ToString();
@@ -45,10 +46,11 @@ namespace SatellitePermanente.GUI
         /*This method impost the dafeult values in a static class that acts like a bridge between the forms*/
         private void SetValues_Click(object sender, EventArgs e)
         {
-            DefaultValueBridge.ResetValue();
+            DefaultValueBridge.ResetValue();/*when the user set a news default values the last value going to delected*/
 
             DefaultValueBridge.controll = true;
 
+            /*In this part the new values are setted into the bridge class*/
             if (LatitudeSignText.Text.Length > 0)
             {
                 DefaultValueBridge.latitudeSign = LatitudeSignText.Text;

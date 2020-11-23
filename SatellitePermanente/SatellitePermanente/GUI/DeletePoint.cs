@@ -42,7 +42,7 @@ namespace SatellitePermanente.GUI
         {
             FormBridge.retunrBoolean = false;
             
-            disclamer.ShowDialog();
+            disclamer.ShowDialog();/*Run the Page to confirm the elimination that must return a positive boolean*/
         
             if (Convert.ToBoolean(FormBridge.retunrBoolean))
             {

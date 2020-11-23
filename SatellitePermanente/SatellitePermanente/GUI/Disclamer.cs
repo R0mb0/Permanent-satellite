@@ -16,6 +16,7 @@ namespace SatellitePermanente.GUI
             InitializeComponent();
         }
 
+        /*This is the button to confirm the elimination of the selected point*/
         private void ButtonYes_Click(object sender, EventArgs e)
         {
             FormBridge.retunrBoolean = true;

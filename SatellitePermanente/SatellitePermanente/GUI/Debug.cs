@@ -46,6 +46,7 @@ namespace SatellitePermanente.GUI
             write();
         }
 
+        /*This button is usefull for refresh the Data Grids in way to cerrect some vision errors, when it happened*/
         private void ButtonRefresh_Click(object sender, EventArgs e)
         {
             DataGridPoints.Rows.Clear();

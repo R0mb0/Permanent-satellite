@@ -10,40 +10,35 @@ namespace SatellitePermanente.LogicAndMath
     class DatabaseWithRescueImpl: DatabaseImpl,DatabaseWithRescue
     {
         private OriginDatabase database { get; set; }
-        private Boolean saved, loaded;
 
         /*Builder*/
         public DatabaseWithRescueImpl()
         {
-            this.database = new OriginDatabaseImpl();
-            this.saved = false;
-            this.loaded = false;
+            this.database = new OriginDatabaseImpl();/*create a new base database to salve into a file*/
            
         }
 
         public Boolean SaveDatabase()
         {
+            /*set the base database*/
             this.database.pointList = base.pointList;
             this.database.nodeList = base.nodeList;
 
-            String json = JsonConvert.SerializeObject(this.database);
-            System.IO.File.WriteAllText("Database.txt", json);
+            String json = JsonConvert.SerializeObject(this.database);/*serialize the satabase*/
+            System.IO.File.WriteAllText("Database.txt", json);/*writing od the serialized database*/
 
-            this.saved = true;
-            return File.Exists("Database.txt");
+            return File.Exists("Database.txt");/*Return true if the file realy exist*/
         }
 
         public Boolean LoadDatabase()
         {
             if (File.Exists("Database.txt"))
             {
-                String json = File.ReadAllText("Database.txt");
-                this.database = JsonConvert.DeserializeObject<OriginDatabaseImpl>(json);
+                String json = File.ReadAllText("Database.txt");/*read the file created*/
+                this.database = JsonConvert.DeserializeObject<OriginDatabaseImpl>(json);/*deserialize the salved database*/
 
-                if (this.database.pointList.Count >0)
+                if (this.database.pointList.Count >0)/*if exist loaded values*/
                 {
-                    this.loaded = true;
-
                     base.pointList = this.database.pointList;
                     base.nodeList = this.database.nodeList;
                     return true;

@@ -44,6 +44,7 @@ namespace SatellitePermanente.GUI
         /*this methos create (and load into the bridge class) a new point without using the default values*/
         private void NormalAddPoint()
         {
+            /*Local fields for create a new node*/
             LogicAndMath.Point point;
             Latitude latitude = new Latitude("N", 00, 00, 00000);
             Longitude longitude = new Longitude("E", 00, 00, 00000);
@@ -111,6 +112,7 @@ namespace SatellitePermanente.GUI
         /*this method create a new point (and load into the bridge class) unsing the default values jointed whioth the current values fron the gui*/
         private void DefaultAddPoint()
         {
+            /*Local fields for create a new node*/
             String latitudeSign;
             int latitudeDegree;
             int latitudePrime;

@@ -20,7 +20,7 @@ namespace SatellitePermanente
         private AddPoint addPoint;
         private DeletePoint deletePoint;
         private Debug debug;
-        private bool status = false;
+        private bool status = false; /*This is the status of the current database is it exsit or not*/
         private DatabaseWithRescue database; 
        
         /*Builder*/
@@ -68,7 +68,7 @@ namespace SatellitePermanente
                 return;
             }
             FormBridge.returnDatabase = this.database;
-            FormBridge.returnInteger = null;
+            FormBridge.returnInteger = null; /*This is the index of the point to delete*/
             deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
 
@@ -78,7 +78,7 @@ namespace SatellitePermanente
                 return;
             }
             
-
+            /*Try ti delete point from index*/
             try
             {
 
@@ -102,7 +102,6 @@ namespace SatellitePermanente
         {
             if (this.database.SaveDatabase())
             {
-                this.status = true;
                 MessageBox.Show("Successfully saved!");
             }
             else
@@ -125,7 +124,7 @@ namespace SatellitePermanente
             }
         }
 
-        /*This is a method of debug, where is possible to look the state of the current database*/
+        /*This is a method of debug; where is possible to look the state of the current database*/
         private void Debug_Click(object sender, EventArgs e)
         {
             /*If doesn`t exsist a current database in memory, the user must be unable to acces the debug page*/
