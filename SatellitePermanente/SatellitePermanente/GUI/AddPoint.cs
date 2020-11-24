@@ -46,7 +46,7 @@ namespace SatellitePermanente.GUI
         {
             /*Local fields for create a new node*/
             LogicAndMath.Point point;
-            Latitude latitude = new Latitude("N", 00, 00, 00000);
+            LogicAndMath.Latitude latitude = new LogicAndMath.Latitude("N", 00, 00, 00000);
             Longitude longitude = new Longitude("E", 00, 00, 00000);
             DateTime time;
             int? angle = null;
@@ -57,7 +57,7 @@ namespace SatellitePermanente.GUI
 
             try
             {
-                latitude = new Latitude(LatitudeSignText.Text, Convert.ToInt32(this.LatitudeDegreeText.Text), Convert.ToInt32(LatitudePrimeText.Text), Convert.ToDecimal(LatitudeLatterText.Text));
+                latitude = new LogicAndMath.Latitude(LatitudeSignText.Text, Convert.ToInt32(this.LatitudeDegreeText.Text), Convert.ToInt32(LatitudePrimeText.Text), Convert.ToDecimal(LatitudeLatterText.Text));
             }
             catch (ArgumentException catchError)
             {
@@ -280,7 +280,7 @@ namespace SatellitePermanente.GUI
             }
 
             LogicAndMath.Point point;
-            Latitude latitude = new Latitude("N", 00, 00, 00000);
+            LogicAndMath.Latitude latitude = new LogicAndMath.Latitude("N", 00, 00, 00000);
             Longitude longitude = new Longitude("E", 00, 00, 00000);
             DateTime time;
             String? name = null;
@@ -289,7 +289,7 @@ namespace SatellitePermanente.GUI
 
             try
             {
-                latitude = new Latitude(latitudeSign, latitudeDegree, latitudePrime, latitudeLatter);
+                latitude = new LogicAndMath.Latitude(latitudeSign, latitudeDegree, latitudePrime, latitudeLatter);
             }
             catch (ArgumentException catchError)
             {

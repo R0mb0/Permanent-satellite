@@ -1,4 +1,5 @@
 ﻿using SatellitePermanente.GUI;
+using SatellitePermanente.GUI.GreyMapUtility;
 using SatellitePermanente.LogicAndMath;
 using System;
 using System.Collections.Generic;
@@ -138,6 +139,24 @@ namespace SatellitePermanente
             {
                 MessageBox.Show("The database dosn`t exsist, you need to load it!");
             }
+        }
+
+        /*----------------------------------------------------------GREYMAP INITIALIZE--------------------------------------------*/
+        private void GreyMap_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics dc = e.Graphics;
+            Pen pen = Pens.Gray;
+            int indx = 0;
+
+            LatitudeLongitudePoints fixedPoints = new LatitudeLongitudePoints(456, 942);
+
+
+            while (indx != fixedPoints.pointList.Count)
+            {
+                dc.DrawLine(pen, fixedPoints.pointList[indx], fixedPoints.pointList[indx +1]);
+                indx = indx + 2;
+            }
+
         }
     }
 }

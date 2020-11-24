@@ -38,6 +38,7 @@ namespace SatellitePermanente
             this.Save = new System.Windows.Forms.Button();
             this.Load = new System.Windows.Forms.Button();
             this.Debug = new System.Windows.Forms.Button();
+            this.GreyMap = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // monitor
@@ -120,12 +121,22 @@ namespace SatellitePermanente
             this.Debug.UseVisualStyleBackColor = true;
             this.Debug.Click += new System.EventHandler(this.Debug_Click);
             // 
+            // GreyMap
+            // 
+            this.GreyMap.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GreyMap.Location = new System.Drawing.Point(173, 27);
+            this.GreyMap.Name = "GreyMap";
+            this.GreyMap.Size = new System.Drawing.Size(942, 456);
+            this.GreyMap.TabIndex = 7;
+            this.GreyMap.Paint += new System.Windows.Forms.PaintEventHandler(this.GreyMap_Paint);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1139, 620);
+            this.Controls.Add(this.GreyMap);
             this.Controls.Add(this.Debug);
             this.Controls.Add(this.Load);
             this.Controls.Add(this.Save);
@@ -152,6 +163,7 @@ namespace SatellitePermanente
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Load;
         private System.Windows.Forms.Button Debug;
+        private System.Windows.Forms.Panel GreyMap;
     }
 }
 
