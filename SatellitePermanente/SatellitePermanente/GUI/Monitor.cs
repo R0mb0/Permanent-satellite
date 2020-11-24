@@ -31,7 +31,7 @@ namespace SatellitePermanente
             database = new DatabaseWithRescue();
 
             /*Set the grey map status to true for the initialize*/
-            GreyMapStatus.status = true;
+            GrayMapStatus.status = true;
         }
 
         /*In this method is launched the "AddPoint gui", and is the part of code where the point created in AddPoint gui is added to database*/
@@ -149,7 +149,7 @@ namespace SatellitePermanente
             Graphics dc = e.Graphics;
 
 
-            if (GreyMapStatus.status) /*this is the control if is the forst time of the inizialize operation*/
+            if (GrayMapStatus.status) /*this is the control if is the forst time of the inizialize operation*/
             { 
                 int indx = 0;
                 Pen pen = Pens.Gray;
@@ -160,7 +160,7 @@ namespace SatellitePermanente
                     dc.DrawLine(pen, pointList[indx], pointList[indx + 1]);
                     indx = indx + 2;
                 }
-                GreyMapStatus.status = false;
+                GrayMapStatus.status = false;
             }
 
 
