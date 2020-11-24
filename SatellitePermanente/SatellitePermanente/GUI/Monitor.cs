@@ -1,5 +1,4 @@
 ﻿using SatellitePermanente.GUI;
-using SatellitePermanente.GUI.GreyMapUtility;
 using SatellitePermanente.LogicAndMath;
 using System;
 using System.Collections.Generic;
@@ -29,8 +28,10 @@ namespace SatellitePermanente
         {
             InitializeComponent();
             addPoint = new AddPoint();
-            
-            database = new DatabaseWithRescueImpl();
+            database = new DatabaseWithRescue();
+
+            /*Set the grey map status to true for the initialize*/
+            GreyMapStatus.status = true;
         }
 
         /*In this method is launched the "AddPoint gui", and is the part of code where the point created in AddPoint gui is added to database*/
@@ -144,18 +145,25 @@ namespace SatellitePermanente
         /*----------------------------------------------------------GREYMAP INITIALIZE--------------------------------------------*/
         private void GreyMap_Paint(object sender, PaintEventArgs e)
         {
+            /*Local Fields*/
             Graphics dc = e.Graphics;
-            Pen pen = Pens.Gray;
-            int indx = 0;
-
-            LatitudeLongitudePoints fixedPoints = new LatitudeLongitudePoints(456, 942);
 
 
-            while (indx != fixedPoints.pointList.Count)
-            {
-                dc.DrawLine(pen, fixedPoints.pointList[indx], fixedPoints.pointList[indx +1]);
-                indx = indx + 2;
+            if (GreyMapStatus.status) /*this is the control if is the forst time of the inizialize operation*/
+            { 
+                int indx = 0;
+                Pen pen = Pens.Gray;
+                List<System.Drawing.Point>? pointList = LatitudeLongitudePoints.GetAxes(456, 942);
+
+                while (indx != pointList.Count)/*this ia a inizialize operation, must be did one time*/
+                {
+                    dc.DrawLine(pen, pointList[indx], pointList[indx + 1]);
+                    indx = indx + 2;
+                }
+                GreyMapStatus.status = false;
             }
+
+
 
         }
     }

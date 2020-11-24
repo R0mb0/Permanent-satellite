@@ -161,7 +161,7 @@ namespace SatellitePermanente
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button DeletePoint;
         private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Button Load;
+        private new System.Windows.Forms.Button Load;
         private System.Windows.Forms.Button Debug;
         private System.Windows.Forms.Panel GreyMap;
     }

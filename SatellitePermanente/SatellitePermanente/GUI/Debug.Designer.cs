@@ -49,13 +49,19 @@
             this.Altitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MeetingPoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridPoints = new System.Windows.Forms.DataGridView();
+            this.maxLatitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minLatitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxLongitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minLongitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridCoordinates = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridNodes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridCoordinates)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonRefresh
             // 
-            this.ButtonRefresh.Location = new System.Drawing.Point(1369, 62);
+            this.ButtonRefresh.Location = new System.Drawing.Point(747, 12);
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(147, 124);
             this.ButtonRefresh.TabIndex = 2;
@@ -172,7 +178,7 @@
             this.TimeDifference,
             this.Speed,
             this.AltitudeDifference});
-            this.DataGridNodes.Location = new System.Drawing.Point(12, 243);
+            this.DataGridNodes.Location = new System.Drawing.Point(19, 389);
             this.DataGridNodes.Name = "DataGridNodes";
             this.DataGridNodes.ReadOnly = true;
             this.DataGridNodes.RowHeadersWidth = 62;
@@ -253,13 +259,6 @@
             this.MeetingPoint.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.MeetingPoint.Width = 150;
             // 
-            // Debug
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1593, 483);
-            // 
             // DataGridPoints
             // 
             this.DataGridPoints.AllowUserToAddRows = false;
@@ -274,13 +273,71 @@
             this.Angle,
             this.Altitude,
             this.MeetingPoint});
-            this.DataGridPoints.Location = new System.Drawing.Point(12, 12);
+            this.DataGridPoints.Location = new System.Drawing.Point(19, 158);
             this.DataGridPoints.Name = "DataGridPoints";
             this.DataGridPoints.ReadOnly = true;
             this.DataGridPoints.RowHeadersWidth = 62;
             this.DataGridPoints.Size = new System.Drawing.Size(1267, 225);
             this.DataGridPoints.TabIndex = 0;
             this.DataGridPoints.Text = "dataGridView1";
+            // 
+            // maxLatitude
+            // 
+            this.maxLatitude.HeaderText = "MAX LATITUDE";
+            this.maxLatitude.MinimumWidth = 8;
+            this.maxLatitude.Name = "maxLatitude";
+            this.maxLatitude.ReadOnly = true;
+            this.maxLatitude.Width = 150;
+            // 
+            // minLatitude
+            // 
+            this.minLatitude.HeaderText = "MIN LATITUDE";
+            this.minLatitude.MinimumWidth = 8;
+            this.minLatitude.Name = "minLatitude";
+            this.minLatitude.ReadOnly = true;
+            this.minLatitude.Width = 150;
+            // 
+            // maxLongitude
+            // 
+            this.maxLongitude.HeaderText = "MAX LONGITUDE";
+            this.maxLongitude.MinimumWidth = 8;
+            this.maxLongitude.Name = "maxLongitude";
+            this.maxLongitude.ReadOnly = true;
+            this.maxLongitude.Width = 150;
+            // 
+            // minLongitude
+            // 
+            this.minLongitude.HeaderText = "MIX LONGITUDE";
+            this.minLongitude.MinimumWidth = 8;
+            this.minLongitude.Name = "minLongitude";
+            this.minLongitude.ReadOnly = true;
+            this.minLongitude.Width = 150;
+            // 
+            // DataGridCoordinates
+            // 
+            this.DataGridCoordinates.AllowUserToAddRows = false;
+            this.DataGridCoordinates.AllowUserToDeleteRows = false;
+            this.DataGridCoordinates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridCoordinates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maxLatitude,
+            this.minLatitude,
+            this.maxLongitude,
+            this.minLongitude});
+            this.DataGridCoordinates.Location = new System.Drawing.Point(19, 12);
+            this.DataGridCoordinates.Name = "DataGridCoordinates";
+            this.DataGridCoordinates.ReadOnly = true;
+            this.DataGridCoordinates.RowHeadersWidth = 62;
+            this.DataGridCoordinates.Size = new System.Drawing.Size(667, 140);
+            this.DataGridCoordinates.TabIndex = 3;
+            this.DataGridCoordinates.Text = "dataGridView1";
+            // 
+            // Debug
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(1599, 625);
+            this.Controls.Add(this.DataGridCoordinates);
             this.Controls.Add(this.ButtonRefresh);
             this.Controls.Add(this.DataGridNodes);
             this.Controls.Add(this.DataGridPoints);
@@ -291,6 +348,7 @@
             this.Text = "Debug";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridNodes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridCoordinates)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -317,5 +375,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Angle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Altitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn MeetingPoint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxLatitude;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minLatitude;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxLongitude;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minLongitude;
+        private System.Windows.Forms.DataGridView DataGridCoordinates;
     }
 }
