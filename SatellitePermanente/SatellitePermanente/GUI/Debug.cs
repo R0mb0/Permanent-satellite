@@ -37,8 +37,8 @@ namespace SatellitePermanente.GUI
                 myNode.GetAltitudeDifference().ToString()}) ;
             });
 
-            DataGridCoordinates.Rows.Add(new String[] {FormBridge.returnDatabase.maxLatitude.ToString(), FormBridge.returnDatabase.minLatitude.ToString(),
-            FormBridge.returnDatabase.maxLongitude.ToString(), FormBridge.returnDatabase.minLongitude.ToString(),});
+            DataGridCoordinates.Rows.Add(new String[] {FormBridge.returnDatabase.maxLatitude.GetString(), FormBridge.returnDatabase.minLatitude.GetString(),
+            FormBridge.returnDatabase.maxLongitude.GetString(), FormBridge.returnDatabase.minLongitude.GetString(),});
 
         }
 

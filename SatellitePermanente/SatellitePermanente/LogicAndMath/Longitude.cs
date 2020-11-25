@@ -30,15 +30,15 @@ namespace SatellitePermanente
             }
         }
 
-        /*Return the raw data, in this format: XX°,XX'XXXXX''*/
+        /*Return the raw data, in decimal mode*/
         public decimal GetLongitude()
         {
-            decimal temp = Utility.AllNumberLate(base.latter);
-            temp = temp+ base.prime;
-            temp = Utility.AllNumberLate(temp);
-            temp = temp+ base.degrees;
+            decimal temp = (base.latter / 60);
+            temp = temp + base.prime;
+            temp = (temp / 60);
+            temp = temp + base.degrees;
 
-            if(sign.ToLower() == "o")
+            if (sign.ToLower() == "o")
             {
                 temp = (temp * (-1));
             }

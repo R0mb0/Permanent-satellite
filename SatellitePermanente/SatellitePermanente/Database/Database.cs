@@ -32,24 +32,24 @@ namespace SatellitePermanente.LogicAndMath
         /*Method for salving the min/max of latitude/longitude*/
         private void MinOrMax(Point point)
         {
-            if(point.latitude.GetLatitude() > base.maxLatitude)
+            if(point.latitude.GetLatitude() > base.maxLatitude.GetLatitude())
             {
-                base.maxLatitude = point.latitude.GetLatitude();
+                base.maxLatitude = point.latitude;
             }
 
-            if (point.latitude.GetLatitude() < base.minLatitude)
+            if (point.latitude.GetLatitude() < base.minLatitude.GetLatitude())
             {
-                base.minLatitude = point.latitude.GetLatitude();
+                base.minLatitude = point.latitude;
             }
 
-            if (point.longitude.GetLongitude() > base.maxLongitude)
+            if (point.longitude.GetLongitude() > base.maxLongitude.GetLongitude())
             {
-                base.maxLongitude = point.longitude.GetLongitude();
+                base.maxLongitude = point.longitude;
             }
 
-            if (point.longitude.GetLongitude() < base.minLongitude)
+            if (point.longitude.GetLongitude() < base.minLongitude.GetLongitude())
             {
-                base.minLongitude = point.longitude.GetLongitude();
+                base.minLongitude = point.longitude;
             }
         }
 
