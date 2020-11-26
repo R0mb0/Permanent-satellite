@@ -10,19 +10,40 @@ namespace SatellitePermanente.LogicAndMath
     static class Utility
     {
         private const decimal eartRadius = 6372.795477598m;
-        
 
-        public static decimal AllNumberLate(decimal n)
+        /*This method convert a sexagesimal coordinate to decimal coordinate*/
+        public static decimal ConvertToDecimal(Origin coordinate)
         {
-            decimal number = n;
 
-            while (number > 0.9m)
+            decimal temp = (coordinate.latter / 60);
+            temp = temp + coordinate.prime;
+            temp = (temp / 60);
+            temp = temp + coordinate.degrees;
+
+            if (coordinate.sign.ToLower() == "o" || coordinate.sign.ToLower() == "s")
             {
-                number = number / 10.0m;
+                temp = (temp * (-1));
             }
 
-            return number;
+            return temp;
         }
+
+        public static Origin ConvertToSexagesimal(decimal coordinate)
+        {
+            int degrees = Convert.ToInt32(Math.Truncate(coordinate));
+
+            decimal n = coordinate - degrees;
+            n = n * 60;
+
+            int prime = Convert.ToInt32(Math.Truncate(n));
+
+            n = n - prime;
+            n = n * 60;
+
+            return new Origin("o", degrees, prime, n);
+        }
+
+
 
         /*This method implement this formula:
          distance (A,B) = R * arccos(sin(latA) * sin(latB) + cos(latA) * cos(latB) * cos(lonA-lonB))*/

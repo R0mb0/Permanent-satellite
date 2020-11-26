@@ -31,17 +31,7 @@ namespace SatellitePermanente.LogicAndMath
         /*Return the raw data, in decimal mode*/
         public decimal GetLatitude()
         {
-            decimal temp = (base.latter / 60);
-            temp = temp + base.prime;
-            temp = (temp / 60);
-            temp = temp+ base.degrees;
-
-            if (sign.ToLower() == "s")
-            {
-                temp = (temp * (-1));
-            }
-
-            return temp;
+            return Utility.ConvertToDecimal(new Origin(base.sign, base.degrees, base.prime, base.latter));
         }
     }
 }

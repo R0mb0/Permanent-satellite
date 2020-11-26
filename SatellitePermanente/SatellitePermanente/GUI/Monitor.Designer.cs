@@ -39,6 +39,10 @@ namespace SatellitePermanente
             this.Load = new System.Windows.Forms.Button();
             this.Debug = new System.Windows.Forms.Button();
             this.GrayMap = new System.Windows.Forms.Panel();
+            this.TextBoxLatutude1 = new System.Windows.Forms.TextBox();
+            this.TextBoxLatitude2 = new System.Windows.Forms.TextBox();
+            this.TextBoxLongitude2 = new System.Windows.Forms.TextBox();
+            this.TextBoxLongitude1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // monitor
@@ -68,7 +72,7 @@ namespace SatellitePermanente
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(14, 496);
+            this.label1.Location = new System.Drawing.Point(14, 534);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(816, 115);
@@ -130,12 +134,52 @@ namespace SatellitePermanente
             this.GrayMap.TabIndex = 7;
             this.GrayMap.Paint += new System.Windows.Forms.PaintEventHandler(this.GreyMap_Paint);
             // 
+            // TextBoxLatutude1
+            // 
+            this.TextBoxLatutude1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TextBoxLatutude1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxLatutude1.Location = new System.Drawing.Point(485, 489);
+            this.TextBoxLatutude1.Name = "TextBoxLatutude1";
+            this.TextBoxLatutude1.Size = new System.Drawing.Size(150, 23);
+            this.TextBoxLatutude1.TabIndex = 8;
+            // 
+            // TextBoxLatitude2
+            // 
+            this.TextBoxLatitude2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TextBoxLatitude2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxLatitude2.Location = new System.Drawing.Point(799, 489);
+            this.TextBoxLatitude2.Name = "TextBoxLatitude2";
+            this.TextBoxLatitude2.Size = new System.Drawing.Size(150, 23);
+            this.TextBoxLatitude2.TabIndex = 8;
+            // 
+            // TextBoxLongitude2
+            // 
+            this.TextBoxLongitude2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TextBoxLongitude2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxLongitude2.Location = new System.Drawing.Point(1130, 325);
+            this.TextBoxLongitude2.Name = "TextBoxLongitude2";
+            this.TextBoxLongitude2.Size = new System.Drawing.Size(150, 23);
+            this.TextBoxLongitude2.TabIndex = 8;
+            // 
+            // TextBoxLongitude1
+            // 
+            this.TextBoxLongitude1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TextBoxLongitude1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxLongitude1.Location = new System.Drawing.Point(1130, 177);
+            this.TextBoxLongitude1.Name = "TextBoxLongitude1";
+            this.TextBoxLongitude1.Size = new System.Drawing.Size(150, 23);
+            this.TextBoxLongitude1.TabIndex = 8;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1139, 620);
+            this.ClientSize = new System.Drawing.Size(1280, 665);
+            this.Controls.Add(this.TextBoxLongitude1);
+            this.Controls.Add(this.TextBoxLongitude2);
+            this.Controls.Add(this.TextBoxLatitude2);
+            this.Controls.Add(this.TextBoxLatutude1);
             this.Controls.Add(this.GrayMap);
             this.Controls.Add(this.Debug);
             this.Controls.Add(this.Load);
@@ -164,6 +208,10 @@ namespace SatellitePermanente
         private new System.Windows.Forms.Button Load;
         private System.Windows.Forms.Button Debug;
         private System.Windows.Forms.Panel GrayMap;
+        private System.Windows.Forms.TextBox TextBoxLatutude1;
+        private System.Windows.Forms.TextBox TextBoxLatitude2;
+        private System.Windows.Forms.TextBox TextBoxLongitude2;
+        private System.Windows.Forms.TextBox TextBoxLongitude1;
     }
 }
 

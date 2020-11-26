@@ -163,7 +163,10 @@ namespace SatellitePermanente
                 GrayMapStatus.status = false;
             }
 
-
+            this.TextBoxLatutude1.Text = "Prova";
+            this.TextBoxLatitude2.Text = "Prova";
+            this.TextBoxLongitude1.Text = "Prova";
+            this.TextBoxLongitude2.Text = "Prova";
 
         }
     }
