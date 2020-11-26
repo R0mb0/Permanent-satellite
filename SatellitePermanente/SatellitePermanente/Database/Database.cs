@@ -13,7 +13,9 @@ namespace SatellitePermanente.LogicAndMath
     {
         private Point? meetingPoint = null;
 
-        private Boolean flag = false; //this field is for register when the points (before at the meeting point) have its meeting point nodes 
+        private bool flag = false; //this field is for register when the points (before at the meeting point) have its meeting point nodes 
+
+        private bool firstRun = true;//this filed is for register the state of the prgram, in way to that the MaxCoordinates going to be initialize correctly
 
         public List<Node> lastNodeAdded { get; }
 
@@ -32,25 +34,27 @@ namespace SatellitePermanente.LogicAndMath
         /*Method for salving the min/max of latitude/longitude*/
         private void MinOrMax(Point point)
         {
-            if(point.latitude.GetLatitude() > base.maxLatitude.GetLatitude())
+            if(this.firstRun || point.latitude.GetLatitude() > base.maxLatitude.GetLatitude())
             {
                 base.maxLatitude = point.latitude;
             }
 
-            if (point.latitude.GetLatitude() < base.minLatitude.GetLatitude())
+            if (this.firstRun || point.latitude.GetLatitude() < base.minLatitude.GetLatitude())
             {
                 base.minLatitude = point.latitude;
             }
 
-            if (point.longitude.GetLongitude() > base.maxLongitude.GetLongitude())
+            if (this.firstRun || point.longitude.GetLongitude() > base.maxLongitude.GetLongitude())
             {
                 base.maxLongitude = point.longitude;
             }
 
-            if (point.longitude.GetLongitude() < base.minLongitude.GetLongitude())
+            if (this.firstRun || point.longitude.GetLongitude() < base.minLongitude.GetLongitude())
             {
                 base.minLongitude = point.longitude;
             }
+
+            this.firstRun = false;
         }
 
         /*This private method try to add Node from allocated point*/
@@ -163,6 +167,13 @@ namespace SatellitePermanente.LogicAndMath
                     this.flag = false;
                 }
 
+                base.pointList.Remove(point);/*remove the point*/
+
+                return !base.pointList.Contains(point);
+            }
+
+            if(this.pointList.Count == 1)
+            {
                 base.pointList.Remove(point);/*remove the point*/
 
                 return !base.pointList.Contains(point);

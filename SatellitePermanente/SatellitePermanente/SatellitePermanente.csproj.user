@@ -7,9 +7,6 @@
     <Compile Update="GUI\Debug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\DefaultValue.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="GUI\DeletePoint.cs">
       <SubType>Form</SubType>
     </Compile>

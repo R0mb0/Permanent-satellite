@@ -54,6 +54,7 @@ namespace SatellitePermanente.GUI
         {
             DataGridPoints.Rows.Clear();
             DataGridNodes.Rows.Clear();
+            DataGridCoordinates.Rows.Clear();
             write();
         }
     }

@@ -15,10 +15,10 @@ namespace SatellitePermanente.Database
         /*Builder*/
         public MaxCoordinates()
         {
-            this.minLatitude = new Latitude("N", 00, 00, 00000); 
-            this.maxLatitude = new Latitude("N", 00, 00, 00000); 
-            this.minLongitude = new Longitude("E", 00, 00, 00000);
-            this.maxLongitude = new Longitude("E", 00, 00, 00000);
+            this.minLatitude = new Latitude("n", 00, 00, 00000);
+            this.maxLatitude = new Latitude("n", 00, 00, 00000);
+            this.minLongitude = new Longitude("e", 00, 00, 00000);
+            this.maxLongitude = new Longitude("e", 00, 00, 00000);
         }
 
     }
