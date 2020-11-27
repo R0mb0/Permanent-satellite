@@ -15,7 +15,8 @@ namespace SatellitePermanente.LogicAndMath
 
         private bool flag = false; //this field is for register when the points (before at the meeting point) have its meeting point nodes 
 
-        private bool firstRun = true;//this filed is for register the state of the prgram, in way to that the MaxCoordinates going to be initialize correctly
+        /*this fileds is protected in way to be setted in other class, for exaple when the database is loaded this fields is false*/
+        protected bool firstRun = true;//this filed is for register the state of the prgram, in way to that the MaxCoordinates going to be initialize correctly
 
         public List<Node> lastNodeAdded { get; }
 
@@ -24,9 +25,8 @@ namespace SatellitePermanente.LogicAndMath
         public Point lastPointDelected { get; private set; }
 
         /*Builder*/
-        public Database() 
-        {
-            
+        public Database()
+        { 
             this.lastNodeAdded = new List<Node>();
             this.lastNodeDelected = new List<Node>();
         }

@@ -174,9 +174,11 @@ namespace SatellitePermanente
             maxCoordinates.minLatitude = database.minLatitude;
             maxCoordinates.maxLongitude = database.maxLongitude;
             maxCoordinates.minLongitude = database.minLongitude;
+            
 
             ConvertToGraphic extremes = new ConvertToGraphic(456, 942, maxCoordinates);
 
+            GrayMapValues.coordinates = extremes.extremeCoordinates;
 
             WriteAxesValue(extremes);
             
@@ -197,44 +199,44 @@ namespace SatellitePermanente
             Origin coordinate = Utility.ConvertToSexagesimal(latitude);
             if (latitude > 0)
             {
-                this.TextBoxLatutude1.Text = "N" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLatutude1.Text = "N " + coordinate.degrees +"° " + coordinate.prime +"' " + Math.Round(coordinate.latter, 3) + "''";
             }
             else
             {
-                this.TextBoxLatutude1.Text = "S" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLatutude1.Text = "S " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
             }
 
             latitude = latitude + latitudeUnit;
             coordinate = Utility.ConvertToSexagesimal(latitude);
             if (latitude > 0)
             {
-                this.TextBoxLatitude2.Text = "N" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLatitude2.Text = "N " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
             }
             else
             {
-                this.TextBoxLatitude2.Text = "S" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLatitude2.Text = "S " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
             }
 
             longitude = longitude + longitudeUnit;
             coordinate = Utility.ConvertToSexagesimal(longitude);
             if(longitude > 0)
             {
-                this.TextBoxLongitude1.Text = "E" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLongitude1.Text = "E " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
             }
             else
             {
-                this.TextBoxLongitude1.Text = "W" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLongitude1.Text = "W " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
             }
 
             longitude = longitude + longitudeUnit;
             coordinate = Utility.ConvertToSexagesimal(longitude);
             if (longitude > 0)
             {
-                this.TextBoxLongitude2.Text = "E" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLongitude2.Text = "E " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
             }
             else
             {
-                this.TextBoxLongitude2.Text = "W" + coordinate.degrees + coordinate.prime + coordinate.latter;
+                this.TextBoxLongitude2.Text = "W " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
             }
 
 

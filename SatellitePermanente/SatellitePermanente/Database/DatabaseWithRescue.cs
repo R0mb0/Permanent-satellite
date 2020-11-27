@@ -49,6 +49,10 @@ namespace SatellitePermanente.LogicAndMath
                     base.minLatitude = this.database.minLatitude;
                     base.maxLongitude = this.database.maxLongitude;
                     base.minLongitude = this.database.minLongitude;
+
+                    /*when the databse is loaded the state is not in first run*/
+                    base.firstRun = false;
+
                     return true;
                 }
             }

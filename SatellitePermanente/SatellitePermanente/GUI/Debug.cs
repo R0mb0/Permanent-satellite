@@ -38,7 +38,10 @@ namespace SatellitePermanente.GUI
             });
 
             DataGridCoordinates.Rows.Add(new String[] {"RAW",FormBridge.returnDatabase.maxLatitude.GetString(), FormBridge.returnDatabase.minLatitude.GetString(),
-            FormBridge.returnDatabase.maxLongitude.GetString(), FormBridge.returnDatabase.minLongitude.GetString(),});
+            FormBridge.returnDatabase.maxLongitude.GetString(), FormBridge.returnDatabase.minLongitude.GetString()});
+
+            DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",GrayMapValues.coordinates.maxLatitude.GetString(), GrayMapValues.coordinates.minLatitude.GetString(),
+            GrayMapValues.coordinates.maxLongitude.GetString(), GrayMapValues.coordinates.minLongitude.GetString()});
 
         }
 
