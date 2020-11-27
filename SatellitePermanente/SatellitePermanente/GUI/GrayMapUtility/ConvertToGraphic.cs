@@ -17,6 +17,9 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             this.Y = Y;
             this.X = X;
             GetExtremes(coordinates);
+           // extremeCoordinates = new MaxCoordinates();
+
+
         }
 
         private void GetExtremes(MaxCoordinates coordinates)
@@ -30,7 +33,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
                     {
                         try
                         {
-                            extremeCoordinates.maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees, coordinates.maxLatitude.prime +1,0000); 
+                            extremeCoordinates.maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees, coordinates.maxLatitude.prime + 1, 0000);
                         }
                         catch (ArgumentException)
                         {

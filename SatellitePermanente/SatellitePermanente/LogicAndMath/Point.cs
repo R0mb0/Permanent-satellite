@@ -35,6 +35,16 @@ namespace SatellitePermanente.LogicAndMath
             this.name = name;
         }
 
+        public string GetAngleString()
+        {
+            return angle + "°";
+        }
+
+        public string GetAltitudeString()
+        {
+            return altitude + "m";
+        }
+
         
     }
 }

@@ -19,8 +19,8 @@ namespace SatellitePermanente.GUI
             {
                 DataGridPoints.Rows.Add(new String[] {FormBridge.returnDatabase.pointList.IndexOf(myPoint).ToString(), myPoint.name,
                     myPoint.latitude.GetString(), 
-                    myPoint.longitude.GetString(), myPoint.dateTime.ToString(), myPoint.angle.ToString(), 
-                    myPoint.altitude.ToString(),myPoint.meetingPoint.ToString()});
+                    myPoint.longitude.GetString(), myPoint.dateTime.ToString(), myPoint.GetAngleString(), 
+                    myPoint.GetAltitudeString(),myPoint.meetingPoint.ToString()});
             });
 
             FormBridge.returnDatabase.nodeList.ForEach(delegate (Node myNode)
@@ -32,12 +32,12 @@ namespace SatellitePermanente.GUI
                 FormBridge.returnDatabase.pointList.IndexOf(PointUtility.GetCorrespondingPoint(FormBridge.returnDatabase.pointList,myNode.pointB)).ToString(),
                 myNode.pointB.name,
 
-                myNode.GetDistance().ToString(), myNode.GetDirection().ToString(),
-                myNode.GetTimeDiffrence().ToString(), myNode.GetSpeed().ToString(),
-                myNode.GetAltitudeDifference().ToString()}) ;
+                myNode.GetDistanceString(), myNode.GetDirectionString(),
+                myNode.GetTimeDifferenceString(), myNode.GetSpeedString(),
+                myNode.GetAltitudeDifferenceString()}) ;
             });
 
-            DataGridCoordinates.Rows.Add(new String[] {FormBridge.returnDatabase.maxLatitude.GetString(), FormBridge.returnDatabase.minLatitude.GetString(),
+            DataGridCoordinates.Rows.Add(new String[] {"RAW",FormBridge.returnDatabase.maxLatitude.GetString(), FormBridge.returnDatabase.minLatitude.GetString(),
             FormBridge.returnDatabase.maxLongitude.GetString(), FormBridge.returnDatabase.minLongitude.GetString(),});
 
         }

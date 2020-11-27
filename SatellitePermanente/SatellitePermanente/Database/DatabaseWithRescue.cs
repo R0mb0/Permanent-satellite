@@ -9,7 +9,7 @@ namespace SatellitePermanente.LogicAndMath
 {
     class DatabaseWithRescue: Database
     {
-        private OriginDatabase database { get; set; }
+        private OriginDatabase database;
 
         /*Builder*/
         public DatabaseWithRescue()

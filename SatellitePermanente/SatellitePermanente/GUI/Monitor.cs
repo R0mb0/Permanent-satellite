@@ -1,4 +1,6 @@
-﻿using SatellitePermanente.GUI;
+﻿using SatellitePermanente.Database;
+using SatellitePermanente.GUI;
+using SatellitePermanente.GUI.GrayMapUtility;
 using SatellitePermanente.LogicAndMath;
 using System;
 using System.Collections.Generic;
@@ -29,9 +31,6 @@ namespace SatellitePermanente
             InitializeComponent();
             addPoint = new AddPoint();
             database = new DatabaseWithRescue();
-
-            /*Set the grey map status to true for the initialize*/
-            GrayMapStatus.status = true;
         }
 
         /*In this method is launched the "AddPoint gui", and is the part of code where the point created in AddPoint gui is added to database*/
@@ -53,6 +52,7 @@ namespace SatellitePermanente
             try
             {
                 this.database.AddPoint(FormBridge.returnPoint);
+                this.GrayMap.Refresh();
             }
             catch (Exception error) 
             {
@@ -80,13 +80,14 @@ namespace SatellitePermanente
                 return;
             }
             
-            /*Try ti delete point from index*/
+            /*Try to delete point from index*/
             try
             {
 
                 if (this.database.DeletePointFromIndex(Convert.ToInt32(FormBridge.returnInteger)))
                 {
                     MessageBox.Show("Point removed successfully!");
+                    this.GrayMap.Refresh();
                 }
                 else
                 {
@@ -119,6 +120,8 @@ namespace SatellitePermanente
             {
                 this.status = true;
                 MessageBox.Show("Successfully loaded!");
+
+                this.GrayMap.Refresh();
             }
             else
             {
@@ -148,9 +151,6 @@ namespace SatellitePermanente
             /*Local Fields*/
             Graphics dc = e.Graphics;
 
-
-            if (GrayMapStatus.status) /*this is the control if is the forst time of the inizialize operation*/
-            { 
                 int indx = 0;
                 Pen pen = Pens.Gray;
                 List<System.Drawing.Point>? pointList = LatitudeLongitudePoints.GetAxes(456, 942);
@@ -160,13 +160,83 @@ namespace SatellitePermanente
                     dc.DrawLine(pen, pointList[indx], pointList[indx + 1]);
                     indx = indx + 2;
                 }
-                GrayMapStatus.status = false;
+               
+            
+
+            if(database.pointList.Count == 0)
+            {
+                return;
+            }
+            
+            
+            MaxCoordinates maxCoordinates = new MaxCoordinates();
+            maxCoordinates.maxLatitude = database.maxLatitude;
+            maxCoordinates.minLatitude = database.minLatitude;
+            maxCoordinates.maxLongitude = database.maxLongitude;
+            maxCoordinates.minLongitude = database.minLongitude;
+
+            ConvertToGraphic extremes = new ConvertToGraphic(456, 942, maxCoordinates);
+
+
+            WriteAxesValue(extremes);
+            
+        }
+
+        private void WriteAxesValue(ConvertToGraphic extremes)
+        {
+            decimal latitudeUnit = ((extremes.extremeCoordinates.maxLatitude.GetLatitude() - extremes.extremeCoordinates.minLatitude.GetLatitude()) /3);
+            decimal longitudeUnit = ((extremes.extremeCoordinates.maxLongitude.GetLongitude() - extremes.extremeCoordinates.minLongitude.GetLongitude()) /3);
+
+
+            decimal latitude = extremes.extremeCoordinates.minLatitude.GetLatitude();
+            decimal longitude = extremes.extremeCoordinates.minLongitude.GetLongitude();
+
+
+            /*Operations*/
+            latitude = latitude + latitudeUnit;
+            Origin coordinate = Utility.ConvertToSexagesimal(latitude);
+            if (latitude > 0)
+            {
+                this.TextBoxLatutude1.Text = "N" + coordinate.degrees + coordinate.prime + coordinate.latter;
+            }
+            else
+            {
+                this.TextBoxLatutude1.Text = "S" + coordinate.degrees + coordinate.prime + coordinate.latter;
             }
 
-            this.TextBoxLatutude1.Text = "Prova";
-            this.TextBoxLatitude2.Text = "Prova";
-            this.TextBoxLongitude1.Text = "Prova";
-            this.TextBoxLongitude2.Text = "Prova";
+            latitude = latitude + latitudeUnit;
+            coordinate = Utility.ConvertToSexagesimal(latitude);
+            if (latitude > 0)
+            {
+                this.TextBoxLatitude2.Text = "N" + coordinate.degrees + coordinate.prime + coordinate.latter;
+            }
+            else
+            {
+                this.TextBoxLatitude2.Text = "S" + coordinate.degrees + coordinate.prime + coordinate.latter;
+            }
+
+            longitude = longitude + longitudeUnit;
+            coordinate = Utility.ConvertToSexagesimal(longitude);
+            if(longitude > 0)
+            {
+                this.TextBoxLongitude1.Text = "E" + coordinate.degrees + coordinate.prime + coordinate.latter;
+            }
+            else
+            {
+                this.TextBoxLongitude1.Text = "W" + coordinate.degrees + coordinate.prime + coordinate.latter;
+            }
+
+            longitude = longitude + longitudeUnit;
+            coordinate = Utility.ConvertToSexagesimal(longitude);
+            if (longitude > 0)
+            {
+                this.TextBoxLongitude2.Text = "E" + coordinate.degrees + coordinate.prime + coordinate.latter;
+            }
+            else
+            {
+                this.TextBoxLongitude2.Text = "W" + coordinate.degrees + coordinate.prime + coordinate.latter;
+            }
+
 
         }
     }
