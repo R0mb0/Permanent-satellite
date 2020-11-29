@@ -11,9 +11,9 @@ namespace SatellitePermanente.LogicAndMath
     /*This Class shape a Database where il possible salve Points and Nodes*/
     class Database :OriginDatabase
     {
-        private Point? meetingPoint = null;
+        protected Point? meetingPoint = null;
 
-        private bool flag = false; //this field is for register when the points (before at the meeting point) have its meeting point nodes 
+        protected bool flagMeetingPoint = false; //this field is for register when the points (before at the meeting point) have its meeting point nodes 
 
         /*this fileds is protected in way to be setted in other class, for exaple when the database is loaded this fields is false*/
         protected bool firstRun = true;//this filed is for register the state of the prgram, in way to that the MaxCoordinates going to be initialize correctly
@@ -67,7 +67,7 @@ namespace SatellitePermanente.LogicAndMath
                 {
                     this.lastNodeAdded.Clear();
 
-                    if (point.meetingPoint && !this.flag)/*First case of adding, when there are in database always normal point and in this moment is setted a meeting point*/
+                    if (point.meetingPoint && !this.flagMeetingPoint)/*First case of adding, when there are in database always normal point and in this moment is setted a meeting point*/
                     {
                         base.pointList.ForEach(delegate (Point myPoint)
                         {
@@ -75,7 +75,7 @@ namespace SatellitePermanente.LogicAndMath
                             this.lastNodeAdded.Add(new Node(point, myPoint));
                         });
 
-                        this.flag = true;
+                        this.flagMeetingPoint = true;
                     }
                     else
                     {
@@ -83,8 +83,12 @@ namespace SatellitePermanente.LogicAndMath
                         {
                             base.nodeList.Add(new Node(base.pointList.Last(), point));
                             this.lastNodeAdded.Add(new Node(base.pointList.Last(), point));
+
+                            base.nodeList.Add(new Node(base.pointList[base.pointList.IndexOf(base.pointList.Last()) - 1], point));
+                            this.lastNodeAdded.Add(new Node(base.pointList[base.pointList.IndexOf(base.pointList.Last()) - 1], point));
+
                         }
-                        else/*Third case of adding, when the meeting point is setted and le last added points are normal point*/
+                        else/*Third case of adding, when the meeting point is setted and the last added points are normal point*/
                         {
                             base.nodeList.Add(new Node(meetingPoint, point));
                             base.nodeList.Add(new Node(base.pointList.Last(), point));
@@ -164,7 +168,7 @@ namespace SatellitePermanente.LogicAndMath
                 if (point.meetingPoint) /*if the point to eliminate ia a meeting point, reimposte the condiction of nodes creation in case of meeting point*/
                 {
                     this.meetingPoint = null;
-                    this.flag = false;
+                    this.flagMeetingPoint = false;
                 }
 
                 base.pointList.Remove(point);/*remove the point*/

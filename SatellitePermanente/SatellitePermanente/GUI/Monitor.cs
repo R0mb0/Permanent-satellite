@@ -176,18 +176,57 @@ namespace SatellitePermanente
             maxCoordinates.minLongitude = database.minLongitude;
             
 
-            ConvertToGraphic extremes = new ConvertToGraphic(456, 942, maxCoordinates);
+            ConvertToGraphic graphic = new ConvertToGraphic(456, 942, maxCoordinates);
 
-            GrayMapValues.coordinates = extremes.extremeCoordinates;
+            GrayMapValues.coordinates = graphic.extremeCoordinates;
 
-            WriteAxesValue(extremes);
+            WriteAxesValue(graphic);
+
+
+            this.database.pointList.ForEach(delegate (LogicAndMath.Point myPoint) 
+            {
+
+                if (myPoint.meetingPoint)
+                {
+                    System.Drawing.Point stringPoint = new System.Drawing.Point();
+                    stringPoint.X = graphic.GetDrawingPoint(myPoint).X + 10;
+                    stringPoint.Y = graphic.GetDrawingPoint(myPoint).Y + 10;
+                    dc.DrawEllipse(Pens.DarkGreen, graphic.GetDrawingPoint(myPoint).X -7, graphic.GetDrawingPoint(myPoint).Y -7, 14, 14);
+                    dc.FillEllipse(Brushes.DarkGreen, graphic.GetDrawingPoint(myPoint).X -7, graphic.GetDrawingPoint(myPoint).Y-7, 14, 14);
+                    dc.DrawString(myPoint.GetPointString(), new Font(this.Font.FontFamily, this.Font.Size - 2), Brushes.Black, stringPoint);
+                }
+                else
+                {
+                    System.Drawing.Point stringPoint = new System.Drawing.Point();
+                    stringPoint.X = graphic.GetDrawingPoint(myPoint).X + 10;
+                    stringPoint.Y = graphic.GetDrawingPoint(myPoint).Y + 10;
+
+                    dc.DrawEllipse(Pens.DarkRed, graphic.GetDrawingPoint(myPoint).X -7, graphic.GetDrawingPoint(myPoint).Y -7, 14, 14);
+                    dc.FillEllipse(Brushes.DarkRed, graphic.GetDrawingPoint(myPoint).X -7, graphic.GetDrawingPoint(myPoint).Y-7, 14, 14);
+
+                    dc.DrawString(myPoint.GetPointString(), new Font(this.Font.FontFamily, this.Font.Size -2), Brushes.Black, stringPoint);
+                    
+                }
+            });
+
+            this.database.nodeList.ForEach(delegate (Node myNode) 
+            {
+                System.Drawing.Point medPoint = new System.Drawing.Point();
+                medPoint.X = (graphic.GetDrawingPoint(myNode.pointB).X  + graphic.GetDrawingPoint(myNode.pointA).X) /2;
+                medPoint.Y = (graphic.GetDrawingPoint(myNode.pointB).Y  + graphic.GetDrawingPoint(myNode.pointA).Y) /2;
+
+                dc.DrawLine(Pens.Black, graphic.GetDrawingPoint(myNode.pointA), graphic.GetDrawingPoint(myNode.pointB));
+                dc.DrawString(myNode.GetDistanceString(), new Font(this.Font.FontFamily, this.Font.Size - 2), Brushes.Black, medPoint);
+
+
+            });
             
         }
 
         private void WriteAxesValue(ConvertToGraphic extremes)
         {
-            decimal latitudeUnit = ((extremes.extremeCoordinates.maxLatitude.GetLatitude() - extremes.extremeCoordinates.minLatitude.GetLatitude()) /3);
-            decimal longitudeUnit = ((extremes.extremeCoordinates.maxLongitude.GetLongitude() - extremes.extremeCoordinates.minLongitude.GetLongitude()) /3);
+            decimal latitudeUnit = (extremes.DLat /3);
+            decimal longitudeUnit = (extremes.DLon /3);
 
 
             decimal latitude = extremes.extremeCoordinates.minLatitude.GetLatitude();
@@ -241,5 +280,6 @@ namespace SatellitePermanente
 
 
         }
+
     }
 }

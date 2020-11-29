@@ -43,15 +43,26 @@ namespace SatellitePermanente.LogicAndMath
 
                 if (this.database.pointList.Count >0)/*if exist loaded values*/
                 {
-                    base.pointList = this.database.pointList;
+                    /*when the databse is loaded the state is not in first run*/
+                    base.firstRun = false;
+
+                    // base.pointList = this.database.pointList;
                     base.nodeList = this.database.nodeList;
                     base.maxLatitude = this.database.maxLatitude;
                     base.minLatitude = this.database.minLatitude;
                     base.maxLongitude = this.database.maxLongitude;
                     base.minLongitude = this.database.minLongitude;
 
-                    /*when the databse is loaded the state is not in first run*/
-                    base.firstRun = false;
+                    this.database.pointList.ForEach(delegate (Point myPoint) 
+                    {
+                        if (myPoint.meetingPoint)
+                        {
+                            base.meetingPoint = myPoint;
+                            base.flagMeetingPoint = true;
+                        }
+
+                        base.pointList.Add(myPoint);
+                    });
 
                     return true;
                 }

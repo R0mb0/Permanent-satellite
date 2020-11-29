@@ -10,7 +10,12 @@ namespace SatellitePermanente.GUI.GrayMapUtility
     class ConvertToGraphic
     {
         /*private fields*/
-        private readonly int Y,X;
+        private readonly decimal Y,X;
+        /*ΔLat*/
+        public decimal DLat { get; private set; }
+        /*ΔLon*/
+        public decimal DLon { get; private set; }
+
         public MaxCoordinates extremeCoordinates { get; private set; }
 
         public ConvertToGraphic(int Y, int X, MaxCoordinates coordinates)
@@ -18,9 +23,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             this.Y = Y;
             this.X = X;
             GetExtremes(coordinates);
-           // extremeCoordinates = new MaxCoordinates();
-
-
+           
         }
 
         private void GetExtremes(MaxCoordinates coordinates)
@@ -195,8 +198,25 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
         }
 
+        /*this method convert a latitude/longitude poiont into a grahpical point, ready to be drawed*/
+        public System.Drawing.Point GetDrawingPoint(LogicAndMath.Point point)
+        {
+            /*ΔLat*/
+            DLat = extremeCoordinates.maxLatitude.GetLatitude() - extremeCoordinates.minLatitude.GetLatitude();
 
-        
+            /*ΔLon*/
+           DLon = extremeCoordinates.maxLongitude.GetLongitude() - extremeCoordinates.minLongitude.GetLongitude();
+
+            System.Drawing.Point drawPoint = new System.Drawing.Point();
+
+            drawPoint.X = Convert.ToInt32((point.longitude.GetLongitude() - extremeCoordinates.minLongitude.GetLongitude()) * (this.X / this.DLon));
+            drawPoint.Y = Convert.ToInt32((point.latitude.GetLatitude() - extremeCoordinates.minLatitude.GetLatitude()) * (this.Y / this.DLat));
+
+            return drawPoint;
+        }
+
+
+
 
 
 

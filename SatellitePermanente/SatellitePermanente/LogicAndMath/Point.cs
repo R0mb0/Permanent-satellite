@@ -45,6 +45,9 @@ namespace SatellitePermanente.LogicAndMath
             return altitude + "m";
         }
 
-        
+        public string GetPointString()
+        {
+            return this.name +"\n" + this.latitude.GetString() + "\n" + this.longitude.GetString() + "\n" + GetAngleString() + "\n" + GetAltitudeString();
+        }
     }
 }

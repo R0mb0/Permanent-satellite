@@ -69,5 +69,10 @@ namespace SatellitePermanente.LogicAndMath
         {
             return GetAltitudeDifference() + "m";
         }
+
+        public string GetNodeString()
+        {
+            return GetDistanceString() + "\n" + GetDirectionString();
+        }
     }
 }
