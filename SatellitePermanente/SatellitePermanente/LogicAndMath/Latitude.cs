@@ -7,7 +7,7 @@ namespace SatellitePermanente.LogicAndMath
     /*This Class specialized the Origin Class, in way to is possible register a coordinate compatible with the Latitude*/
     class Latitude : Origin
     {
-        /*In the builder it specialize the coordinates, in way to make compatible with the Latitude*/
+        /*In the builder it specialize the coordinates, in way to make compatible with the Latitude values*/
         public Latitude (String sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
             if (sign.Length > 1 || sign.ToLower() != "n" && sign.ToLower() != "s") 
@@ -28,7 +28,7 @@ namespace SatellitePermanente.LogicAndMath
             }
         }
 
-        /*Return the raw data, in decimal mode*/
+        /*Return the raw data, in decimal format, in way to have a ready number for the operation*/
         public decimal GetLatitude()
         {
             return Utility.ConvertToDecimal(new Origin(base.sign, base.degrees, base.prime, base.latter));

@@ -9,7 +9,7 @@ namespace SatellitePermanente
     /*This Class specialized the Origin Class, in way to is possible register a coordinate compatible with the Longitude*/
     class Longitude : Origin
     {
-        /*In the builder it specialize the coordinates, in way to make compatible with the Longitude*/
+        /*In the builder it specialize the coordinates, in way to make compatible with the Longitude values*/
         public Longitude(String sign, int degrees, int prime, decimal latter): base(sign, degrees, prime, latter)
         {
             if (sign.Length > 1 || sign.ToLower() != "e" && sign.ToLower() != "w") 
@@ -30,7 +30,7 @@ namespace SatellitePermanente
             }
         }
 
-        /*Return the raw data, in decimal mode*/
+        /*Return the raw data, in decimal format, in way to have a ready number for the operation*/
         public decimal GetLongitude()
         {
             return Utility.ConvertToDecimal(new Origin(base.sign, base.degrees, base.prime, base.latter));

@@ -35,6 +35,7 @@ namespace SatellitePermanente.LogicAndMath
             this.name = name;
         }
 
+        /*Method that return the values in graphical way*/
         public string GetAngleString()
         {
             return angle + "°";
@@ -45,6 +46,7 @@ namespace SatellitePermanente.LogicAndMath
             return altitude + "m";
         }
 
+        /*this method return the corect long string deeping on the registred values*/
         public string GetPointString()
         {
             if(this.angle != null && this.altitude != null)

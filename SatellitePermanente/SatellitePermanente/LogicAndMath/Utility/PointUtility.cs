@@ -5,18 +5,21 @@ using System.Collections.Generic;
 static class PointUtility 
 { /*This static class permitt to do some operation that semplify the point management*/
 
-    /*This Static method verify the equality of two points (because in some database operation the points can lost it`s track number)*/
+    /*This Static method verify the equality of two points (because in some database operation the points can lost it`s track number and for verify the insert 
+     * of the same point into the database)*/
 public static bool EqualsPoints(Point pointA, Point pointB)
     {
-        if(pointA.latitude.GetLatitude() != pointB.latitude.GetLatitude())
+        if(pointA.latitude.GetLatitude() != pointB.latitude.GetLatitude() && pointA.longitude.GetLongitude() != pointB.longitude.GetLongitude())
         {
             return false;
         }
 
+        /*
         if (pointA.longitude.GetLongitude() != pointB.longitude.GetLongitude())
         {
             return false;
         }
+        */
 
         if (!pointA.dateTime.Equals(pointB.dateTime))
         {

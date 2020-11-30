@@ -19,12 +19,12 @@ namespace SatellitePermanente.LogicAndMath
 
         
         /*Get Property of nodes*/
-
         public decimal GetDistance()
         {
             return Utility.CalculateDistance(this.pointA, this.pointB);
         }
 
+        /*Get the distance in string way, ready to be printed into GrayMap*/
         public string GetDistanceString()
         {
             return Math.Round(GetDistance(), 2) + "Km";
@@ -35,6 +35,7 @@ namespace SatellitePermanente.LogicAndMath
             return Utility.CalculateDirection(this.pointA, this.pointB);
         }
 
+        /*Get the direction in string way, ready to be printed into GrayMap*/
         public string GetDirectionString()
         {
             return Math.Round(GetDirection(), 2) + "°";
@@ -44,7 +45,7 @@ namespace SatellitePermanente.LogicAndMath
         {
             return Utility.CalculateTimeDifference(this.pointA, this.pointB);
         }
-
+        /*Get the time difference in string way, ready to be printed into GrayMap*/
         public string GetTimeDifferenceString()
         {
             return Math.Round(GetTimeDifference(), 2) + "h";
@@ -55,6 +56,7 @@ namespace SatellitePermanente.LogicAndMath
             return Utility.CalculateSpeed(this.pointA, this.pointB);
         }
 
+        /*Get the speed in string way, ready to be printed into GrayMap*/
         public string GetSpeedString()
         {
             return Math.Round(GetSpeed(), 2) + "Km/h";
@@ -65,11 +67,13 @@ namespace SatellitePermanente.LogicAndMath
             return Utility.CalculateAltitudeDifference(this.pointA, this.pointB);
         }
 
+        /*if the altitude difference exist, get the altitude difference in string way, ready to be printed into GrayMap*/
         public string GetAltitudeDifferenceString()
         {
             return GetAltitudeDifference() + "m";
         }
 
+        /*this method return the corect long string deeping on the registred values*/
         public string GetNodeString()
         {
             if(GetAltitudeDifference() != null)

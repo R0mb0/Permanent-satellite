@@ -11,13 +11,15 @@ namespace SatellitePermanente.LogicAndMath
     /*This Class shape a Database where il possible salve Points and Nodes*/
     class Database :OriginDatabase
     {
-        protected Point? meetingPoint = null;
+        /*Fieds and utility values*/
+        protected Point? meetingPoint = null; /*this field register the meeting point of the entire database, becausa could be exist only one meeting point*/
 
         protected bool flagMeetingPoint = false; //this field is for register when the points (before at the meeting point) have its meeting point nodes 
 
         /*this fileds is protected in way to be setted in other class, for exaple when the database is loaded this fields is false*/
         protected bool firstRun = true;//this filed is for register the state of the prgram, in way to that the MaxCoordinates going to be initialize correctly
 
+        /*this three fieds are unused during the program, but permit to have a generic database*/
         public List<Node> lastNodeAdded { get; }
 
         public List<Node> lastNodeDelected { get; }
@@ -69,13 +71,13 @@ namespace SatellitePermanente.LogicAndMath
 
                     if (point.meetingPoint && !this.flagMeetingPoint)/*First case of adding, when there are in database always normal point and in this moment is setted a meeting point*/
                     {
-                        base.pointList.ForEach(delegate (Point myPoint)
+                        base.pointList.ForEach(delegate (Point myPoint)/*iterate the list in way to create a node with the other points that don`t have a node with the meeting point*/
                         {
                             base.nodeList.Add(new Node(point, myPoint));
                             this.lastNodeAdded.Add(new Node(point, myPoint));
                         });
 
-                        this.flagMeetingPoint = true;
+                        this.flagMeetingPoint = true; /*this is setted true in the time when is registered a meeting point into the databse, in this way (in case of new point to insert) is possible enter into the third case*/
                     }
                     else
                     {
@@ -118,6 +120,7 @@ namespace SatellitePermanente.LogicAndMath
         /*This method return true if the Point is allocated, otherwise return false*/
         public Boolean AddPoint(Point point)
         {
+            /*verify that the new point to insert is not resemble with the insterted points */
             base.pointList.ForEach(delegate (Point mypoint) 
             {
                 if (PointUtility.EqualsPoints(mypoint, point))
@@ -126,7 +129,7 @@ namespace SatellitePermanente.LogicAndMath
                 }
             });
               
-
+            /*in case of a special point*/
             if (point.meetingPoint)
             {
                 if(this.meetingPoint != null)/*Create an exception if the meeting point is arledy setted*/
@@ -134,7 +137,7 @@ namespace SatellitePermanente.LogicAndMath
                     throw new Exception("Trying to set another meeting point!");
                 }
 
-                this.meetingPoint = point;
+                this.meetingPoint = point; /*otherwise impost the meeting of the entire database*/
 
             }
 
@@ -143,7 +146,8 @@ namespace SatellitePermanente.LogicAndMath
             return base.pointList.Contains(point);/*return the presence of the new point into the database*/
         }
 
-        /*This method return true if the Point is disallocated, otherwise return false*/
+        /*This method is usefull to rmove a point form the list (Consequently the corrispettive nodes) and  
+         * return true if the Point is disallocated, otherwise return false*/
         public Boolean DelettePoint(Point point)
         {
             if (!base.pointList.Contains(point))/*fisrt control; is if the point to delete exist*/
@@ -151,6 +155,7 @@ namespace SatellitePermanente.LogicAndMath
                 throw new ArgumentException("The point doesn`t exsist!");
             }
 
+            /*preparing the reference of this action*/
             this.lastNodeDelected.Clear();
 
             base.nodeList.ForEach(delegate (Node myNode){/*search all nodes created with the point to delette */

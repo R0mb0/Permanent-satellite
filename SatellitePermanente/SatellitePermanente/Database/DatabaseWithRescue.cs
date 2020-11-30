@@ -9,6 +9,7 @@ namespace SatellitePermanente.LogicAndMath
 {
     class DatabaseWithRescue: Database
     {
+        /*create a base database that will be serialized*/
         private OriginDatabase database;
 
         /*Builder*/
@@ -20,7 +21,7 @@ namespace SatellitePermanente.LogicAndMath
 
         public Boolean SaveDatabase()
         {
-            /*set the database to salve*/
+            /*set the database vcalues to salve*/
             this.database.pointList = base.pointList;
             this.database.nodeList = base.nodeList;
             this.database.maxLatitude = base.maxLatitude;
@@ -46,13 +47,18 @@ namespace SatellitePermanente.LogicAndMath
                     /*when the databse is loaded the state is not in first run*/
                     base.firstRun = false;
 
-                    // base.pointList = this.database.pointList;
+                    /*in case of there are other point into the list that arent linked with the database value*/
+                    base.pointList.Clear();
+                    base.nodeList.Clear();
+
+                    /*setting the value loaded into the effective database*/
                     base.nodeList = this.database.nodeList;
                     base.maxLatitude = this.database.maxLatitude;
                     base.minLatitude = this.database.minLatitude;
                     base.maxLongitude = this.database.maxLongitude;
                     base.minLongitude = this.database.minLongitude;
 
+                    /*in this method is possible to use the list method : last()*/
                     this.database.pointList.ForEach(delegate (Point myPoint) 
                     {
                         if (myPoint.meetingPoint)
