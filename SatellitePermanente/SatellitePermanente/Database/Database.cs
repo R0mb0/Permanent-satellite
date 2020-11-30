@@ -118,10 +118,14 @@ namespace SatellitePermanente.LogicAndMath
         /*This method return true if the Point is allocated, otherwise return false*/
         public Boolean AddPoint(Point point)
         {
-            if (base.pointList.Contains(point))
+            base.pointList.ForEach(delegate (Point mypoint) 
             {
-                throw new Exception("Trying to add a point already added!");
-            }
+                if (PointUtility.EqualsPoints(mypoint, point))
+                {
+                    throw new Exception("Trying to add a point already added!");
+                }
+            });
+              
 
             if (point.meetingPoint)
             {

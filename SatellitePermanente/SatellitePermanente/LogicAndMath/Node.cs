@@ -72,7 +72,13 @@ namespace SatellitePermanente.LogicAndMath
 
         public string GetNodeString()
         {
-            return GetDistanceString() + "\n" + GetDirectionString();
+            if(GetAltitudeDifference() != null)
+            {
+                return GetDistanceString() + "\n" + GetDirectionString() + "\n" + GetTimeDifferenceString() + "\n" + GetSpeedString() + "\n" + GetAltitudeDifferenceString();
+            }
+
+
+            return GetDistanceString() + "\n" + GetDirectionString() + "\n" + GetTimeDifferenceString() + "\n" + GetSpeedString();
         }
     }
 }

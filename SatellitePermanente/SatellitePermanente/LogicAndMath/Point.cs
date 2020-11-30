@@ -47,7 +47,24 @@ namespace SatellitePermanente.LogicAndMath
 
         public string GetPointString()
         {
-            return this.name +"\n" + this.latitude.GetString() + "\n" + this.longitude.GetString() + "\n" + GetAngleString() + "\n" + GetAltitudeString();
+            if(this.angle != null && this.altitude != null)
+            {
+                return this.name + "\n" + this.latitude.GetString() + "\n" + this.longitude.GetString() + "\n" + GetAngleString() + "\n" + GetAltitudeString();
+            }
+
+            if(this.angle != null)
+            {
+                return this.name + "\n" + this.latitude.GetString() + "\n" + this.longitude.GetString() + "\n" + GetAngleString();
+            }
+
+            if(this.altitude != null)
+            {
+                return this.name + "\n" + this.latitude.GetString() + "\n" + this.longitude.GetString() + "\n" + GetAltitudeString();
+            }
+
+            return this.name + "\n" + this.latitude.GetString() + "\n" + this.longitude.GetString();
+
+
         }
     }
 }
