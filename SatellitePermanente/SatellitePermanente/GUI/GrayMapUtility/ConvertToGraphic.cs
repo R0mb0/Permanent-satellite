@@ -26,7 +26,14 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             this.Y = Y;
             this.X = X;
             GetExtremes(coordinates);
-           
+
+            /*ΔLat*/
+            DLat = extremeCoordinates.maxLatitude.GetLatitude() - extremeCoordinates.minLatitude.GetLatitude();
+
+            /*ΔLon*/
+            DLon = extremeCoordinates.maxLongitude.GetLongitude() - extremeCoordinates.minLongitude.GetLongitude();
+
+
         }
         
         /*this method return the elaborated extremes*/
@@ -209,12 +216,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
         /*this method convert a latitude/longitude poiont into a grahpical point, ready to be drawed*/
         public System.Drawing.Point GetDrawingPoint(LogicAndMath.Point point)
         {
-            /*ΔLat*/
-            DLat = extremeCoordinates.maxLatitude.GetLatitude() - extremeCoordinates.minLatitude.GetLatitude();
-
-            /*ΔLon*/
-           DLon = extremeCoordinates.maxLongitude.GetLongitude() - extremeCoordinates.minLongitude.GetLongitude();
-
+           
             System.Drawing.Point drawPoint = new System.Drawing.Point();
 
             /*return the decimal coordinate in pixel coordinate -> using a drawing point*/
