@@ -14,7 +14,7 @@ namespace SatellitePermanente.GUI
         /*This method wrote the two DataGrid of this form, with the database values passed with a bdridge class*/
         private void write()
         {
-            
+            /*add to DataGrid all the database points with each propetrties*/
             FormBridge.returnDatabase.pointList.ForEach(delegate (LogicAndMath.Point myPoint)
             {
                 DataGridPoints.Rows.Add(new String[] {FormBridge.returnDatabase.pointList.IndexOf(myPoint).ToString(), myPoint.name,
@@ -23,6 +23,7 @@ namespace SatellitePermanente.GUI
                     myPoint.GetAltitudeString(),myPoint.meetingPoint.ToString()});
             });
 
+            /*add to DataGrid all the database nodes with each propetrties*/
             FormBridge.returnDatabase.nodeList.ForEach(delegate (Node myNode)
             {
                 DataGridNodes.Rows.Add(new String[] {FormBridge.returnDatabase.nodeList.IndexOf(myNode).ToString(),
@@ -37,9 +38,11 @@ namespace SatellitePermanente.GUI
                 myNode.GetAltitudeDifferenceString()}) ;
             });
 
+            /*Add to DataGrid the raw Extremes*/
             DataGridCoordinates.Rows.Add(new String[] {"RAW",FormBridge.returnDatabase.maxLatitude.GetString(), FormBridge.returnDatabase.minLatitude.GetString(),
             FormBridge.returnDatabase.maxLongitude.GetString(), FormBridge.returnDatabase.minLongitude.GetString()});
-
+            
+            /*Add to DataGrid the calculated Extremes*/
             DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",GrayMapValues.coordinates.maxLatitude.GetString(), GrayMapValues.coordinates.minLatitude.GetString(),
             GrayMapValues.coordinates.maxLongitude.GetString(), GrayMapValues.coordinates.minLongitude.GetString()});
 
@@ -55,9 +58,12 @@ namespace SatellitePermanente.GUI
         /*This button is usefull for refresh the Data Grids in way to cerrect some vision errors, when it happened*/
         private void ButtonRefresh_Click(object sender, EventArgs e)
         {
+            /*Clear all the data grid*/
             DataGridPoints.Rows.Clear();
             DataGridNodes.Rows.Clear();
             DataGridCoordinates.Rows.Clear();
+
+            /*Rewrite the dataGrid*/
             write();
         }
     }

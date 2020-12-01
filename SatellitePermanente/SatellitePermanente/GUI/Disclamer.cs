@@ -10,13 +10,15 @@ namespace SatellitePermanente.GUI
 {
     public partial class Disclamer : Form
     {
-        /*This is like a messagge box, but in this case this form return a value usefull for confirm operations*/
+        /*This form is like a messagge box, but in this case this form return a value usefull for confirm the elimination point operations*/
+
+        /*build*/
         public Disclamer()
         {
             InitializeComponent();
         }
 
-        /*This is the button to confirm the elimination of the selected point*/
+        /*This is the button to confirm the elimination of the selected point from the elimination point form*/
         private void ButtonYes_Click(object sender, EventArgs e)
         {
             FormBridge.retunrBoolean = true;
