@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Disclamer));
             this.DisclamerText = new System.Windows.Forms.Label();
             this.ButtonYes = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.Controls.Add(this.ButtonYes);
             this.Controls.Add(this.DisclamerText);
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Disclamer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

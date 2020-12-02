@@ -11,11 +11,14 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SatellitePermanente")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("University of Urbino Carlo Bo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("RomboUrbex")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("A program that do some operation usefull for orientation during the exploration t" +
+    "ravel.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("SatellitePermanente")]
+[assembly: System.Reflection.AssemblyProductAttribute("Relative system of orientation to permanent satellite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SatellitePermanente")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

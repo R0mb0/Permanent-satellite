@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPoint));
             this.Latitude = new System.Windows.Forms.Label();
             this.LatitudeSign = new System.Windows.Forms.Label();
             this.LatitudeSignText = new System.Windows.Forms.TextBox();
@@ -424,6 +425,7 @@
             this.Controls.Add(this.LatitudeSign);
             this.Controls.Add(this.Latitude);
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AddPoint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

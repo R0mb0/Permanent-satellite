@@ -34,6 +34,10 @@ namespace SatellitePermanente
             InitializeComponent();
             addPoint = new AddPoint();
             database = new DatabaseWithRescue();
+
+            /*Show the two image on screen*/
+            this.pictureBoxNord.Image = Properties.Resources.Nord_scaled;
+            this.pictureBoxPoints.Image = Properties.Resources.Points;
         }
 
         /*In this method is launched the "AddPoint gui", and is the part of code where the point created in AddPoint gui is added to database*/

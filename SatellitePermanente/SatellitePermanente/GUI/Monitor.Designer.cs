@@ -39,10 +39,17 @@ namespace SatellitePermanente
             this.Load = new System.Windows.Forms.Button();
             this.Debug = new System.Windows.Forms.Button();
             this.GrayMap = new System.Windows.Forms.Panel();
+            this.pictureBoxNord = new System.Windows.Forms.PictureBox();
             this.TextBoxLatutude1 = new System.Windows.Forms.TextBox();
             this.TextBoxLatitude2 = new System.Windows.Forms.TextBox();
             this.TextBoxLongitude2 = new System.Windows.Forms.TextBox();
             this.TextBoxLongitude1 = new System.Windows.Forms.TextBox();
+            this.pictureBoxPoints = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.GrayMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNord)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoints)).BeginInit();
             this.SuspendLayout();
             // 
             // monitor
@@ -121,18 +128,27 @@ namespace SatellitePermanente
             this.Debug.Name = "Debug";
             this.Debug.Size = new System.Drawing.Size(134, 34);
             this.Debug.TabIndex = 6;
-            this.Debug.Text = "DEBUG";
+            this.Debug.Text = "TABLE";
             this.Debug.UseVisualStyleBackColor = true;
             this.Debug.Click += new System.EventHandler(this.Debug_Click);
             // 
             // GrayMap
             // 
             this.GrayMap.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GrayMap.Controls.Add(this.pictureBoxNord);
             this.GrayMap.Location = new System.Drawing.Point(173, 27);
             this.GrayMap.Name = "GrayMap";
             this.GrayMap.Size = new System.Drawing.Size(942, 456);
             this.GrayMap.TabIndex = 7;
             this.GrayMap.Paint += new System.Windows.Forms.PaintEventHandler(this.GreyMap_Paint);
+            // 
+            // pictureBoxNord
+            // 
+            this.pictureBoxNord.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxNord.Name = "pictureBoxNord";
+            this.pictureBoxNord.Size = new System.Drawing.Size(94, 129);
+            this.pictureBoxNord.TabIndex = 0;
+            this.pictureBoxNord.TabStop = false;
             // 
             // TextBoxLatutude1
             // 
@@ -170,12 +186,43 @@ namespace SatellitePermanente
             this.TextBoxLongitude1.Size = new System.Drawing.Size(150, 23);
             this.TextBoxLongitude1.TabIndex = 8;
             // 
+            // pictureBoxPoints
+            // 
+            this.pictureBoxPoints.Location = new System.Drawing.Point(837, 548);
+            this.pictureBoxPoints.Name = "pictureBoxPoints";
+            this.pictureBoxPoints.Size = new System.Drawing.Size(65, 115);
+            this.pictureBoxPoints.TabIndex = 9;
+            this.pictureBoxPoints.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(895, 559);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(150, 23);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.Text = "Normal Points";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Location = new System.Drawing.Point(895, 608);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(150, 23);
+            this.textBox2.TabIndex = 11;
+            this.textBox2.Text = "Meeting Point";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1280, 665);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pictureBoxPoints);
             this.Controls.Add(this.TextBoxLongitude1);
             this.Controls.Add(this.TextBoxLongitude2);
             this.Controls.Add(this.TextBoxLatitude2);
@@ -189,10 +236,14 @@ namespace SatellitePermanente
             this.Controls.Add(this.AddPoint);
             this.Controls.Add(this.monitor);
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relative system of orientation to permanent satellite";
+            this.GrayMap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNord)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoints)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,6 +263,10 @@ namespace SatellitePermanente
         private System.Windows.Forms.TextBox TextBoxLatitude2;
         private System.Windows.Forms.TextBox TextBoxLongitude2;
         private System.Windows.Forms.TextBox TextBoxLongitude1;
+        private System.Windows.Forms.PictureBox pictureBoxNord;
+        private System.Windows.Forms.PictureBox pictureBoxPoints;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

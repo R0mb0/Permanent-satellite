@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Debug));
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.Nodes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -326,13 +327,6 @@
             this.minLongitude.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.minLongitude.Width = 150;
             // 
-            // Debug
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1599, 625);
-            // 
             // DataGridCoordinates
             // 
             this.DataGridCoordinates.AllowUserToAddRows = false;
@@ -351,11 +345,19 @@
             this.DataGridCoordinates.Size = new System.Drawing.Size(818, 140);
             this.DataGridCoordinates.TabIndex = 3;
             this.DataGridCoordinates.Text = "dataGridView1";
+            // 
+            // Debug
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(1599, 625);
             this.Controls.Add(this.DataGridCoordinates);
             this.Controls.Add(this.ButtonRefresh);
             this.Controls.Add(this.DataGridNodes);
             this.Controls.Add(this.DataGridPoints);
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Debug";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

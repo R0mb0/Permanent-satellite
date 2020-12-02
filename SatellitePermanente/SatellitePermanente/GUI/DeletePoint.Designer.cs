@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeletePoint));
             this.ButtonDelette = new System.Windows.Forms.Button();
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,13 +75,6 @@
             this.Names.ReadOnly = true;
             this.Names.Width = 150;
             // 
-            // DeletePoint
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(569, 681);
-            // 
             // DataGridPoints
             // 
             this.DataGridPoints.AllowUserToAddRows = false;
@@ -95,10 +89,18 @@
             this.DataGridPoints.Size = new System.Drawing.Size(365, 657);
             this.DataGridPoints.TabIndex = 3;
             this.DataGridPoints.Text = "dataGridView1";
+            // 
+            // DeletePoint
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(569, 681);
             this.Controls.Add(this.DataGridPoints);
             this.Controls.Add(this.ButtonRefresh);
             this.Controls.Add(this.ButtonDelette);
             this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DeletePoint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
