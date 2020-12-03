@@ -10,26 +10,40 @@ namespace SatellitePermanente.LogicAndMath
     class DatabaseWithRescue: Database
     {
         /*create a base database that will be serialized*/
-        private OriginDatabase database;
+        private static OriginDatabase database;
+
+        /*Class for Singelton*/
+        private static DatabaseWithRescue istance = null;
 
         /*Builder*/
-        public DatabaseWithRescue()
+        protected DatabaseWithRescue()
         {
-            this.database = new OriginDatabase();/*create a new base database to salve into a file*/
+            database = new OriginDatabase();/*create a new base database to salve into a file*/
            
+        }
+
+        /*Method for Singleton*/
+        public static DatabaseWithRescue Istance()
+        {
+            if (istance == null)
+            {
+                istance = new DatabaseWithRescue();
+            }
+
+            return istance; 
         }
 
         public Boolean SaveDatabase()
         {
             /*set the database vcalues to salve*/
-            this.database.pointList = base.pointList;
-            this.database.nodeList = base.nodeList;
-            this.database.maxLatitude = base.maxLatitude;
-            this.database.minLatitude = base.minLatitude;
-            this.database.maxLongitude = base.maxLongitude;
-            this.database.minLongitude = base.minLongitude;
+            database.pointList = base.pointList;
+            database.nodeList = base.nodeList;
+            database.maxLatitude = base.maxLatitude;
+            database.minLatitude = base.minLatitude;
+            database.maxLongitude = base.maxLongitude;
+            database.minLongitude = base.minLongitude;
 
-            String json = JsonConvert.SerializeObject(this.database);/*serialize the satabase*/
+            String json = JsonConvert.SerializeObject(database);/*serialize the satabase*/
             System.IO.File.WriteAllText("Database.txt", json);/*writing od the serialized database*/
 
             return File.Exists("Database.txt");/*Return true if the file realy exist*/
@@ -40,9 +54,9 @@ namespace SatellitePermanente.LogicAndMath
             if (File.Exists("Database.txt"))
             {
                 String json = File.ReadAllText("Database.txt");/*read the file created*/
-                this.database = JsonConvert.DeserializeObject<OriginDatabase>(json);/*deserialize the salved database*/
+                database = JsonConvert.DeserializeObject<OriginDatabase>(json);/*deserialize the salved database*/
 
-                if (this.database.pointList.Count >0)/*if exist loaded values*/
+                if (database.pointList.Count >0)/*if exist loaded values*/
                 {
                     /*when the databse is loaded the state is not in first run*/
                     base.firstRun = false;
@@ -52,14 +66,14 @@ namespace SatellitePermanente.LogicAndMath
                     base.nodeList.Clear();
 
                     /*setting the value loaded into the effective database*/
-                    base.nodeList = this.database.nodeList;
-                    base.maxLatitude = this.database.maxLatitude;
-                    base.minLatitude = this.database.minLatitude;
-                    base.maxLongitude = this.database.maxLongitude;
-                    base.minLongitude = this.database.minLongitude;
+                    base.nodeList = database.nodeList;
+                    base.maxLatitude = database.maxLatitude;
+                    base.minLatitude = database.minLatitude;
+                    base.maxLongitude = database.maxLongitude;
+                    base.minLongitude = database.minLongitude;
 
                     /*in this method is possible to use the list method : last()*/
-                    this.database.pointList.ForEach(delegate (Point myPoint) 
+                    database.pointList.ForEach(delegate (Point myPoint) 
                     {
                         if (myPoint.meetingPoint)
                         {

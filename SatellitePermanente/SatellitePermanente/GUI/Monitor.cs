@@ -19,21 +19,19 @@ namespace SatellitePermanente
     public partial class Home : Form
     {
         /*Fields*/
-        private AddPoint addPoint; /*addPoint fieds, in this way the values wroted into the gui, in this way is possible to correct the values of the last point 
-                                    inserted , conversely the user must write all values of the point any time*/
+        private AddPoint addPoint; /*addPoint fieds, in this way the values wroted into the gui, in this way is possible to correct the values of the last point*/ 
+                                    /*inserted , conversely the user must write all values of the point any time*/
         private DeletePoint deletePoint;
         private Debug debug;
         private bool status = false; /*This is the status of the current database is it exsit or not*/
 
-        /*this is the database of the entire program*/
-        private DatabaseWithRescue database; 
+        
        
         /*Builder*/
         public Home()
         {
             InitializeComponent();
             addPoint = new AddPoint();
-            database = new DatabaseWithRescue();
 
             /*Show the two image on screen*/
             this.pictureBoxNord.Image = Properties.Resources.Nord_scaled;
@@ -60,7 +58,7 @@ namespace SatellitePermanente
             /*try to corretly add of the new point*/
             try
             {
-                this.database.AddPoint(FormBridge.returnPoint);
+                DatabaseWithRescue.Istance().AddPoint(FormBridge.returnPoint);
                 /*in case that the add point operation worked, refresh the GrayMap*/
                 this.GrayMap.Refresh();
             }
@@ -82,7 +80,6 @@ namespace SatellitePermanente
             }
             
             /*Initialize the gui bridge with the value that are necessary for the gui.*/
-            FormBridge.returnDatabase = this.database;
             FormBridge.returnInteger = null; /*This is the index of the point to delete*/
             deletePoint = new DeletePoint();
             deletePoint.ShowDialog();
@@ -97,7 +94,7 @@ namespace SatellitePermanente
             try
             {
                 /*verify the status of the elimination of the point*/
-                if (this.database.DeletePointFromIndex(Convert.ToInt32(FormBridge.returnInteger)))
+                if (DatabaseWithRescue.Istance().DeletePointFromIndex(Convert.ToInt32(FormBridge.returnInteger)))
                 {
                     MessageBox.Show("Point removed successfully!");
 
@@ -119,7 +116,7 @@ namespace SatellitePermanente
         private void Save_Click(object sender, EventArgs e)
         {
             /*Verify if the database is correctly salved*/
-            if (this.database.SaveDatabase())
+            if (DatabaseWithRescue.Istance().SaveDatabase())
             {
                 MessageBox.Show("Successfully saved!");
             }
@@ -133,7 +130,7 @@ namespace SatellitePermanente
         private void Load_Click(object sender, EventArgs e)
         {
             /*control if the database il correctly loaded*/
-            if (this.database.LoadDatabase())
+            if (DatabaseWithRescue.Istance().LoadDatabase())
             {
                 this.status = true;
                 MessageBox.Show("Successfully loaded!");
@@ -154,7 +151,6 @@ namespace SatellitePermanente
             if (this.status)
             {
                 /*is exist a current databse load the entire form*/
-                FormBridge.returnDatabase = this.database;
                 debug = new Debug();
                 debug.ShowDialog();
             }
@@ -182,17 +178,17 @@ namespace SatellitePermanente
                
             
                 /*if the program is in the first start don`t exist the databse*/
-            if(database.pointList.Count == 0)
+            if(DatabaseWithRescue.Istance().pointList.Count == 0)
             {
                 return;
             }
             
             /*else get the extreme coordinates and create an objet to pass in other class*/
             MaxCoordinates maxCoordinates = new MaxCoordinates();
-            maxCoordinates.maxLatitude = database.maxLatitude;
-            maxCoordinates.minLatitude = database.minLatitude;
-            maxCoordinates.maxLongitude = database.maxLongitude;
-            maxCoordinates.minLongitude = database.minLongitude;
+            maxCoordinates.maxLatitude = DatabaseWithRescue.Istance().maxLatitude;
+            maxCoordinates.minLatitude = DatabaseWithRescue.Istance().minLatitude;
+            maxCoordinates.maxLongitude = DatabaseWithRescue.Istance().maxLongitude;
+            maxCoordinates.minLongitude = DatabaseWithRescue.Istance().minLongitude;
             
             /*istance anew class that permit to have all scale values (form decimal to pixel)*/
             ConvertToGraphic graphic = new ConvertToGraphic(456, 942, maxCoordinates);
@@ -204,7 +200,7 @@ namespace SatellitePermanente
             WriteAxesValue(graphic);
 
             /*draw all points from databse with its properties*/
-            this.database.pointList.ForEach(delegate (LogicAndMath.Point myPoint) 
+            DatabaseWithRescue.Istance().pointList.ForEach(delegate (LogicAndMath.Point myPoint) 
             {
 
                 if (myPoint.meetingPoint)
@@ -235,7 +231,7 @@ namespace SatellitePermanente
             });
 
             /*draw all nodes from databse with it`s properties*/
-            this.database.nodeList.ForEach(delegate (Node myNode)
+            DatabaseWithRescue.Istance().nodeList.ForEach(delegate (Node myNode)
             { /*this is the point used for set the posiction of the text*/
                 System.Drawing.Point medPoint = new System.Drawing.Point();
                 medPoint.X = (graphic.GetDrawingPoint(myNode.pointB).X  + graphic.GetDrawingPoint(myNode.pointA).X) /2;

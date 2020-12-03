@@ -26,11 +26,25 @@ namespace SatellitePermanente.LogicAndMath
 
         public Point lastPointDelected { get; private set; }
 
+        /*Class for Singleton*/
+        private static Database istance = null;
+
         /*Builder*/
-        public Database()
+        protected Database()
         { 
             this.lastNodeAdded = new List<Node>();
             this.lastNodeDelected = new List<Node>();
+        }
+
+        /*Singleton Istance*/
+        public static Database Istance()
+        {
+            if(istance == null)
+            {
+                istance = new Database();
+            }
+
+            return istance;
         }
 
         /*Method for salving the min/max of latitude/longitude*/

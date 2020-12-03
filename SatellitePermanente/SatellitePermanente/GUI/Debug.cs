@@ -15,22 +15,22 @@ namespace SatellitePermanente.GUI
         private void write()
         {
             /*add to DataGrid all the database points with each propetrties*/
-            FormBridge.returnDatabase.pointList.ForEach(delegate (LogicAndMath.Point myPoint)
+            DatabaseWithRescue.Istance().pointList.ForEach(delegate (LogicAndMath.Point myPoint)
             {
-                DataGridPoints.Rows.Add(new String[] {FormBridge.returnDatabase.pointList.IndexOf(myPoint).ToString(), myPoint.name,
+                DataGridPoints.Rows.Add(new String[] {DatabaseWithRescue.Istance().pointList.IndexOf(myPoint).ToString(), myPoint.name,
                     myPoint.latitude.GetString(), 
                     myPoint.longitude.GetString(), myPoint.dateTime.ToString(), myPoint.GetAngleString(), 
                     myPoint.GetAltitudeString(),myPoint.meetingPoint.ToString()});
             });
 
             /*add to DataGrid all the database nodes with each propetrties*/
-            FormBridge.returnDatabase.nodeList.ForEach(delegate (Node myNode)
+            DatabaseWithRescue.Istance().nodeList.ForEach(delegate (Node myNode)
             {
-                DataGridNodes.Rows.Add(new String[] {FormBridge.returnDatabase.nodeList.IndexOf(myNode).ToString(),
+                DataGridNodes.Rows.Add(new String[] {DatabaseWithRescue.Istance().nodeList.IndexOf(myNode).ToString(),
 
-                FormBridge.returnDatabase.pointList.IndexOf(PointUtility.GetCorrespondingPoint(FormBridge.returnDatabase.pointList,myNode.pointA)).ToString(),
+                DatabaseWithRescue.Istance().pointList.IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescue.Istance().pointList,myNode.pointA)).ToString(),
                 myNode.pointA.name,
-                FormBridge.returnDatabase.pointList.IndexOf(PointUtility.GetCorrespondingPoint(FormBridge.returnDatabase.pointList,myNode.pointB)).ToString(),
+                DatabaseWithRescue.Istance().pointList.IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescue.Istance().pointList,myNode.pointB)).ToString(),
                 myNode.pointB.name,
 
                 myNode.GetDistanceString(), myNode.GetDirectionString(),
@@ -39,8 +39,8 @@ namespace SatellitePermanente.GUI
             });
 
             /*Add to DataGrid the raw Extremes*/
-            DataGridCoordinates.Rows.Add(new String[] {"RAW",FormBridge.returnDatabase.maxLatitude.GetString(), FormBridge.returnDatabase.minLatitude.GetString(),
-            FormBridge.returnDatabase.maxLongitude.GetString(), FormBridge.returnDatabase.minLongitude.GetString()});
+            DataGridCoordinates.Rows.Add(new String[] {"RAW",DatabaseWithRescue.Istance().maxLatitude.GetString(), DatabaseWithRescue.Istance().minLatitude.GetString(),
+            DatabaseWithRescue.Istance().maxLongitude.GetString(), DatabaseWithRescue.Istance().minLongitude.GetString()});
             
             /*Add to DataGrid the calculated Extremes*/
             DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",GrayMapValues.coordinates.maxLatitude.GetString(), GrayMapValues.coordinates.minLatitude.GetString(),
