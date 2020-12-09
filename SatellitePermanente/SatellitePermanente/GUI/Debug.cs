@@ -15,22 +15,22 @@ namespace SatellitePermanente.GUI
         private void write()
         {
             /*add to DataGrid all the database points with each propetrties*/
-            DatabaseWithRescue.Istance().pointList.ForEach(delegate (LogicAndMath.Point myPoint)
+            DatabaseWithRescueImpl.GetIstance().GetPointList().ForEach(delegate (LogicAndMath.Point myPoint)
             {
-                DataGridPoints.Rows.Add(new String[] {DatabaseWithRescue.Istance().pointList.IndexOf(myPoint).ToString(), myPoint.name,
+                DataGridPoints.Rows.Add(new String[] {DatabaseWithRescueImpl.GetIstance().GetPointList().IndexOf(myPoint).ToString(), myPoint.name,
                     myPoint.latitude.GetString(), 
                     myPoint.longitude.GetString(), myPoint.dateTime.ToString(), myPoint.GetAngleString(), 
                     myPoint.GetAltitudeString(),myPoint.meetingPoint.ToString()});
             });
 
             /*add to DataGrid all the database nodes with each propetrties*/
-            DatabaseWithRescue.Istance().nodeList.ForEach(delegate (Node myNode)
+            DatabaseWithRescueImpl.GetIstance().GetNodeList().ForEach(delegate (Node myNode)
             {
-                DataGridNodes.Rows.Add(new String[] {DatabaseWithRescue.Istance().nodeList.IndexOf(myNode).ToString(),
+                DataGridNodes.Rows.Add(new String[] {DatabaseWithRescueImpl.GetIstance().GetNodeList().IndexOf(myNode).ToString(),
 
-                DatabaseWithRescue.Istance().pointList.IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescue.Istance().pointList,myNode.pointA)).ToString(),
+               DatabaseWithRescueImpl.GetIstance().GetPointList().IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescueImpl.GetIstance().GetPointList(),myNode.pointA)).ToString(),
                 myNode.pointA.name,
-                DatabaseWithRescue.Istance().pointList.IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescue.Istance().pointList,myNode.pointB)).ToString(),
+                DatabaseWithRescueImpl.GetIstance().GetPointList().IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescueImpl.GetIstance().GetPointList(),myNode.pointB)).ToString(),
                 myNode.pointB.name,
 
                 myNode.GetDistanceString(), myNode.GetDirectionString(),
@@ -39,12 +39,12 @@ namespace SatellitePermanente.GUI
             });
 
             /*Add to DataGrid the raw Extremes*/
-            DataGridCoordinates.Rows.Add(new String[] {"RAW",DatabaseWithRescue.Istance().maxLatitude.GetString(), DatabaseWithRescue.Istance().minLatitude.GetString(),
-            DatabaseWithRescue.Istance().maxLongitude.GetString(), DatabaseWithRescue.Istance().minLongitude.GetString()});
+            DataGridCoordinates.Rows.Add(new String[] {"RAW",DatabaseWithRescueImpl.GetIstance().GetMaxLatitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLatitude().GetString(),
+            DatabaseWithRescueImpl.GetIstance().GetMaxLongitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLongitude().GetString()});
             
             /*Add to DataGrid the calculated Extremes*/
-            DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",GrayMapValues.coordinates.maxLatitude.GetString(), GrayMapValues.coordinates.minLatitude.GetString(),
-            GrayMapValues.coordinates.maxLongitude.GetString(), GrayMapValues.coordinates.minLongitude.GetString()});
+            DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",GrayMapValues.coordinates.GetMaxLatitude().GetString(), GrayMapValues.coordinates.GetMinLatitude().GetString(),
+            GrayMapValues.coordinates.GetMaxLongitude().GetString(), GrayMapValues.coordinates.GetMinLongitude().GetString()});
 
         }
 

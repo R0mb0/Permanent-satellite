@@ -1,24 +1,23 @@
-﻿using SatellitePermanente.Database;
+﻿using SatellitePermanente.LogicAndMath;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SatellitePermanente.LogicAndMath
+namespace SatellitePermanente.Database
 {
-    /*this is the base class to build the database, in fact it conteins the most important fields that must be saved into a file. 
-     * (there are other values that going to be salved, because in this way there aren`t much count to do)*/
-    class OriginDatabase: MaxCoordinates
+    abstract class OriginDatabase :MaxCoordinates
     {
         /*Fields*/
-        public List<Point> pointList { get; set; }
+        protected List<Point> pointList { get; set; }
+        protected List<Node> nodeList { get; set; }
 
-        public List<Node> nodeList { get; set; }
+        /*return method*/
+        public abstract List<Point> GetPointList();
+        public abstract List<Node> GetNodeList();
+        public abstract void SetPointList(List<Point> pointList);
+        public abstract void SetNodeList(List<Node> nodeList);
 
-        /*Builder*/
-        public OriginDatabase()
-        {
-            this.pointList = new List<Point>();
-            this.nodeList = new List<Node>();
-        }
+
+
     }
 }

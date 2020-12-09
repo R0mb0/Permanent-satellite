@@ -19,14 +19,13 @@ namespace SatellitePermanente
     public partial class Home : Form
     {
         /*Fields*/
-        private AddPoint addPoint; /*addPoint fieds, in this way the values wroted into the gui, in this way is possible to correct the values of the last point*/ 
-                                    /*inserted , conversely the user must write all values of the point any time*/
+        private AddPoint addPoint; /*addPoint fieds, in this way the values wroted into the gui, in this way is possible to correct the values of the last point 
+                                    inserted , conversely the user must write all values of the point any time*/
         private DeletePoint deletePoint;
         private Debug debug;
-        private bool status = false; /*This is the status of the current database is it exsit or not*/
+        private bool status = false; /*This is the status of the current database is it exsit or not*/ //<----- lo si può sostituire
 
-        
-       
+              
         /*Builder*/
         public Home()
         {
@@ -58,7 +57,7 @@ namespace SatellitePermanente
             /*try to corretly add of the new point*/
             try
             {
-                DatabaseWithRescue.Istance().AddPoint(FormBridge.returnPoint);
+                DatabaseWithRescueImpl.GetIstance().AddPoint(FormBridge.returnPoint);
                 /*in case that the add point operation worked, refresh the GrayMap*/
                 this.GrayMap.Refresh();
             }
@@ -94,7 +93,7 @@ namespace SatellitePermanente
             try
             {
                 /*verify the status of the elimination of the point*/
-                if (DatabaseWithRescue.Istance().DeletePointFromIndex(Convert.ToInt32(FormBridge.returnInteger)))
+                if (DatabaseWithRescueImpl.GetIstance().DeletePointFromIndex(Convert.ToInt32(FormBridge.returnInteger)))
                 {
                     MessageBox.Show("Point removed successfully!");
 
@@ -116,7 +115,7 @@ namespace SatellitePermanente
         private void Save_Click(object sender, EventArgs e)
         {
             /*Verify if the database is correctly salved*/
-            if (DatabaseWithRescue.Istance().SaveDatabase())
+            if (DatabaseWithRescueImpl.GetIstance().SaveDatabase())
             {
                 MessageBox.Show("Successfully saved!");
             }
@@ -130,7 +129,7 @@ namespace SatellitePermanente
         private void Load_Click(object sender, EventArgs e)
         {
             /*control if the database il correctly loaded*/
-            if (DatabaseWithRescue.Istance().LoadDatabase())
+            if (DatabaseWithRescueImpl.GetIstance().LoadDatabase())
             {
                 this.status = true;
                 MessageBox.Show("Successfully loaded!");
@@ -150,7 +149,6 @@ namespace SatellitePermanente
             /*If doesn`t exsist a current database in memory, the user must be unable to acces the debug page*/
             if (this.status)
             {
-                /*is exist a current databse load the entire form*/
                 debug = new Debug();
                 debug.ShowDialog();
             }
@@ -178,17 +176,17 @@ namespace SatellitePermanente
                
             
                 /*if the program is in the first start don`t exist the databse*/
-            if(DatabaseWithRescue.Istance().pointList.Count == 0)
+            if(DatabaseWithRescueImpl.GetIstance().GetPointList().Count == 0)
             {
                 return;
             }
             
             /*else get the extreme coordinates and create an objet to pass in other class*/
-            MaxCoordinates maxCoordinates = new MaxCoordinates();
-            maxCoordinates.maxLatitude = DatabaseWithRescue.Istance().maxLatitude;
-            maxCoordinates.minLatitude = DatabaseWithRescue.Istance().minLatitude;
-            maxCoordinates.maxLongitude = DatabaseWithRescue.Istance().maxLongitude;
-            maxCoordinates.minLongitude = DatabaseWithRescue.Istance().minLongitude;
+            MaxCoordinates maxCoordinates = new MaxCoordinatesImpl();
+            maxCoordinates.SetMaxLatitude(DatabaseWithRescueImpl.GetIstance().GetMaxLatitude());
+            maxCoordinates.SetMinLatitude(DatabaseWithRescueImpl.GetIstance().GetMinLatitude());
+            maxCoordinates.SetMaxLongitude(DatabaseWithRescueImpl.GetIstance().GetMaxLongitude());
+            maxCoordinates.SetMinLongitude(DatabaseWithRescueImpl.GetIstance().GetMinLongitude());
             
             /*istance anew class that permit to have all scale values (form decimal to pixel)*/
             ConvertToGraphic graphic = new ConvertToGraphic(456, 942, maxCoordinates);
@@ -200,7 +198,7 @@ namespace SatellitePermanente
             WriteAxesValue(graphic);
 
             /*draw all points from databse with its properties*/
-            DatabaseWithRescue.Istance().pointList.ForEach(delegate (LogicAndMath.Point myPoint) 
+            DatabaseWithRescueImpl.GetIstance().GetPointList().ForEach(delegate (LogicAndMath.Point myPoint) 
             {
 
                 if (myPoint.meetingPoint)
@@ -231,7 +229,7 @@ namespace SatellitePermanente
             });
 
             /*draw all nodes from databse with it`s properties*/
-            DatabaseWithRescue.Istance().nodeList.ForEach(delegate (Node myNode)
+            DatabaseWithRescueImpl.GetIstance().GetNodeList().ForEach(delegate (Node myNode)
             { /*this is the point used for set the posiction of the text*/
                 System.Drawing.Point medPoint = new System.Drawing.Point();
                 medPoint.X = (graphic.GetDrawingPoint(myNode.pointB).X  + graphic.GetDrawingPoint(myNode.pointA).X) /2;
@@ -254,8 +252,8 @@ namespace SatellitePermanente
             decimal longitudeUnit = (extremes.DLon /3);
 
             /*find the start point*/
-            decimal latitude = extremes.extremeCoordinates.minLatitude.GetLatitude();
-            decimal longitude = extremes.extremeCoordinates.minLongitude.GetLongitude();
+            decimal latitude = extremes.extremeCoordinates.GetMinLatitude().GetLatitude();
+            decimal longitude = extremes.extremeCoordinates.GetMinLongitude().GetLongitude();
 
 
             /*Operations for print the values of every axe*/

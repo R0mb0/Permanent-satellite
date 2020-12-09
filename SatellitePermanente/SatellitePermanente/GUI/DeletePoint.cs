@@ -16,9 +16,9 @@ namespace SatellitePermanente.GUI
         /*this method is usefull for write the DataGrid of this page*/
         private void write()
         {
-            DatabaseWithRescue.Istance().pointList.ForEach(delegate (LogicAndMath.Point myPoint)
+            DatabaseWithRescueImpl.GetIstance().GetPointList().ForEach(delegate (LogicAndMath.Point myPoint)
             {
-                DataGridPoints.Rows.Add(new String[]{ DatabaseWithRescue.Istance().pointList.IndexOf(myPoint).ToString(), myPoint.name});
+                DataGridPoints.Rows.Add(new String[]{ DatabaseWithRescueImpl.GetIstance().GetPointList().IndexOf(myPoint).ToString(), myPoint.name});
             });
         }
 

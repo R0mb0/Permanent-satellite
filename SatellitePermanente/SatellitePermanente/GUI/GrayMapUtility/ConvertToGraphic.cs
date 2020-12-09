@@ -28,10 +28,10 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             GetExtremes(coordinates);
 
             /*ΔLat*/
-            DLat = extremeCoordinates.maxLatitude.GetLatitude() - extremeCoordinates.minLatitude.GetLatitude();
+            DLat = extremeCoordinates.GetMaxLatitude().GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude();
 
             /*ΔLon*/
-            DLon = extremeCoordinates.maxLongitude.GetLongitude() - extremeCoordinates.minLongitude.GetLongitude();
+            DLon = extremeCoordinates.GetMaxLongitude().GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude();
 
 
         }
@@ -48,43 +48,43 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             /*definiction of the filter*/
 
             /*get the latitude extremes*/
-            if (coordinates.maxLatitude.sign.Equals(coordinates.minLatitude.sign))
+            if (coordinates.GetMaxLatitude().sign.Equals(coordinates.GetMinLatitude().sign))
             {
-                if(coordinates.maxLatitude.degrees == coordinates.minLatitude.degrees)
+                if(coordinates.GetMaxLatitude().degrees == coordinates.GetMinLatitude().degrees)
                 {
-                    if(coordinates.maxLatitude.prime == coordinates.minLatitude.prime)
+                    if(coordinates.GetMaxLatitude().prime == coordinates.GetMinLatitude().prime)
                     {
                         try
                         {
-                            maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees, coordinates.maxLatitude.prime + 1, 0000); 
+                            maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees, coordinates.GetMaxLatitude().prime + 1, 0000); 
                         }
                         catch (ArgumentException)
                         {
-                            maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees+1, 00, 0000);
+                            maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees+1, 00, 0000);
                         }
 
-                            minLatitude = new Latitude(coordinates.minLatitude.sign, coordinates.minLatitude.degrees, coordinates.minLatitude.prime, 0000);
+                            minLatitude = new Latitude(coordinates.GetMinLatitude().sign, coordinates.GetMinLatitude().degrees, coordinates.GetMinLatitude().prime, 0000);
                         
                     }
                     else
                     {
                         try
                         {
-                            maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees, coordinates.maxLatitude.prime +1, 0000); 
+                            maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees, coordinates.GetMaxLatitude().prime +1, 0000); 
                         }
                         catch(ArgumentException)
                         {
-                            maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees +1, 00, 0000);
+                            maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees +1, 00, 0000);
                         }
 
 
                         try
                         {
-                            minLatitude = new Latitude(coordinates.minLatitude.sign, coordinates.minLatitude.degrees, coordinates.minLatitude.prime - 1, 0000);
+                            minLatitude = new Latitude(coordinates.GetMinLatitude().sign, coordinates.GetMinLatitude().degrees, coordinates.GetMinLatitude().prime - 1, 0000);
                         }
                         catch (ArgumentException)
                         {
-                            minLatitude = new Latitude(coordinates.minLatitude.sign, coordinates.minLatitude.degrees -1, 00, 0000);
+                            minLatitude = new Latitude(coordinates.GetMinLatitude().sign, coordinates.GetMinLatitude().degrees -1, 00, 0000);
                         }
 
                     }
@@ -93,20 +93,20 @@ namespace SatellitePermanente.GUI.GrayMapUtility
                 {
                     try
                     {
-                        maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees +1, 00, 0000);
+                        maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees +1, 00, 0000);
                     }
                     catch (ArgumentException)
                     {
-                        maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees, 00, 0000);
+                        maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees, 00, 0000);
                     }
 
                     try
                     {
-                       minLatitude = new Latitude(coordinates.minLatitude.sign, coordinates.minLatitude.degrees - 1, 00, 0000);
+                       minLatitude = new Latitude(coordinates.GetMinLatitude().sign, coordinates.GetMinLatitude().degrees - 1, 00, 0000);
                     }
                     catch (ArgumentException)
                     {
-                        minLatitude = new Latitude(coordinates.minLatitude.sign, coordinates.minLatitude.degrees, 00, 0000);
+                        minLatitude = new Latitude(coordinates.GetMinLatitude().sign, coordinates.GetMinLatitude().degrees, 00, 0000);
                     }
                 }
             }
@@ -114,56 +114,56 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             {
                 try
                 {
-                    maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees +1, 00, 0000);
+                    maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees +1, 00, 0000);
                 }
                 catch(ArgumentException)
                 {
-                    maxLatitude = new Latitude(coordinates.maxLatitude.sign, coordinates.maxLatitude.degrees, 00, 0000);
+                    maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees, 00, 0000);
                 }
 
-                minLatitude = new Latitude(coordinates.minLatitude.sign, coordinates.minLatitude.degrees, 00, 0000); 
+                minLatitude = new Latitude(coordinates.GetMinLatitude().sign, coordinates.GetMinLatitude().degrees, 00, 0000); 
             }
 
 
             /*get the longitude extremes*/
-            if (coordinates.maxLongitude.sign.Equals(coordinates.minLongitude.sign))
+            if (coordinates.GetMaxLongitude().sign.Equals(coordinates.GetMinLongitude().sign))
             {
-                if (coordinates.maxLongitude.degrees == coordinates.minLongitude.degrees)
+                if (coordinates.GetMaxLongitude().degrees == coordinates.GetMinLongitude().degrees)
                 {
-                    if (coordinates.maxLongitude.prime == coordinates.minLongitude.prime)
+                    if (coordinates.GetMaxLongitude().prime == coordinates.GetMinLongitude().prime)
                     {
                         try
                         {
-                            maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees, coordinates.maxLongitude.prime + 1, 0000);
+                            maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees, coordinates.GetMaxLongitude().prime + 1, 0000);
                         }
                         catch (ArgumentException)
                         {
-                            maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees + 1, 00, 0000);
+                            maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees + 1, 00, 0000);
                             MessageBox.Show("Intercettato un errore");
                         }
 
-                        minLongitude = new Longitude(coordinates.minLongitude.sign, coordinates.minLongitude.degrees, coordinates.minLongitude.prime, 0000);
+                        minLongitude = new Longitude(coordinates.GetMinLongitude().sign, coordinates.GetMinLongitude().degrees, coordinates.GetMinLongitude().prime, 0000);
 
                     }
                     else
                     {
                         try
                         {
-                            maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees, coordinates.maxLongitude.prime + 1, 0000);
+                            maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees, coordinates.GetMaxLongitude().prime + 1, 0000);
                         }
                         catch (ArgumentException)
                         {
-                            maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees + 1, 00, 0000);
+                            maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees + 1, 00, 0000);
                         }
 
 
                         try
                         {
-                            minLongitude = new Longitude(coordinates.minLongitude.sign, coordinates.minLongitude.degrees, coordinates.minLongitude.prime - 1, 0000);
+                            minLongitude = new Longitude(coordinates.GetMinLongitude().sign, coordinates.GetMinLongitude().degrees, coordinates.GetMinLongitude().prime - 1, 0000);
                         }
                         catch (ArgumentException)
                         {
-                            minLongitude = new Longitude(coordinates.minLongitude.sign, coordinates.minLongitude.degrees - 1, 00, 0000);
+                            minLongitude = new Longitude(coordinates.GetMinLongitude().sign, coordinates.GetMinLongitude().degrees - 1, 00, 0000);
                         }
 
                     }
@@ -172,20 +172,20 @@ namespace SatellitePermanente.GUI.GrayMapUtility
                 {
                     try
                     {
-                        maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees + 1, 00, 0000);
+                        maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees + 1, 00, 0000);
                     }
                     catch (ArgumentException)
                     {
-                        maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees, 00, 0000);
+                        maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees, 00, 0000);
                     }
 
                     try
                     {
-                        minLongitude = new Longitude(coordinates.minLongitude.sign, coordinates.minLongitude.degrees - 1, 00, 0000);
+                        minLongitude = new Longitude(coordinates.GetMinLongitude().sign, coordinates.GetMinLongitude().degrees - 1, 00, 0000);
                     }
                     catch (ArgumentException)
                     {
-                        minLongitude = new Longitude(coordinates.minLongitude.sign, coordinates.minLongitude.degrees, 00, 0000);
+                        minLongitude = new Longitude(coordinates.GetMinLongitude().sign, coordinates.GetMinLongitude().degrees, 00, 0000);
                     }
                 }
             }
@@ -193,23 +193,23 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             {
                 try
                 {
-                    maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees + 1, 00, 0000);
+                    maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees + 1, 00, 0000);
                 }
                 catch (ArgumentException)
                 {
-                    maxLongitude = new Longitude(coordinates.maxLongitude.sign, coordinates.maxLongitude.degrees, 00, 0000);
+                    maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees, 00, 0000);
                 }
 
-                minLongitude = new Longitude(coordinates.minLongitude.sign, coordinates.minLongitude.degrees, 00, 0000);
+                minLongitude = new Longitude(coordinates.GetMinLongitude().sign, coordinates.GetMinLongitude().degrees, 00, 0000);
             }
 
 
             /*Time to inizialize the MaxCoordinates with the elaborated values*/
-            this.extremeCoordinates = new MaxCoordinates();
-            this.extremeCoordinates.maxLatitude = maxLatitude;
-            this.extremeCoordinates.minLatitude = minLatitude;
-            this.extremeCoordinates.maxLongitude = maxLongitude;
-            this.extremeCoordinates.minLongitude = minLongitude;
+            this.extremeCoordinates = new MaxCoordinatesImpl();
+            this.extremeCoordinates.SetMaxLatitude(maxLatitude); 
+            this.extremeCoordinates.SetMinLatitude(minLatitude);
+            this.extremeCoordinates.SetMaxLongitude(maxLongitude);
+            this.extremeCoordinates.SetMinLongitude(minLongitude);
 
         }
 
@@ -221,8 +221,8 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
             /*return the decimal coordinate in pixel coordinate -> using a drawing point*/
 
-            drawPoint.X = Convert.ToInt32((point.longitude.GetLongitude() - extremeCoordinates.minLongitude.GetLongitude()) * (this.X / this.DLon));
-            drawPoint.Y = Convert.ToInt32((point.latitude.GetLatitude() - extremeCoordinates.minLatitude.GetLatitude()) * (this.Y / this.DLat));
+            drawPoint.X = Convert.ToInt32((point.longitude.GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude()) * (this.X / this.DLon));
+            drawPoint.Y = Convert.ToInt32((point.latitude.GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude()) * (this.Y / this.DLat));
 
             return drawPoint;
         }
