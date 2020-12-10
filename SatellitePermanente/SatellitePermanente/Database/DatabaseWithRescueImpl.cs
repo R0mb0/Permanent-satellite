@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SatellitePermanente.Database;
+using SatellitePermanente.Observer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -83,6 +84,9 @@ namespace SatellitePermanente.LogicAndMath
 
                         database.GetPointList().Add(myPoint);
                     });
+
+                    /*Update the observer*/ //<--------------------------------------------
+                    DatabaseObserver.Update();
 
                     return true;
                 }

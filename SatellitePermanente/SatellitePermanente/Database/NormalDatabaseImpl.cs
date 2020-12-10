@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.CompilerServices;
 using SatellitePermanente.Database;
+using SatellitePermanente.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -154,6 +155,9 @@ namespace SatellitePermanente.LogicAndMath
 
             TryToAllocateNode(point); /*later the adding of the new point, try to create new nodes with the new point added*/
 
+            /*Update the observer*/ //<--------------------------------------------
+            DatabaseObserver.Update();
+
             return database.GetPointList().Contains(point);/*return the presence of the new point into the database*/
         }
 
@@ -203,16 +207,23 @@ namespace SatellitePermanente.LogicAndMath
                 return !database.GetPointList().Contains(point);
             }
 
+            /*Update the observer*/ //<--------------------------------------------
+            DatabaseObserver.Update();
+
             return false;
         }
 
         /*This method is usefull for delete a node from a index*/
         public override Boolean DeletePointFromIndex(int index)
         {
+
+            /*Update the observer*/ //<--------------------------------------------
+            DatabaseObserver.Update();
+
             return DelettePoint(database.GetPointList()[index]);
         }
 
-        /*implements abstract method*/
+        /*-------------------------------------------implements abstract method-------------------------------------------------------------------------/*/
         public override List<Point> GetPointList()
         {
             return database.GetPointList();

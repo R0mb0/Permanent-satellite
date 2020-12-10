@@ -2,6 +2,7 @@
 using SatellitePermanente.GUI;
 using SatellitePermanente.GUI.GrayMapUtility;
 using SatellitePermanente.LogicAndMath;
+using SatellitePermanente.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,8 +24,9 @@ namespace SatellitePermanente
                                     inserted , conversely the user must write all values of the point any time*/
         private DeletePoint deletePoint;
         private Debug debug;
-        private bool status = false; /*This is the status of the current database is it exsit or not*/ //<----- lo si può sostituire
+        //private bool status = false; /*This is the status of the current database is it exsit or not*/ //<----- lo si può sostituire
 
+        private static ObserverImpl status = new ObserverImpl();
               
         /*Builder*/
         public Home()
@@ -35,6 +37,11 @@ namespace SatellitePermanente
             /*Show the two image on screen*/
             this.pictureBoxNord.Image = Properties.Resources.Nord_scaled;
             this.pictureBoxPoints.Image = Properties.Resources.Points;
+
+
+            /*Add the status*/
+            DatabaseObserver.AddObserver(status);
+            DatabaseObserver.Update();
         }
 
         /*In this method is launched the "AddPoint gui", and is the part of code where the point created in AddPoint gui is added to database*/
@@ -50,9 +57,6 @@ namespace SatellitePermanente
             {
                 return;
             }
-
-            /*set the status that the database is inizialized*/
-            this.status = true;
 
             /*try to corretly add of the new point*/
             try
@@ -71,10 +75,10 @@ namespace SatellitePermanente
         /*This method launch the "DeletePoint" gui and eliminate the returned point*/
         private void DeletePoint_Click(object sender, EventArgs e)
         {
-            /*control if the database is initialized, because is ompossible remove something that not exist*/
-            if (!status)
+            /*control if the database is initialized, because is ompossible remove something that not exist*/ 
+            if (!status.status)
             {
-                MessageBox.Show("The database dosn`t exsist, you need to load it!");
+                MessageBox.Show("The database doesn`t exsist, you need to load it!");
                 return;
             }
             
@@ -131,7 +135,7 @@ namespace SatellitePermanente
             /*control if the database il correctly loaded*/
             if (DatabaseWithRescueImpl.GetIstance().LoadDatabase())
             {
-                this.status = true;
+                //this.status = true;
                 MessageBox.Show("Successfully loaded!");
 
                 /*refresh the graphics*/
@@ -146,15 +150,15 @@ namespace SatellitePermanente
         /*This is a method of debug; where is possible to look the state of the current database*/
         private void Debug_Click(object sender, EventArgs e)
         {
-            /*If doesn`t exsist a current database in memory, the user must be unable to acces the debug page*/
-            if (this.status)
+            /*If doesn`t exsist a current database in memory, the user must be unable to acces the debug page*/ 
+            if (status.status)
             {
                 debug = new Debug();
                 debug.ShowDialog();
             }
             else
             {
-                MessageBox.Show("The database dosn`t exsist, you need to load it!");
+                MessageBox.Show("The database doesn`t exsist, you need to load it!");
             }
         }
 
