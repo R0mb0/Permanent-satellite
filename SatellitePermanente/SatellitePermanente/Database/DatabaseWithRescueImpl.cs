@@ -12,7 +12,7 @@ namespace SatellitePermanente.LogicAndMath
     class DatabaseWithRescueImpl: DatabaseWithRescue
     {
         /*create a base database that will be serialized*/
-        private OriginDatabaseImpl tempDatabase;
+        private Rescue rescue;
         private static NormalDatabaseImpl database;
 
         /*private istance*/
@@ -21,7 +21,6 @@ namespace SatellitePermanente.LogicAndMath
         /*Builder*/
         private DatabaseWithRescueImpl(NormalDatabaseImpl d)
         {
-            this.tempDatabase = new OriginDatabaseImpl(new MaxCoordinatesImpl());/*create a new base database to salve into a file*/
             database = d;
         }
 
@@ -38,15 +37,11 @@ namespace SatellitePermanente.LogicAndMath
 
         public override Boolean SaveDatabase()
         {
-            /*set the database vcalues to salve*/
-            this.tempDatabase.SetPointList(database.GetPointList());
-            this.tempDatabase.SetNodeList(database.GetNodeList());
-            this.tempDatabase.SetMaxLatitude(database.GetMaxLatitude());
-            this.tempDatabase.SetMinLatitude(database.GetMinLatitude());
-            this.tempDatabase.SetMaxLongitude(database.GetMaxLongitude());
-            this.tempDatabase.SetMinLongitude(database.GetMinLongitude());
+            /*set the database values to salve*/
+           this.rescue = new Rescue(database.GetPointList(), database.GetNodeList(), database.GetMaxLatitude(), database.GetMinLatitude(), database.GetMaxLongitude(), database.GetMinLongitude());
 
-            String json = JsonConvert.SerializeObject(this.tempDatabase);/*serialize the satabase*/
+
+            String json = JsonConvert.SerializeObject(this.rescue);/*serialize the satabase*/
             System.IO.File.WriteAllText("Database.txt", json);/*writing od the serialized database*/
 
             return File.Exists("Database.txt");/*Return true if the file realy exist*/
@@ -57,11 +52,11 @@ namespace SatellitePermanente.LogicAndMath
             if (File.Exists("Database.txt"))
             {
                 String json = File.ReadAllText("Database.txt");/*read the file created*/
-                this.tempDatabase = JsonConvert.DeserializeObject<OriginDatabaseImpl>(json);/*deserialize the salved database*/
+                this.rescue = JsonConvert.DeserializeObject<Rescue>(json);/*deserialize the salved database*/
 
                 
 
-                if (this.tempDatabase.GetPointList().Count >0)/*if exist loaded values*/
+                if (this.rescue.pointList.Count >0)/*if exist loaded values*/
                 {
                     /*when the databse is loaded the state is not in first run*/
                     database.firstRun = false;
@@ -71,14 +66,14 @@ namespace SatellitePermanente.LogicAndMath
                     database.GetNodeList().Clear();
 
                     /*setting the value loaded into the effective database*/
-                    database.SetNodeList(this.tempDatabase.GetNodeList());
-                    database.SetMaxLatitude(this.tempDatabase.GetMaxLatitude());
-                    database.SetMinLatitude(this.tempDatabase.GetMinLatitude());
-                    database.SetMaxLongitude(this.tempDatabase.GetMaxLongitude());
-                    database.SetMinLongitude(this.tempDatabase.GetMinLongitude());
+                    database.SetNodeList(this.rescue.nodeList);
+                    database.SetMaxLatitude(this.rescue.maxLatitude);
+                    database.SetMinLatitude(this.rescue.minLatitude);
+                    database.SetMaxLongitude(this.rescue.maxLongitude);
+                    database.SetMinLongitude(this.rescue.minLongitude);
 
                     /*in this method is possible to use the list method : last()*/
-                    this.tempDatabase.GetPointList().ForEach(delegate (Point myPoint) 
+                    this.rescue.pointList.ForEach(delegate (Point myPoint) 
                     {
                         if (myPoint.meetingPoint)
                         {
@@ -88,8 +83,6 @@ namespace SatellitePermanente.LogicAndMath
 
                         database.GetPointList().Add(myPoint);
                     });
-
-                    
 
                     return true;
                 }
@@ -157,32 +150,32 @@ namespace SatellitePermanente.LogicAndMath
 
         public override void SetPointList(List<Point> pointList)
         {
-            throw new NotImplementedException();
+            database.SetPointList(pointList);
         }
 
         public override void SetNodeList(List<Node> nodeList)
         {
-            throw new NotImplementedException();
+            database.SetNodeList(nodeList);
         }
 
         public override void SetMinLatitude(Latitude minLatitude)
         {
-            throw new NotImplementedException();
+            database.SetMinLatitude(minLatitude);
         }
 
         public override void SetMaxLatitude(Latitude maxLatitude)
         {
-            throw new NotImplementedException();
+            database.SetMaxLatitude(maxLatitude);
         }
 
         public override void SetMinLongitude(Longitude minLongitude)
         {
-            throw new NotImplementedException();
+            database.SetMinLongitude(minLongitude);
         }
 
         public override void SetMaxLongitude(Longitude maxLongitude)
         {
-            throw new NotImplementedException();
+            database.SetMaxLongitude(maxLongitude);
         }
     }
 }
