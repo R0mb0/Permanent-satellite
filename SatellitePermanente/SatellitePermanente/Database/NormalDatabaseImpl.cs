@@ -14,7 +14,7 @@ namespace SatellitePermanente.LogicAndMath
     class NormalDatabaseImpl : NormalDatabase
     {
 
-        /*Private fileds*/
+        /*salve the status of the primary class*/
         private static OriginDatabaseImpl database;
 
         /*Private istance*/
@@ -207,7 +207,7 @@ namespace SatellitePermanente.LogicAndMath
                 return !database.GetPointList().Contains(point);
             }
 
-            /*Update the observer*/ //<--------------------------------------------
+            /*Update the observer status */ 
             DatabaseObserver.Update();
 
             return false;
@@ -217,13 +217,13 @@ namespace SatellitePermanente.LogicAndMath
         public override Boolean DeletePointFromIndex(int index)
         {
 
-            /*Update the observer*/ //<--------------------------------------------
+            /*Update the observer status */ 
             DatabaseObserver.Update();
 
             return DelettePoint(database.GetPointList()[index]);
         }
 
-        /*-------------------------------------------implements abstract method-------------------------------------------------------------------------/*/
+        /*-------------------------------------------implements abstract methods-------------------------------------------------------------------------/*/
         public override List<Point> GetPointList()
         {
             return database.GetPointList();

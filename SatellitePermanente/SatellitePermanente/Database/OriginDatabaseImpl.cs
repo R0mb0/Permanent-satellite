@@ -9,8 +9,7 @@ namespace SatellitePermanente.LogicAndMath
      * (there are other values that going to be salved, because in this way there aren`t much count to do)*/
     class OriginDatabaseImpl: OriginDatabase
     {        
-        
-        
+        /*Salve the status of the primary class, in way to adopt the decorator pattern*/
         private static MaxCoordinatesImpl database;
         
         /*Builder*/
@@ -23,7 +22,7 @@ namespace SatellitePermanente.LogicAndMath
         }
 
 
-        /*Implementation of the abstract method*/
+        /*-------------------------------------------Implementation of the abstract method----------------------------------------*/
         public override List<Point> GetPointList()
         {
             return this.pointList;

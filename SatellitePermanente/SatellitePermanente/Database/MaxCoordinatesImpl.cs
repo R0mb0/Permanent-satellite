@@ -7,7 +7,7 @@ namespace SatellitePermanente.Database
 {
     class MaxCoordinatesImpl : MaxCoordinates
     {
-        /*implements abstract methods*/
+        /*---------------------------------------------implements abstract methods---------------------------------------------*/
         public override Latitude GetMaxLatitude()
         {
             return this.maxLatitude;

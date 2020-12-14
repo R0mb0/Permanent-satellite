@@ -52,7 +52,7 @@
             this.ButtonRefresh.Location = new System.Drawing.Point(393, 130);
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(165, 106);
-            this.ButtonRefresh.TabIndex = 2;
+            this.ButtonRefresh.TabIndex = 3;
             this.ButtonRefresh.Text = "REFRESH";
             this.ButtonRefresh.UseVisualStyleBackColor = true;
             this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
@@ -87,7 +87,7 @@
             this.DataGridPoints.ReadOnly = true;
             this.DataGridPoints.RowHeadersWidth = 62;
             this.DataGridPoints.Size = new System.Drawing.Size(365, 657);
-            this.DataGridPoints.TabIndex = 3;
+            this.DataGridPoints.TabIndex = 1;
             this.DataGridPoints.Text = "dataGridView1";
             // 
             // DeletePoint

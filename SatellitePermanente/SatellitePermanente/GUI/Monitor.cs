@@ -22,11 +22,12 @@ namespace SatellitePermanente
         /*Fields*/
         private AddPoint addPoint; /*addPoint fieds, in this way the values wroted into the gui, in this way is possible to correct the values of the last point 
                                     inserted , conversely the user must write all values of the point any time*/
+        /*adding the gui*/
         private DeletePoint deletePoint;
         private Debug debug;
-        //private bool status = false; /*This is the status of the current database is it exsit or not*/ //<----- lo si può sostituire
 
-        private static ObserverImpl status = new ObserverImpl();
+        /*Create the observer of this class in way to have the database status without directly read it*/
+        private static ObserverImpl status;
               
         /*Builder*/
         public Home()
@@ -38,6 +39,8 @@ namespace SatellitePermanente
             this.pictureBoxNord.Image = Properties.Resources.Nord_scaled;
             this.pictureBoxPoints.Image = Properties.Resources.Points;
 
+            /*Inizialize sstatus*/
+            status = new ObserverImpl();
 
             /*Add the status*/
             DatabaseObserver.AddObserver(status);
@@ -162,7 +165,7 @@ namespace SatellitePermanente
             }
         }
 
-        /*----------------------------------------------------------GREYMAP INITIALIZE--------------------------------------------*/
+        /*----------------------------------------------------------GREYMAP INITIALIZE PLACE--------------------------------------------*/
         private void GreyMap_Paint(object sender, PaintEventArgs e)
         {
             /*Local Fields*/
@@ -248,7 +251,7 @@ namespace SatellitePermanente
             
         }
 
-        /*private metod for assing the value of the axes*/
+        /*private metod for assing the value of the axes, it is only used for initialize the gray map*/
         private void WriteAxesValue(ConvertToGraphic extremes)
         {
             /*find the distance from the axes*/

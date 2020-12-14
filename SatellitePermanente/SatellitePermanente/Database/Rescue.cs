@@ -7,6 +7,7 @@ namespace SatellitePermanente.Database
 {
     class Rescue
     {
+        /*this class is created to permitt the json method to salve and load correctly the dates, because using the decorator pattern it doesn`t work*/
         public List<Point> pointList { get; private set; }
         public List<Node> nodeList { get; private set; }
 

@@ -14,6 +14,8 @@ namespace SatellitePermanente.LogicAndMath
     {
         /*create a base database that will be serialized*/
         private Rescue rescue;
+
+        /*Salve the status of the primary class*/
         private static NormalDatabaseImpl database;
 
         /*private istance*/
@@ -85,7 +87,7 @@ namespace SatellitePermanente.LogicAndMath
                         database.GetPointList().Add(myPoint);
                     });
 
-                    /*Update the observer*/ //<--------------------------------------------
+                    /*Update the observer*/ 
                     DatabaseObserver.Update();
 
                     return true;
@@ -95,8 +97,7 @@ namespace SatellitePermanente.LogicAndMath
             return false;
         }
 
-        /*Implement the abstract methods*/
-
+        /*---------------------------------------------Implement the abstract methods-------------------------------------------------------------*/
         public override List<Node> GetLastNodeAdded()
         {
             return database.GetLastNodeAdded();

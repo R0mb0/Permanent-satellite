@@ -93,7 +93,7 @@ namespace SatellitePermanente
             this.DeletePoint.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DeletePoint.Name = "DeletePoint";
             this.DeletePoint.Size = new System.Drawing.Size(134, 31);
-            this.DeletePoint.TabIndex = 3;
+            this.DeletePoint.TabIndex = 2;
             this.DeletePoint.Text = "DELETE POINT";
             this.DeletePoint.UseVisualStyleBackColor = true;
             this.DeletePoint.Click += new System.EventHandler(this.DeletePoint_Click);
@@ -105,7 +105,7 @@ namespace SatellitePermanente
             this.Save.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(134, 31);
-            this.Save.TabIndex = 4;
+            this.Save.TabIndex = 3;
             this.Save.Text = "SAVE";
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
@@ -117,7 +117,7 @@ namespace SatellitePermanente
             this.Load.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Load.Name = "Load";
             this.Load.Size = new System.Drawing.Size(134, 31);
-            this.Load.TabIndex = 5;
+            this.Load.TabIndex = 4;
             this.Load.Text = "LOAD";
             this.Load.UseVisualStyleBackColor = true;
             this.Load.Click += new System.EventHandler(this.Load_Click);
@@ -127,7 +127,7 @@ namespace SatellitePermanente
             this.Debug.Location = new System.Drawing.Point(14, 227);
             this.Debug.Name = "Debug";
             this.Debug.Size = new System.Drawing.Size(134, 34);
-            this.Debug.TabIndex = 6;
+            this.Debug.TabIndex = 5;
             this.Debug.Text = "TABLE";
             this.Debug.UseVisualStyleBackColor = true;
             this.Debug.Click += new System.EventHandler(this.Debug_Click);

@@ -92,7 +92,7 @@
             this.LatitudeSignText.Location = new System.Drawing.Point(73, 48);
             this.LatitudeSignText.Name = "LatitudeSignText";
             this.LatitudeSignText.Size = new System.Drawing.Size(76, 30);
-            this.LatitudeSignText.TabIndex = 2;
+            this.LatitudeSignText.TabIndex = 1;
             // 
             // LatitudeDegree
             // 
@@ -108,7 +108,7 @@
             this.LatitudeDegreeText.Location = new System.Drawing.Point(269, 48);
             this.LatitudeDegreeText.Name = "LatitudeDegreeText";
             this.LatitudeDegreeText.Size = new System.Drawing.Size(73, 30);
-            this.LatitudeDegreeText.TabIndex = 4;
+            this.LatitudeDegreeText.TabIndex = 2;
             // 
             // LatitudePrime
             // 
@@ -124,7 +124,7 @@
             this.LatitudePrimeText.Location = new System.Drawing.Point(459, 48);
             this.LatitudePrimeText.Name = "LatitudePrimeText";
             this.LatitudePrimeText.Size = new System.Drawing.Size(76, 30);
-            this.LatitudePrimeText.TabIndex = 6;
+            this.LatitudePrimeText.TabIndex = 3;
             // 
             // LatitudeLatter
             // 
@@ -140,7 +140,7 @@
             this.LatitudeLatterText.Location = new System.Drawing.Point(664, 48);
             this.LatitudeLatterText.Name = "LatitudeLatterText";
             this.LatitudeLatterText.Size = new System.Drawing.Size(150, 30);
-            this.LatitudeLatterText.TabIndex = 8;
+            this.LatitudeLatterText.TabIndex = 4;
             // 
             // LongitudeLatterText
             // 
@@ -163,7 +163,7 @@
             this.LongitudePrimeText.Location = new System.Drawing.Point(459, 150);
             this.LongitudePrimeText.Name = "LongitudePrimeText";
             this.LongitudePrimeText.Size = new System.Drawing.Size(76, 30);
-            this.LongitudePrimeText.TabIndex = 6;
+            this.LongitudePrimeText.TabIndex = 7;
             // 
             // LongitudePrime
             // 
@@ -179,7 +179,7 @@
             this.LongitudeDegreeText.Location = new System.Drawing.Point(269, 150);
             this.LongitudeDegreeText.Name = "LongitudeDegreeText";
             this.LongitudeDegreeText.Size = new System.Drawing.Size(73, 30);
-            this.LongitudeDegreeText.TabIndex = 4;
+            this.LongitudeDegreeText.TabIndex = 6;
             // 
             // LongitudeDegree
             // 
@@ -195,7 +195,7 @@
             this.LongitudeSignText.Location = new System.Drawing.Point(73, 150);
             this.LongitudeSignText.Name = "LongitudeSignText";
             this.LongitudeSignText.Size = new System.Drawing.Size(76, 30);
-            this.LongitudeSignText.TabIndex = 2;
+            this.LongitudeSignText.TabIndex = 5;
             // 
             // LongitudeSign
             // 
@@ -221,14 +221,14 @@
             this.DateAndTimeHourText.Location = new System.Drawing.Point(664, 250);
             this.DateAndTimeHourText.Name = "DateAndTimeHourText";
             this.DateAndTimeHourText.Size = new System.Drawing.Size(69, 30);
-            this.DateAndTimeHourText.TabIndex = 8;
+            this.DateAndTimeHourText.TabIndex = 12;
             // 
             // DateAndTimeDayText
             // 
             this.DateAndTimeDayText.Location = new System.Drawing.Point(459, 250);
             this.DateAndTimeDayText.Name = "DateAndTimeDayText";
             this.DateAndTimeDayText.Size = new System.Drawing.Size(76, 30);
-            this.DateAndTimeDayText.TabIndex = 6;
+            this.DateAndTimeDayText.TabIndex = 11;
             // 
             // DateAndTimeDay
             // 
@@ -244,7 +244,7 @@
             this.DateAndTimeMonthText.Location = new System.Drawing.Point(269, 250);
             this.DateAndTimeMonthText.Name = "DateAndTimeMonthText";
             this.DateAndTimeMonthText.Size = new System.Drawing.Size(73, 30);
-            this.DateAndTimeMonthText.TabIndex = 4;
+            this.DateAndTimeMonthText.TabIndex = 10;
             // 
             // DateAndTimeMonth
             // 
@@ -260,7 +260,7 @@
             this.DateAndTimeYearText.Location = new System.Drawing.Point(73, 250);
             this.DateAndTimeYearText.Name = "DateAndTimeYearText";
             this.DateAndTimeYearText.Size = new System.Drawing.Size(76, 30);
-            this.DateAndTimeYearText.TabIndex = 2;
+            this.DateAndTimeYearText.TabIndex = 9;
             // 
             // DateAndTimeYear
             // 
@@ -286,7 +286,7 @@
             this.DateAndTimeMinutesText.Location = new System.Drawing.Point(858, 250);
             this.DateAndTimeMinutesText.Name = "DateAndTimeMinutesText";
             this.DateAndTimeMinutesText.Size = new System.Drawing.Size(69, 30);
-            this.DateAndTimeMinutesText.TabIndex = 8;
+            this.DateAndTimeMinutesText.TabIndex = 13;
             // 
             // DateAndTimeMinutes
             // 
@@ -304,7 +304,7 @@
             this.Angle.Location = new System.Drawing.Point(13, 325);
             this.Angle.Name = "Angle";
             this.Angle.Size = new System.Drawing.Size(97, 27);
-            this.Angle.TabIndex = 9;
+            this.Angle.TabIndex = 14;
             this.Angle.Text = "ANGLE:";
             this.Angle.UseVisualStyleBackColor = true;
             // 
@@ -313,7 +313,7 @@
             this.AngleText.Location = new System.Drawing.Point(116, 322);
             this.AngleText.Name = "AngleText";
             this.AngleText.Size = new System.Drawing.Size(69, 30);
-            this.AngleText.TabIndex = 8;
+            this.AngleText.TabIndex = 15;
             // 
             // Altitude
             // 
@@ -322,7 +322,7 @@
             this.Altitude.Location = new System.Drawing.Point(224, 325);
             this.Altitude.Name = "Altitude";
             this.Altitude.Size = new System.Drawing.Size(116, 27);
-            this.Altitude.TabIndex = 9;
+            this.Altitude.TabIndex = 16;
             this.Altitude.Text = "ALTIUDE:";
             this.Altitude.UseVisualStyleBackColor = true;
             // 
@@ -331,7 +331,7 @@
             this.AltitudeText.Location = new System.Drawing.Point(346, 323);
             this.AltitudeText.Name = "AltitudeText";
             this.AltitudeText.Size = new System.Drawing.Size(69, 30);
-            this.AltitudeText.TabIndex = 8;
+            this.AltitudeText.TabIndex = 17;
             // 
             // MeetingPoint
             // 
@@ -340,7 +340,7 @@
             this.MeetingPoint.Location = new System.Drawing.Point(459, 325);
             this.MeetingPoint.Name = "MeetingPoint";
             this.MeetingPoint.Size = new System.Drawing.Size(170, 27);
-            this.MeetingPoint.TabIndex = 9;
+            this.MeetingPoint.TabIndex = 18;
             this.MeetingPoint.Text = "MEETING POINT";
             this.MeetingPoint.UseVisualStyleBackColor = true;
             // 
@@ -349,7 +349,7 @@
             this.ButtonAddPoint.Location = new System.Drawing.Point(846, 55);
             this.ButtonAddPoint.Name = "ButtonAddPoint";
             this.ButtonAddPoint.Size = new System.Drawing.Size(111, 102);
-            this.ButtonAddPoint.TabIndex = 10;
+            this.ButtonAddPoint.TabIndex = 21;
             this.ButtonAddPoint.Text = "ADD POINT";
             this.ButtonAddPoint.UseVisualStyleBackColor = true;
             this.ButtonAddPoint.Click += new System.EventHandler(this.ButtonAddPoint_Click);
@@ -370,7 +370,7 @@
             this.Names.Location = new System.Drawing.Point(651, 325);
             this.Names.Name = "Names";
             this.Names.Size = new System.Drawing.Size(90, 27);
-            this.Names.TabIndex = 9;
+            this.Names.TabIndex = 19;
             this.Names.Text = "NAME:";
             this.Names.UseVisualStyleBackColor = true;
             // 
@@ -379,7 +379,7 @@
             this.NameText.Location = new System.Drawing.Point(747, 323);
             this.NameText.Name = "NameText";
             this.NameText.Size = new System.Drawing.Size(113, 30);
-            this.NameText.TabIndex = 8;
+            this.NameText.TabIndex = 20;
             // 
             // AddPoint
             // 
