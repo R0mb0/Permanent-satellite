@@ -14,13 +14,7 @@ public static bool EqualsPoints(Point pointA, Point pointB)
             return false;
         }
 
-        /*
-        if (pointA.longitude.GetLongitude() != pointB.longitude.GetLongitude())
-        {
-            return false;
-        }
-        */
-
+        
         if (!pointA.dateTime.Equals(pointB.dateTime))
         {
             return false;

@@ -63,9 +63,9 @@
             // 
             // ButtonRefresh
             // 
-            this.ButtonRefresh.Location = new System.Drawing.Point(896, 12);
+            this.ButtonRefresh.Location = new System.Drawing.Point(895, 13);
             this.ButtonRefresh.Name = "ButtonRefresh";
-            this.ButtonRefresh.Size = new System.Drawing.Size(147, 124);
+            this.ButtonRefresh.Size = new System.Drawing.Size(135, 135);
             this.ButtonRefresh.TabIndex = 2;
             this.ButtonRefresh.Text = "REFRESH";
             this.ButtonRefresh.UseVisualStyleBackColor = true;
@@ -180,11 +180,11 @@
             this.TimeDifference,
             this.Speed,
             this.AltitudeDifference});
-            this.DataGridNodes.Location = new System.Drawing.Point(19, 389);
+            this.DataGridNodes.Location = new System.Drawing.Point(17, 423);
             this.DataGridNodes.Name = "DataGridNodes";
             this.DataGridNodes.ReadOnly = true;
             this.DataGridNodes.RowHeadersWidth = 62;
-            this.DataGridNodes.Size = new System.Drawing.Size(1571, 225);
+            this.DataGridNodes.Size = new System.Drawing.Size(1576, 245);
             this.DataGridNodes.TabIndex = 1;
             this.DataGridNodes.Text = "dataGridView1";
             // 
@@ -275,11 +275,11 @@
             this.Angle,
             this.Altitude,
             this.MeetingPoint});
-            this.DataGridPoints.Location = new System.Drawing.Point(19, 158);
+            this.DataGridPoints.Location = new System.Drawing.Point(17, 172);
             this.DataGridPoints.Name = "DataGridPoints";
             this.DataGridPoints.ReadOnly = true;
             this.DataGridPoints.RowHeadersWidth = 62;
-            this.DataGridPoints.Size = new System.Drawing.Size(1267, 225);
+            this.DataGridPoints.Size = new System.Drawing.Size(1270, 245);
             this.DataGridPoints.TabIndex = 0;
             this.DataGridPoints.Text = "dataGridView1";
             // 
@@ -338,25 +338,25 @@
             this.minLatitude,
             this.maxLongitude,
             this.minLongitude});
-            this.DataGridCoordinates.Location = new System.Drawing.Point(19, 12);
+            this.DataGridCoordinates.Location = new System.Drawing.Point(17, 13);
             this.DataGridCoordinates.Name = "DataGridCoordinates";
             this.DataGridCoordinates.ReadOnly = true;
             this.DataGridCoordinates.RowHeadersWidth = 62;
-            this.DataGridCoordinates.Size = new System.Drawing.Size(818, 140);
+            this.DataGridCoordinates.Size = new System.Drawing.Size(823, 152);
             this.DataGridCoordinates.TabIndex = 3;
             this.DataGridCoordinates.Text = "dataGridView1";
             // 
             // Debug
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1599, 625);
+            this.ClientSize = new System.Drawing.Size(1619, 679);
             this.Controls.Add(this.DataGridCoordinates);
             this.Controls.Add(this.ButtonRefresh);
             this.Controls.Add(this.DataGridNodes);
             this.Controls.Add(this.DataGridPoints);
-            this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Debug";

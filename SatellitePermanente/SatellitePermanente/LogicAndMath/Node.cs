@@ -8,8 +8,8 @@ namespace SatellitePermanente.LogicAndMath
      class Node
     {
         /*Fields*/
-        public Point pointA { get; }
-        public Point pointB { get; }
+        public Point pointA { get; private set; }
+        public Point pointB { get; private set; }
 
         public Node(Point pointA, Point pointB)
         {

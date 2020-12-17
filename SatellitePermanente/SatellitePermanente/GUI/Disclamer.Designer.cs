@@ -36,19 +36,19 @@
             // DisclamerText
             // 
             this.DisclamerText.AutoSize = true;
-            this.DisclamerText.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DisclamerText.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.DisclamerText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.DisclamerText.Location = new System.Drawing.Point(12, 50);
+            this.DisclamerText.Location = new System.Drawing.Point(11, 54);
             this.DisclamerText.Name = "DisclamerText";
-            this.DisclamerText.Size = new System.Drawing.Size(418, 30);
+            this.DisclamerText.Size = new System.Drawing.Size(532, 35);
             this.DisclamerText.TabIndex = 0;
-            this.DisclamerText.Text = "DO YOU WANT DELETE THIS POINT?";
+            this.DisclamerText.Text = "DO YOU WANT TO DELETE THIS POINT?";
             // 
             // ButtonYes
             // 
-            this.ButtonYes.Location = new System.Drawing.Point(145, 84);
+            this.ButtonYes.Location = new System.Drawing.Point(210, 92);
             this.ButtonYes.Name = "ButtonYes";
-            this.ButtonYes.Size = new System.Drawing.Size(136, 57);
+            this.ButtonYes.Size = new System.Drawing.Size(125, 62);
             this.ButtonYes.TabIndex = 1;
             this.ButtonYes.Text = "YES";
             this.ButtonYes.UseVisualStyleBackColor = true;
@@ -56,13 +56,13 @@
             // 
             // Disclamer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(430, 153);
+            this.ClientSize = new System.Drawing.Size(551, 166);
             this.Controls.Add(this.ButtonYes);
             this.Controls.Add(this.DisclamerText);
-            this.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Disclamer";

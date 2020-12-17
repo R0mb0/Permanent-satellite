@@ -11,13 +11,13 @@ namespace SatellitePermanente
     public class Origin
     {
         /*Fields*/
-        public String sign { get; } /*Sign = 'N' 'E' 'S' 'O'*/
+        public String sign { get; private set; } /*Sign = 'N' 'E' 'S' 'O'*/
 
-        public int degrees { get; }
+        public int degrees { get; private set; }
 
-        public int prime { get; }
+        public int prime { get; private set; }
 
-        public decimal latter { get; }
+        public decimal latter { get; private set; }
 
         /*Builder*/
         public Origin(String sign, int degrees, int prime, decimal latter)
