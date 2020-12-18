@@ -48,7 +48,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             /*definiction of the filter*/
 
             /*get the latitude extremes*/
-            if (coordinates.GetMaxLatitude().sign.Equals(coordinates.GetMinLatitude().sign))
+            if (coordinates.GetMaxLatitude().sign.ToLower().Equals(coordinates.GetMinLatitude().sign.ToLower()))
             {
                 if(coordinates.GetMaxLatitude().degrees == coordinates.GetMinLatitude().degrees)
                 {
@@ -126,7 +126,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
 
             /*get the longitude extremes*/
-            if (coordinates.GetMaxLongitude().sign.Equals(coordinates.GetMinLongitude().sign))
+            if (coordinates.GetMaxLongitude().sign.ToLower().Equals(coordinates.GetMinLongitude().sign.ToLower()))
             {
                 if (coordinates.GetMaxLongitude().degrees == coordinates.GetMinLongitude().degrees)
                 {
@@ -139,7 +139,6 @@ namespace SatellitePermanente.GUI.GrayMapUtility
                         catch (ArgumentException)
                         {
                             maxLongitude = new Longitude(coordinates.GetMaxLongitude().sign, coordinates.GetMaxLongitude().degrees + 1, 00, 0000);
-                            MessageBox.Show("Intercettato un errore");
                         }
 
                         minLongitude = new Longitude(coordinates.GetMinLongitude().sign, coordinates.GetMinLongitude().degrees, coordinates.GetMinLongitude().prime, 0000);
