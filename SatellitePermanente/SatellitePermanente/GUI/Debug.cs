@@ -12,7 +12,7 @@ namespace SatellitePermanente.GUI
     public partial class Debug : Form
     {
         /*This method wrote the two DataGrid of this form, with the database values passed with a bdridge class*/
-        private void write()
+        private void Write()
         {
             /*add to DataGrid all the database points with each propetrties*/
             DatabaseWithRescueImpl.GetIstance().GetPointList().ForEach(delegate (LogicAndMath.Point myPoint)
@@ -43,8 +43,8 @@ namespace SatellitePermanente.GUI
             DatabaseWithRescueImpl.GetIstance().GetMaxLongitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLongitude().GetString()});
             
             /*Add to DataGrid the calculated Extremes*/
-            DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",GrayMapValues.coordinates.GetMaxLatitude().GetString(), GrayMapValues.coordinates.GetMinLatitude().GetString(),
-            GrayMapValues.coordinates.GetMaxLongitude().GetString(), GrayMapValues.coordinates.GetMinLongitude().GetString()});
+            DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",FormBridge.coordinates.GetMaxLatitude().GetString(), FormBridge.coordinates.GetMinLatitude().GetString(),
+            FormBridge.coordinates.GetMaxLongitude().GetString(), FormBridge.coordinates.GetMinLongitude().GetString()});
 
         }
 
@@ -52,7 +52,7 @@ namespace SatellitePermanente.GUI
         public Debug()
         {
             InitializeComponent();
-            write();
+            Write();
         }
 
         /*This button is usefull for refresh the Data Grids in way to cerrect some vision errors, when it happened*/
@@ -64,7 +64,7 @@ namespace SatellitePermanente.GUI
             DataGridCoordinates.Rows.Clear();
 
             /*Rewrite the dataGrid*/
-            write();
+            Write();
         }
     }
 }

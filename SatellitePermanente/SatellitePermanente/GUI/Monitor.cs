@@ -43,7 +43,11 @@ namespace SatellitePermanente
             status = new ObserverImpl();
 
             /*Add the status*/
-            DatabaseObserver.AddObserver(status);
+            if (!DatabaseObserver.AddObserver(status))
+            {
+                MessageBox.Show("Status Error");
+                return;
+            }
             DatabaseObserver.Update();
         }
 
@@ -199,7 +203,7 @@ namespace SatellitePermanente
             ConvertToGraphic graphic = new ConvertToGraphic(456, 942, maxCoordinates);
 
             /*pass the extreme values to the database Form*/
-            GrayMapValues.coordinates = graphic.extremeCoordinates;
+            FormBridge.coordinates = graphic.extremeCoordinates;
 
             /*call to method that write the axes values on the monitor*/
             WriteAxesValue(graphic);

@@ -31,7 +31,7 @@ namespace SatellitePermanente.Database
         /*Operation method*/
         public abstract Boolean AddPoint(Point point);
 
-        public abstract Boolean DelettePoint(Point point);
+        public abstract Boolean DeletePoint(Point point);
 
         public abstract Boolean DeletePointFromIndex(int index);
 

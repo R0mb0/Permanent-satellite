@@ -14,7 +14,7 @@ namespace SatellitePermanente.GUI
         Disclamer disclamer;
 
         /*this method is usefull for write the DataGrid of this page*/
-        private void write()
+        private void Write()
         {
             DatabaseWithRescueImpl.GetIstance().GetPointList().ForEach(delegate (LogicAndMath.Point myPoint)
             {
@@ -27,18 +27,18 @@ namespace SatellitePermanente.GUI
         {
             InitializeComponent();
             disclamer = new Disclamer();
-            write();
+            Write();
         }
 
         /*This method serves to refresh the DataGrid, in case of some values is broked (in sense of: the value is difficult to read)*/
         private void ButtonRefresh_Click(object sender, EventArgs e)
         {
             DataGridPoints.Rows.Clear();
-            write();
+            Write();
         }
 
         /*This method return the index number of the point that the user want to eliminate*/
-        private void ButtonDelette_Click(object sender, EventArgs e)
+        private void ButtonDelete_Click(object sender, EventArgs e)
         {
             FormBridge.retunrBoolean = false;
             

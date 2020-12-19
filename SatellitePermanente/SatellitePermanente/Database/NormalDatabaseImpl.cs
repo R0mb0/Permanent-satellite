@@ -163,7 +163,7 @@ namespace SatellitePermanente.LogicAndMath
 
         /*This method is usefull to rmove a point form the list (Consequently the corrispettive nodes) and  
          * return true if the Point is disallocated, otherwise return false*/
-        public override Boolean DelettePoint(Point point)
+        public override Boolean DeletePoint(Point point)
         {
             if (!database.GetPointList().Contains(point))/*fisrt control; is if the point to delete exist*/
             {
@@ -220,7 +220,7 @@ namespace SatellitePermanente.LogicAndMath
             /*Update the observer status */ 
             DatabaseObserver.Update();
 
-            return DelettePoint(database.GetPointList()[index]);
+            return DeletePoint(database.GetPointList()[index]);
         }
 
         /*-------------------------------------------implements abstract methods-------------------------------------------------------------------------/*/

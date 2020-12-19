@@ -113,9 +113,9 @@ namespace SatellitePermanente.LogicAndMath
             return database.AddPoint(point);
         }
 
-        public override bool DelettePoint(Point point)
+        public override bool DeletePoint(Point point)
         {
-            return database.DelettePoint(point);
+            return database.DeletePoint(point);
         }
 
         public override bool DeletePointFromIndex(int index)

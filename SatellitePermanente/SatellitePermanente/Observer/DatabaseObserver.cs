@@ -14,7 +14,7 @@ namespace SatellitePermanente.Observer
         private static List<Observer> observerList = new List<Observer>();
 
         /*method to read the state of the database*/
-        private static bool ReadStatusOfDatabase()
+        private static bool ReadDatabaseStatus()
         {
             if (NormalDatabaseImpl.GetIstance().GetPointList() != null && NormalDatabaseImpl.GetIstance().GetPointList().Count > 0)
             {
@@ -25,22 +25,26 @@ namespace SatellitePermanente.Observer
         }
 
         /*method to add an observer*/
-        public static void AddObserver(Observer observer)
+        public static bool AddObserver(Observer observer)
         {
-            observer.SetStatus(ReadStatusOfDatabase());
+            observer.SetStatus(ReadDatabaseStatus());
             observerList.Add(observer);
+
+            return observerList.Contains(observer);
         }
 
         /*method to delette an observer*/
-        public static void DeletteObserver(Observer observer)
+        public static bool DeleteObserver(Observer observer)
         {
             observerList.Remove(observer);
+
+            return !observerList.Contains(observer);
         }
 
         /*method for update all observer state*/
         public static void Update()
         {
-            status = ReadStatusOfDatabase();
+            status = ReadDatabaseStatus();
 
             observerList.ForEach(delegate(Observer observer) 
             {

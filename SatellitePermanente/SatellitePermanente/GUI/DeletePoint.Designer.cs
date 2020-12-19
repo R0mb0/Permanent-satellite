@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeletePoint));
-            this.ButtonDelette = new System.Windows.Forms.Button();
+            this.ButtonDelete = new System.Windows.Forms.Button();
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,15 +37,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridPoints)).BeginInit();
             this.SuspendLayout();
             // 
-            // ButtonDelette
+            // ButtonDelete
             // 
-            this.ButtonDelette.Location = new System.Drawing.Point(360, 320);
-            this.ButtonDelette.Name = "ButtonDelette";
-            this.ButtonDelette.Size = new System.Drawing.Size(151, 115);
-            this.ButtonDelette.TabIndex = 2;
-            this.ButtonDelette.Text = "DELETE";
-            this.ButtonDelette.UseVisualStyleBackColor = true;
-            this.ButtonDelette.Click += new System.EventHandler(this.ButtonDelette_Click);
+            this.ButtonDelete.Location = new System.Drawing.Point(360, 320);
+            this.ButtonDelete.Name = "ButtonDelete";
+            this.ButtonDelete.Size = new System.Drawing.Size(151, 115);
+            this.ButtonDelete.TabIndex = 2;
+            this.ButtonDelete.Text = "DELETE";
+            this.ButtonDelete.UseVisualStyleBackColor = true;
+            this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
             // ButtonRefresh
             // 
@@ -98,7 +98,7 @@
             this.ClientSize = new System.Drawing.Size(522, 740);
             this.Controls.Add(this.DataGridPoints);
             this.Controls.Add(this.ButtonRefresh);
-            this.Controls.Add(this.ButtonDelette);
+            this.Controls.Add(this.ButtonDelete);
             this.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -111,7 +111,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button ButtonDelette;
+        private System.Windows.Forms.Button ButtonDelete;
         private System.Windows.Forms.Button ButtonRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Points;
         private System.Windows.Forms.DataGridView DataGridPoints;
