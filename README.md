@@ -8,7 +8,7 @@ Surname:          Romaldoni<br>
 Roll List:        #306249<br>
 Project Title:    Relative system of orientation to permanent satellite.<br>
 
-### Project Specifications
+### Project Specifications:
 
 The project objective is to realize a program that semplify the normal procedures of the tecnique of relive orientation to permanent satellite.
 This programm will be able to register the surveys into a database, auomatically create the nodes from each survey, calculate the properties of each nodes, 
