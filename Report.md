@@ -50,6 +50,8 @@ The gray map is created using Windows form.
 
 ## Architectural choices
 
+##### Logic And Math classes
+
 The objective durig the "LogicAndMath" class production is to create classes that must be riutilizabilies in other ccontest, in way to do this the Latitude and Longitude class extended the 
 origin class.<br>
 The Origin class has the task to register the fondamental parto of a satellite coordinate, this fondamental part is specialized into the Latitude and Longitude class,
@@ -57,9 +59,16 @@ in way to no register not compatibilies coordinates.<br>
 The Point use the Latitude and Longitude types in way to register a correct posiction, the point is like a detection, for this reason in register the time, the directon,
 and the altitude.<br>
 The Node use two point in way to calculate the properties about the two detection; the properties are calcolated using a external class, it`s task is to implement 
-all request formula.
-In this way every class solve one problem, this fact permit to riulizzable the classes.
+all request formula.<br>
+In this way every class solve one problem, this fact permit to riulizzable the classes.<br>
 ![LogicAndMath UML:](https://github.com/RomboUrbex/SatellitePermanente/blob/Report/SatellitePermanente/SatellitePermanente/Report/UML/LogicAndMath_UML.jpg)
+
+##### Database Classes
+The Database use the Singleton Pattern (because must exist alwais a database for contain the dates), the Decorator Pattern (because in the program exist more database version depending on the functiones) and the decorator (in way to notify the status if the current database in the other part of the program).<br>
+The database has been created in a modular mode, in way to use alwais the request function, for example: using always the database origin structures in way to serialize the most important dates.<br>
+The origin of the database is the both of the MaxCoordinate class (that contain the Latitude/Longitude extremes) and the Origin database class (that contain the 
+Point list and the node list), in this way is possible to get the most important dates to serialize.<br>
+The second part of the database is named "Normal Database" because this is the official database that make the operation for add point (and create the corresponding nodes)
 
 
 
