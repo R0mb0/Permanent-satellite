@@ -61,13 +61,26 @@ and the altitude.<br>
 The Node use two point in way to calculate the properties about the two detection; the properties are calcolated using a external class, it`s task is to implement 
 the GPS formulas.<br>
 In this way every class solve one problem in way to be riulizzable in other contest.<br>
+
 ![LogicAndMath UML:](https://github.com/RomboUrbex/SatellitePermanente/blob/Report/SatellitePermanente/SatellitePermanente/Report/UML/LogicAndMath_UML.jpg)
 
 ##### Database Classes
 The Database implement the Singleton Pattern (because must exist only one database for contain the dates), the Decorator Pattern (because in the program existing more database version that depending to the functiones) and the decorator (in way to notify the status of the current database in the other part of the program).<br>
 The database has been generated in a modular mode, in way to use only the request function, for example: use only the origin database structures in way to serialize the most important dates.<br>
 The origin of the database extend the MaxCoordinate class (that contain the Latitude/Longitude extremes) and contain the Point list and the Node list, in this way is possible to get the most important dates to serialize.<br>
-The second part of the database is named "Normal Database" because this is the official database that make the operation for add point (and create the corresponding nodes), it work tracking four states of insertion: 1: when the first added point is a normal point, 2: when the first added point is a meeting point, 3: when the meeting point is added after a list of normal point, 4: when is added a normal point after a meeting point 
+The second part of the database is named "Normal Database" because this is the official database that make the operation for add point (and create the corresponding nodes), it work tracking four states of insertion: 1: when the first added point is a normal point, 2: when the first added point is a meeting point, 3: when the meeting point is added after a list of normal point, 4: when is added a normal point after a meeting point.<br>
+The normal database is used from the database with rescue for adding the loading and the saving of the current database; the current state of the database is copied into the rescue class, this class wille be used for serialize and deserialize the database status using the Json strategy.<br>
+
+![Database UML:](https://github.com/RomboUrbex/SatellitePermanente/blob/Report/SatellitePermanente/SatellitePermanente/Report/UML/Database_UML.jpg)<br>
+
+The Observer Pattern has been implemented using other classes, The "DatabseObserver" class implementing  the subject (observing the current database istance) of the pattern with the possibility to register, remove and updet the observer that are defined through the observer interface; the last class implement the observer interface.<br>
+
+![Observer UML:](https://github.com/RomboUrbex/SatellitePermanente/blob/Report/SatellitePermanente/SatellitePermanente/Report/UML/Observer_UML.jpg)<br>
 
 
+##### Gui Classes
+The Gui is formated by a main Form (Named Monitor) that launch the other Form in way to do the program action.<br>
+The monitor recieve the information by other class in way to complete the action, in fact only the monitor can interact with the database; the other classes passing the information to the monitor unsing a "bridge class" that permit the comication over the forms.<br>
+
+![GUIL:](https://github.com/RomboUrbex/SatellitePermanente/blob/Report/SatellitePermanente/SatellitePermanente/Report/UML/GUI_UML.jpg)<br>
 
