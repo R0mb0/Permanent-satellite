@@ -86,10 +86,16 @@ The monitor recieve the information by other class in way to complete the action
 
 ## Usage documentation
 When the programm is launched the first screen that appear is the main screen where is present the gray map and the buttons for the acction.<br>
-The Button "Add Point" permitt to make a detection, into the "add point" screeen the balck fields are obligatory, the yellow fileds are optional, in case of wrong 
+- The Button "Add Point" permitt to make a detection, into the "add point" screeen the balck fields are obligatory, the yellow fileds are optional, in case of wrong 
 entry going to appear a screen error (with the description of the error).<br>
-The Button "Delete Point" show a table that contain all the inserted detection, choosing the name or the number of the detection and clicking on the delete button is possible delete a dtection.<br>
+- The Button "Delete Point" show a table that contain all the inserted detection, choosing the name or the number of the detection and clicking on the delete button is possible delete a dtection.<br>
 If into the database there aren`t detection the user is unbale to open the delete point screen.<br>
-The Save Button permitt to salve the current status of the programm. (In case of none detection programm will save a blank file)<br>
-The Load Button loading the last database istance. (afther the loading of the istance is possible to add or delette the detections, then salving other istance of the database).<br>
-The Table button show the tables with the advance dates that not appear into the gray map.<br>
+- The Save Button permitt to salve the current status of the programm. (In case of none detection programm will save a blank file)<br>
+- The Load Button loading the last database istance. (afther the loading of the istance is possible to add or delette the detections, then salving other istance of the database).<br>
+- The Table button show the tables with the advance dates that not appear into the gray map.<br>
+
+## Use Cases
+Since the program is implemented for a specific problem the use diagram could be too simple, for this reason will be used a discursive version to illustrate the use case.<br>
+____
+This program was created to solve the problem of orientation in the nto mapped placed, in fact the program not permitt other type of uses.<br>
+The user should does a detection every twenty minutes (max every half of a hour), in way to have more precision dates (in every time is possible to delete a error detection), the programm going to calculate all the properties that are usefull for the orientation, in case of user perplexity he can whatch the calculated dates.
