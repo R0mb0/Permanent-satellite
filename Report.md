@@ -104,3 +104,28 @@ ___
 
 This program was created to solve the problem of orientation into the not mapped placed, in fact the program not permitt other type of uses.<br>
 The user should does a detection every twenty minutes (max every half of a hour), in way to have more precision dates (in every time is possible to delete a error detection), the programm going to calculate all the properties that are usefull for the orientation, in case of user perplexity he can whatch the calculated dates.
+
+#### USE CASE
+Normal program use
+#### ID
+UC1
+#### ACTOR
+User
+#### PRECONDITION
+- User launch the programm.
+#### BASIC COURSE OF EVENTS
+1. User do a detection or load the last database.
+2. User add a detection or remove a wrong/useless detection.
+3. User save the Program status.
+#### POSTCONDITION
+- User gets all trip properties for every detection.
+#### ALTERNATIVE PATHS
+1. User use the calculate propterties to sing into a paper map the detections.
+2. User use the registered dates to make a map of the place.
+
+____
+## Feedback
+
+The program has been survey by some professionist of cartography, they have contributed to the programm checking the correct implementation of the formulas used and the correct rappresentation of the detection into a scales grey map.<br>
+In conclusion this programm respect the GPS standard and it could be used how a orientation strument together a professional strument support.
+
