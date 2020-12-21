@@ -4,6 +4,7 @@ The project objective is to realize a program that semplify the normal procedure
 This programm will be able to register the surveys into a database, auomatically create the nodes from each survey, calculate the properties of each nodes, 
 represent graphically into a gray map all properties calculated and save into a file the current status of the program.
 
+____
 ## Project Problems: 
 
 ### The problems of this project are:<br>
@@ -48,6 +49,7 @@ For this reason the gray map must calculate the max/min Latitudes and Longitudes
 and the nodes (in scale compareted to the extremes of the latitudes and longitudes) with the corrispettive properties.<br>
 The gray map has been created using Windows Form.
 
+____
 ## Architectural choices
 
 ### Logic And Math classes
@@ -84,6 +86,7 @@ The monitor recieve the information by other class in way to complete the action
 
 ![GUIL:](https://github.com/RomboUrbex/SatellitePermanente/blob/Report/SatellitePermanente/SatellitePermanente/Report/UML/GUI_UML.jpg)<br>
 
+____
 ## Usage documentation
 When the programm is launched the first screen that appear is the main screen where is present the gray map and the buttons for the acction.<br>
 - The Button "Add Point" permitt to make a detection, into the "add point" screeen the balck fields are obligatory, the yellow fileds are optional, in case of wrong 
@@ -93,9 +96,11 @@ If into the database there aren`t detection the user is unbale to open the delet
 - The Save Button permitt to salve the current status of the programm. (In case of none detection programm will save a blank file)<br>
 - The Load Button loading the last database istance. (afther the loading of the istance is possible to add or delette the detections, then salving other istance of the database).<br>
 - The Table button show the tables with the advance dates that not appear into the gray map.<br>
-
+____
 ## Use Cases
 Since the program is implemented for a specific problem the use diagram could be too simple, for this reason will be used a discursive version to illustrate the use case.<br>
-____
+
+___
+
 This program was created to solve the problem of orientation in the nto mapped placed, in fact the program not permitt other type of uses.<br>
 The user should does a detection every twenty minutes (max every half of a hour), in way to have more precision dates (in every time is possible to delete a error detection), the programm going to calculate all the properties that are usefull for the orientation, in case of user perplexity he can whatch the calculated dates.
