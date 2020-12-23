@@ -9,14 +9,13 @@ namespace SatellitePermanente.Observer
         /*This class implements the Observer interface, implementing the SetStatus method and the status methods in way to get the status value*/
 
         /*Fileds*/
-        public bool status { get; private set; }
-
+        public bool databaseStatus { get; private set; }
         /*using the default builder*/
 
         /*public methods*/
-        public void SetStatus(bool status)
+        public void SetDatabaseStatus(bool status)
         {
-            this.status = status;
+            this.databaseStatus = status;
         }
     }
 }

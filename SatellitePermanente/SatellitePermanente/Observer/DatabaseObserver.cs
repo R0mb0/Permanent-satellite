@@ -8,8 +8,6 @@ namespace SatellitePermanente.Observer
     /*This class is the subject of the observer into the Observer Pattern*/
     static class DatabaseObserver
     {
-        private static bool status;
-
         /*List of all Observer*/
         private static List<Observer> observerList = new List<Observer>();
 
@@ -27,7 +25,7 @@ namespace SatellitePermanente.Observer
         /*method to add an observer*/
         public static bool AddObserver(Observer observer)
         {
-            observer.SetStatus(ReadDatabaseStatus());
+            observer.SetDatabaseStatus(ReadDatabaseStatus());
             observerList.Add(observer);
 
             return observerList.Contains(observer);
@@ -44,11 +42,11 @@ namespace SatellitePermanente.Observer
         /*method for update all observer state*/
         public static void Update()
         {
-            status = ReadDatabaseStatus();
+            bool status1 = ReadDatabaseStatus();
 
             observerList.ForEach(delegate(Observer observer) 
             {
-                observer.SetStatus(status);
+                observer.SetDatabaseStatus(status1);
             });
         }
 

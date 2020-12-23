@@ -1,4 +1,5 @@
 ﻿using SatellitePermanente.LogicAndMath;
+using SatellitePermanente.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,9 @@ namespace SatellitePermanente.GUI
 {
     public partial class Debug : Form
     {
+        /*Fileds*/
+        private static ObserverImpl status;
+
         /*This method wrote the two DataGrid of this form, with the database values passed with a bdridge class*/
         private void Write()
         {
@@ -40,9 +44,8 @@ namespace SatellitePermanente.GUI
                 
             });
 
-            /*Add to DataGrid the raw Extremes*/
-
-            if (DatabaseWithRescueImpl.GetIstance().GetMaxLatitude() != null)
+            //DatabaseObserver.Update();
+            if (status.databaseStatus)
             {
 
                 DataGridCoordinates.Rows.Add(new String[] {"RAW",DatabaseWithRescueImpl.GetIstance().GetMaxLatitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLatitude().GetString(),
@@ -59,6 +62,15 @@ namespace SatellitePermanente.GUI
         public Debug()
         {
             InitializeComponent();
+
+            status = new ObserverImpl();
+            /*Add the status*/
+
+            if (!DatabaseObserver.AddObserver(status))
+            {
+                MessageBox.Show("Status Error");
+                return;
+            }
             Write();
         }
 

@@ -39,7 +39,7 @@ namespace SatellitePermanente
             this.pictureBoxNord.Image = Properties.Resources.Nord_scaled;
             this.pictureBoxPoints.Image = Properties.Resources.Points;
 
-            /*Inizialize sstatus*/
+            /*Inizialize status*/
             status = new ObserverImpl();
 
             /*Add the status*/
@@ -48,6 +48,7 @@ namespace SatellitePermanente
                 MessageBox.Show("Status Error");
                 return;
             }
+
             DatabaseObserver.Update();
         }
 
@@ -83,15 +84,9 @@ namespace SatellitePermanente
         private void DeletePoint_Click(object sender, EventArgs e)
         {
             /*control if the database is initialized, because is ompossible remove something that not exist*/ 
-            if (!status.status)
+            if (!status.databaseStatus)
             {
                 MessageBox.Show("The database doesn`t exsist, you need to load it!");
-                return;
-            }
-
-            if(DatabaseWithRescueImpl.GetIstance().GetPointList().Count == 0)
-            {
-                MessageBox.Show("There aren`t point to delete!");
                 return;
             }
 
@@ -113,6 +108,9 @@ namespace SatellitePermanente
                 if (DatabaseWithRescueImpl.GetIstance().DeletePointFromIndex(Convert.ToInt32(FormBridge.returnInteger)))
                 {
                     MessageBox.Show("Point removed successfully!");
+                    
+                    /*database updete status*/
+                    DatabaseObserver.Update();
 
                     /*refresh the graphics*/
                     this.GrayMap.Refresh();
@@ -151,6 +149,9 @@ namespace SatellitePermanente
                 //this.status = true;
                 MessageBox.Show("Successfully loaded!");
 
+                /*database updete status*/
+                DatabaseObserver.Update();
+
                 /*refresh the graphics*/
                 this.GrayMap.Refresh();
             }
@@ -164,7 +165,7 @@ namespace SatellitePermanente
         private void Debug_Click(object sender, EventArgs e)
         {
             /*If doesn`t exsist a current database in memory, the user must be unable to acces the debug page*/ 
-            if (status.status)
+            if (status.databaseStatus)
             {
                 debug = new Debug();
                 debug.ShowDialog();
@@ -190,10 +191,9 @@ namespace SatellitePermanente
                 {
                     dc.DrawLine(pen, pointList[i], pointList[i + 1]);
                 }
-               
-            
+
                 /*if the program is in the first start don`t exist the databse*/
-            if(DatabaseWithRescueImpl.GetIstance().GetPointList().Count == 0)
+            if(!status.databaseStatus)
             {
                 this.TextBoxLatutude1.Text = null;
                 this.TextBoxLatitude2.Text = null;
