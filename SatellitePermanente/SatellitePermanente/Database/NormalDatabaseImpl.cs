@@ -155,7 +155,7 @@ namespace SatellitePermanente.LogicAndMath
 
             TryToAllocateNode(point); /*later the adding of the new point, try to create new nodes with the new point added*/
 
-            /*Update the observer*/ //<--------------------------------------------
+            /*Update the observer*/
             DatabaseObserver.Update();
 
             return database.GetPointList().Contains(point);/*return the presence of the new point into the database*/
@@ -185,6 +185,12 @@ namespace SatellitePermanente.LogicAndMath
             {
                 this.lastNodeDelected.ForEach(delegate (Node myNode) {/*elimite all nodes finded*/
                     database.GetNodeList().Remove(myNode);
+
+                    if (database.GetNodeList().Contains(myNode))
+                    {
+                        throw new ArgumentException("The point doesn`t be eliminated");
+                    }
+
                 });
 
                 this.lastPointDelected = point;/*set last point delected*/
@@ -196,6 +202,17 @@ namespace SatellitePermanente.LogicAndMath
                 }
 
                 database.GetPointList().Remove(point);/*remove the point*/
+
+                /*Recalculate the extremes*/
+                database.SetMaxLatitude(database.GetPointList()[0].latitude); 
+                database.SetMinLatitude(database.GetPointList()[0].latitude);
+                database.SetMaxLongitude(database.GetPointList()[0].longitude);
+                database.SetMinLongitude(database.GetPointList()[0].longitude);
+
+                database.GetPointList().ForEach(delegate (Point myPoint)
+                {
+                    MinOrMax(myPoint);
+                });
 
                 return !database.GetPointList().Contains(point);
             }

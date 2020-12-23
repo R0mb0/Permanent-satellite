@@ -30,17 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Debug));
             this.ButtonRefresh = new System.Windows.Forms.Button();
-            this.Nodes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamePointA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamePointB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Distance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeDifference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AltitudeDifference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridNodes = new System.Windows.Forms.DataGridView();
             this.MeetingPoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Altitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Angle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,9 +53,20 @@
             this.minLongitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridCoordinates = new System.Windows.Forms.DataGridView();
             this.DataGridPoints = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridNodes)).BeginInit();
+            this.Nodes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamePointA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamePointB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Distance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeDifference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AltitudeDifference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridNodes = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridCoordinates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridNodes)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonRefresh
@@ -78,123 +78,6 @@
             this.ButtonRefresh.Text = "REFRESH";
             this.ButtonRefresh.UseVisualStyleBackColor = true;
             this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
-            // 
-            // Nodes
-            // 
-            this.Nodes.Frozen = true;
-            this.Nodes.HeaderText = "NODES:";
-            this.Nodes.MinimumWidth = 8;
-            this.Nodes.Name = "Nodes";
-            this.Nodes.ReadOnly = true;
-            this.Nodes.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Nodes.Width = 150;
-            // 
-            // PointA
-            // 
-            this.PointA.Frozen = true;
-            this.PointA.HeaderText = "POINT A:";
-            this.PointA.MinimumWidth = 8;
-            this.PointA.Name = "PointA";
-            this.PointA.ReadOnly = true;
-            this.PointA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PointA.Width = 150;
-            // 
-            // NamePointA
-            // 
-            this.NamePointA.Frozen = true;
-            this.NamePointA.HeaderText = "NAMES OF POINTS A:";
-            this.NamePointA.MinimumWidth = 8;
-            this.NamePointA.Name = "NamePointA";
-            this.NamePointA.ReadOnly = true;
-            this.NamePointA.Width = 150;
-            // 
-            // PointB
-            // 
-            this.PointB.Frozen = true;
-            this.PointB.HeaderText = "POINT B:";
-            this.PointB.MinimumWidth = 8;
-            this.PointB.Name = "PointB";
-            this.PointB.ReadOnly = true;
-            this.PointB.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PointB.Width = 150;
-            // 
-            // NamePointB
-            // 
-            this.NamePointB.Frozen = true;
-            this.NamePointB.HeaderText = "NAMES OF POINTD B";
-            this.NamePointB.MinimumWidth = 8;
-            this.NamePointB.Name = "NamePointB";
-            this.NamePointB.ReadOnly = true;
-            this.NamePointB.Width = 150;
-            // 
-            // Distance
-            // 
-            this.Distance.HeaderText = "DISTANCE:";
-            this.Distance.MinimumWidth = 8;
-            this.Distance.Name = "Distance";
-            this.Distance.ReadOnly = true;
-            this.Distance.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Distance.Width = 150;
-            // 
-            // Direction
-            // 
-            this.Direction.HeaderText = "DIRECTION:";
-            this.Direction.MinimumWidth = 8;
-            this.Direction.Name = "Direction";
-            this.Direction.ReadOnly = true;
-            this.Direction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Direction.Width = 150;
-            // 
-            // TimeDifference
-            // 
-            this.TimeDifference.HeaderText = "TIME DIFFERENCE:";
-            this.TimeDifference.MinimumWidth = 8;
-            this.TimeDifference.Name = "TimeDifference";
-            this.TimeDifference.ReadOnly = true;
-            this.TimeDifference.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TimeDifference.Width = 150;
-            // 
-            // Speed
-            // 
-            this.Speed.HeaderText = "SPEED:";
-            this.Speed.MinimumWidth = 8;
-            this.Speed.Name = "Speed";
-            this.Speed.ReadOnly = true;
-            this.Speed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Speed.Width = 150;
-            // 
-            // AltitudeDifference
-            // 
-            this.AltitudeDifference.HeaderText = "ALTITUDE DIFFERENCE:";
-            this.AltitudeDifference.MinimumWidth = 8;
-            this.AltitudeDifference.Name = "AltitudeDifference";
-            this.AltitudeDifference.ReadOnly = true;
-            this.AltitudeDifference.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.AltitudeDifference.Width = 150;
-            // 
-            // DataGridNodes
-            // 
-            this.DataGridNodes.AllowUserToAddRows = false;
-            this.DataGridNodes.AllowUserToDeleteRows = false;
-            this.DataGridNodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridNodes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nodes,
-            this.PointA,
-            this.NamePointA,
-            this.PointB,
-            this.NamePointB,
-            this.Distance,
-            this.Direction,
-            this.TimeDifference,
-            this.Speed,
-            this.AltitudeDifference});
-            this.DataGridNodes.Location = new System.Drawing.Point(17, 423);
-            this.DataGridNodes.Name = "DataGridNodes";
-            this.DataGridNodes.ReadOnly = true;
-            this.DataGridNodes.RowHeadersWidth = 62;
-            this.DataGridNodes.Size = new System.Drawing.Size(1567, 245);
-            this.DataGridNodes.TabIndex = 1;
-            this.DataGridNodes.Text = "dataGridView1";
             // 
             // MeetingPoint
             // 
@@ -380,13 +263,6 @@
             this.minLongitude.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.minLongitude.Width = 210;
             // 
-            // Debug
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1619, 679);
-            // 
             // DataGridCoordinates
             // 
             this.DataGridCoordinates.AllowUserToAddRows = false;
@@ -427,6 +303,132 @@
             this.DataGridPoints.Size = new System.Drawing.Size(1444, 245);
             this.DataGridPoints.TabIndex = 0;
             this.DataGridPoints.Text = "dataGridView1";
+            // 
+            // Nodes
+            // 
+            this.Nodes.Frozen = true;
+            this.Nodes.HeaderText = "NODES:";
+            this.Nodes.MinimumWidth = 8;
+            this.Nodes.Name = "Nodes";
+            this.Nodes.ReadOnly = true;
+            this.Nodes.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Nodes.Width = 150;
+            // 
+            // PointA
+            // 
+            this.PointA.Frozen = true;
+            this.PointA.HeaderText = "POINT A:";
+            this.PointA.MinimumWidth = 8;
+            this.PointA.Name = "PointA";
+            this.PointA.ReadOnly = true;
+            this.PointA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PointA.Width = 150;
+            // 
+            // NamePointA
+            // 
+            this.NamePointA.Frozen = true;
+            this.NamePointA.HeaderText = "NAMES OF POINTS A:";
+            this.NamePointA.MinimumWidth = 8;
+            this.NamePointA.Name = "NamePointA";
+            this.NamePointA.ReadOnly = true;
+            this.NamePointA.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NamePointA.Width = 150;
+            // 
+            // PointB
+            // 
+            this.PointB.Frozen = true;
+            this.PointB.HeaderText = "POINT B:";
+            this.PointB.MinimumWidth = 8;
+            this.PointB.Name = "PointB";
+            this.PointB.ReadOnly = true;
+            this.PointB.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PointB.Width = 150;
+            // 
+            // NamePointB
+            // 
+            this.NamePointB.Frozen = true;
+            this.NamePointB.HeaderText = "NAMES OF POINTS B";
+            this.NamePointB.MinimumWidth = 8;
+            this.NamePointB.Name = "NamePointB";
+            this.NamePointB.ReadOnly = true;
+            this.NamePointB.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NamePointB.Width = 150;
+            // 
+            // Distance
+            // 
+            this.Distance.HeaderText = "DISTANCE:";
+            this.Distance.MinimumWidth = 8;
+            this.Distance.Name = "Distance";
+            this.Distance.ReadOnly = true;
+            this.Distance.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Distance.Width = 150;
+            // 
+            // Direction
+            // 
+            this.Direction.HeaderText = "DIRECTION:";
+            this.Direction.MinimumWidth = 8;
+            this.Direction.Name = "Direction";
+            this.Direction.ReadOnly = true;
+            this.Direction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Direction.Width = 150;
+            // 
+            // TimeDifference
+            // 
+            this.TimeDifference.HeaderText = "TIME DIFFERENCE:";
+            this.TimeDifference.MinimumWidth = 8;
+            this.TimeDifference.Name = "TimeDifference";
+            this.TimeDifference.ReadOnly = true;
+            this.TimeDifference.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TimeDifference.Width = 150;
+            // 
+            // Speed
+            // 
+            this.Speed.HeaderText = "SPEED:";
+            this.Speed.MinimumWidth = 8;
+            this.Speed.Name = "Speed";
+            this.Speed.ReadOnly = true;
+            this.Speed.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Speed.Width = 150;
+            // 
+            // AltitudeDifference
+            // 
+            this.AltitudeDifference.HeaderText = "ALTITUDE DIFFERENCE:";
+            this.AltitudeDifference.MinimumWidth = 8;
+            this.AltitudeDifference.Name = "AltitudeDifference";
+            this.AltitudeDifference.ReadOnly = true;
+            this.AltitudeDifference.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.AltitudeDifference.Width = 150;
+            // 
+            // Debug
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(1619, 679);
+            // 
+            // DataGridNodes
+            // 
+            this.DataGridNodes.AllowUserToAddRows = false;
+            this.DataGridNodes.AllowUserToDeleteRows = false;
+            this.DataGridNodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridNodes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nodes,
+            this.PointA,
+            this.NamePointA,
+            this.PointB,
+            this.NamePointB,
+            this.Distance,
+            this.Direction,
+            this.TimeDifference,
+            this.Speed,
+            this.AltitudeDifference});
+            this.DataGridNodes.Location = new System.Drawing.Point(17, 423);
+            this.DataGridNodes.Name = "DataGridNodes";
+            this.DataGridNodes.ReadOnly = true;
+            this.DataGridNodes.RowHeadersWidth = 62;
+            this.DataGridNodes.Size = new System.Drawing.Size(1567, 245);
+            this.DataGridNodes.TabIndex = 1;
+            this.DataGridNodes.Text = "dataGridView1";
             this.Controls.Add(this.DataGridCoordinates);
             this.Controls.Add(this.ButtonRefresh);
             this.Controls.Add(this.DataGridNodes);
@@ -437,9 +439,9 @@
             this.Name = "Debug";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Debug";
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridNodes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridCoordinates)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridNodes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,16 +450,6 @@
         private System.Windows.Forms.Button ButtonRefresh;
         private System.Windows.Forms.DataGridView DataGridNodes;
         private System.Windows.Forms.DataGridView DataGridPoints;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nodes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PointA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NamePointA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PointB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NamePointB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Distance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direction;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeDifference;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Speed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AltitudeDifference;
         private System.Windows.Forms.DataGridView DataGridCoordinates;
         private System.Windows.Forms.DataGridViewTextBoxColumn MeetingPoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn Altitude;
@@ -480,5 +472,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn minLatitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxLongitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn minLongitude;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nodes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PointA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NamePointA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PointB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NamePointB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Distance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeDifference;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Speed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AltitudeDifference;
     }
 }

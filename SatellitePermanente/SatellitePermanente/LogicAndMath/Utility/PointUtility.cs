@@ -9,28 +9,17 @@ static class PointUtility
      * of the same point into the database)*/
 public static bool EqualsPoints(Point pointA, Point pointB)
     {
-        if(pointA.latitude.GetLatitude() != pointB.latitude.GetLatitude() && pointA.longitude.GetLongitude() != pointB.longitude.GetLongitude())
+
+        if(pointA.latitude.GetLatitude() == pointB.latitude.GetLatitude() && pointA.longitude.GetLongitude() == pointB.longitude.GetLongitude()
+            || pointA.dateTime.Equals(pointB.dateTime))
+        {
+            return true;
+        }
+        else
         {
             return false;
         }
-
         
-        if (!pointA.dateTime.Equals(pointB.dateTime))
-        {
-            return false;
-        }
-
-        if(pointA.altitude != pointB.altitude)
-        {
-            return false;
-        }
-
-        if(pointA.angle != pointB.angle)
-        {
-            return false;
-        }
-
-        return true;
     }
     /*This Static method verify the equality of two nodes, this method was added in way to rendere this class a more generic class */
     public static bool EqualsNodes(Node nodeA, Node nodeB)
@@ -61,8 +50,6 @@ public static bool EqualsPoints(Point pointA, Point pointB)
                 targhet = myPoint;   
             }
         });
-
-        
 
         return targhet;
     }

@@ -31,11 +31,13 @@ namespace SatellitePermanente.GUI
                DatabaseWithRescueImpl.GetIstance().GetPointList().IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescueImpl.GetIstance().GetPointList(),myNode.pointA)).ToString(),
                 myNode.pointA.name,
                 DatabaseWithRescueImpl.GetIstance().GetPointList().IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescueImpl.GetIstance().GetPointList(),myNode.pointB)).ToString(),
-                myNode.pointB.name,
-
+                myNode.pointB.name, 
+                
                 myNode.GetDistanceString(), myNode.GetDirectionString(),
                 myNode.GetTimeDifferenceString(), myNode.GetSpeedString(),
                 myNode.GetAltitudeDifferenceString()}) ;
+
+                
             });
 
             /*Add to DataGrid the raw Extremes*/
