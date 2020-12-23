@@ -41,12 +41,17 @@ namespace SatellitePermanente.GUI
             });
 
             /*Add to DataGrid the raw Extremes*/
-            DataGridCoordinates.Rows.Add(new String[] {"RAW",DatabaseWithRescueImpl.GetIstance().GetMaxLatitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLatitude().GetString(),
-            DatabaseWithRescueImpl.GetIstance().GetMaxLongitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLongitude().GetString()});
-            
-            /*Add to DataGrid the calculated Extremes*/
-            DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",FormBridge.coordinates.GetMaxLatitude().GetString(), FormBridge.coordinates.GetMinLatitude().GetString(),
-            FormBridge.coordinates.GetMaxLongitude().GetString(), FormBridge.coordinates.GetMinLongitude().GetString()});
+
+            if (DatabaseWithRescueImpl.GetIstance().GetMaxLatitude() != null)
+            {
+
+                DataGridCoordinates.Rows.Add(new String[] {"RAW",DatabaseWithRescueImpl.GetIstance().GetMaxLatitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLatitude().GetString(),
+                DatabaseWithRescueImpl.GetIstance().GetMaxLongitude().GetString(), DatabaseWithRescueImpl.GetIstance().GetMinLongitude().GetString()});
+
+                /*Add to DataGrid the calculated Extremes*/
+                DataGridCoordinates.Rows.Add(new String[] {"PROCESSED",FormBridge.coordinates.GetMaxLatitude().GetString(), FormBridge.coordinates.GetMinLatitude().GetString(),
+                FormBridge.coordinates.GetMaxLongitude().GetString(), FormBridge.coordinates.GetMinLongitude().GetString()});
+            }
 
         }
 

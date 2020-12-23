@@ -74,8 +74,8 @@ namespace SatellitePermanente.LogicAndMath
             else
             {
                 phi= DecimalMath.Log(
-                (DecimalMath.Tan(((pointB.latitude.GetLatitude() / 2) + Convert.ToDecimal(Math.PI)) / 4))
-                / DecimalMath.Tan(((pointA.latitude.GetLatitude() / 2) + Convert.ToDecimal(Math.PI)) / 4));
+                (DecimalMath.Tan((pointB.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)))
+                / DecimalMath.Tan((pointA.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)));
             }
 
             /*protection the formula in case that appear the same longitude*/

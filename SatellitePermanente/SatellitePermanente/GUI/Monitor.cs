@@ -88,7 +88,13 @@ namespace SatellitePermanente
                 MessageBox.Show("The database doesn`t exsist, you need to load it!");
                 return;
             }
-            
+
+            if(DatabaseWithRescueImpl.GetIstance().GetPointList().Count == 0)
+            {
+                MessageBox.Show("There aren`t point to delete!");
+                return;
+            }
+
             /*Initialize the gui bridge with the value that are necessary for the gui.*/
             FormBridge.returnInteger = null; /*This is the index of the point to delete*/
             deletePoint = new DeletePoint();
@@ -189,6 +195,11 @@ namespace SatellitePermanente
                 /*if the program is in the first start don`t exist the databse*/
             if(DatabaseWithRescueImpl.GetIstance().GetPointList().Count == 0)
             {
+                this.TextBoxLatutude1.Text = null;
+                this.TextBoxLatitude2.Text = null;
+                this.TextBoxLongitude1.Text = null;
+                this.TextBoxLongitude2.Text = null;
+
                 return;
             }
             

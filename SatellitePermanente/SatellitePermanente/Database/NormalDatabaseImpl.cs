@@ -204,15 +204,7 @@ namespace SatellitePermanente.LogicAndMath
                 database.GetPointList().Remove(point);/*remove the point*/
 
                 /*Recalculate the extremes*/
-                database.SetMaxLatitude(database.GetPointList()[0].latitude); 
-                database.SetMinLatitude(database.GetPointList()[0].latitude);
-                database.SetMaxLongitude(database.GetPointList()[0].longitude);
-                database.SetMinLongitude(database.GetPointList()[0].longitude);
-
-                database.GetPointList().ForEach(delegate (Point myPoint)
-                {
-                    MinOrMax(myPoint);
-                });
+                RecalculateExtremes();
 
                 return !database.GetPointList().Contains(point);
             }
@@ -220,6 +212,9 @@ namespace SatellitePermanente.LogicAndMath
             if(database.GetPointList().Count == 1)
             {
                 database.GetPointList().Remove(point);/*remove the point*/
+
+                /*Recalculate the extremes*/
+                RecalculateExtremes();
 
                 return !database.GetPointList().Contains(point);
             }
@@ -239,6 +234,43 @@ namespace SatellitePermanente.LogicAndMath
 
             return DeletePoint(database.GetPointList()[index]);
         }
+
+        /*Method for calculate the extrem in function to the gray map*/
+        private void RecalculateExtremes()
+        {
+            if (database.GetPointList().Count > 0 )
+            {
+                database.SetMaxLatitude(database.GetPointList()[0].latitude);
+                database.SetMinLatitude(database.GetPointList()[0].latitude);
+                database.SetMaxLongitude(database.GetPointList()[0].longitude);
+                database.SetMinLongitude(database.GetPointList()[0].longitude);
+            
+                database.GetPointList().ForEach(delegate (Point myPoint)
+                {
+                    MinOrMax(myPoint);
+                });
+            }
+            else
+            {
+                this.meetingPoint = null;
+                this.flagMeetingPoint = false;
+                this.firstRun = true;
+
+                database.SetMaxLatitude(null);
+                database.SetMinLatitude(null);
+                database.SetMaxLongitude(null);
+                database.SetMinLongitude(null);
+            }
+            
+            
+        }
+
+
+
+
+
+
+
 
         /*-------------------------------------------implements abstract methods-------------------------------------------------------------------------/*/
         public override List<Point> GetPointList()

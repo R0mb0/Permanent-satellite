@@ -43,7 +43,7 @@ namespace SatellitePermanente.GUI
             FormBridge.retunrBoolean = false;
             
             disclamer.ShowDialog();/*Run the Page to confirm the elimination that must return a positive boolean*/
-        
+
             if (Convert.ToBoolean(FormBridge.retunrBoolean))
             {
                 FormBridge.returnInteger = Convert.ToInt32(DataGridPoints.Rows[DataGridPoints.SelectedCells[0].RowIndex].Cells[0].Value);

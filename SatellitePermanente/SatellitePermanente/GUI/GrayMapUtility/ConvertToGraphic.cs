@@ -32,14 +32,13 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
             /*ΔLon*/
             DLon = extremeCoordinates.GetMaxLongitude().GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude();
-
-
         }
         
         /*this method return the elaborated extremes*/
         private void GetExtremes(MaxCoordinates coordinates)
         {
             /*private filed to inizialize the max coordinates */
+            this.extremeCoordinates = new MaxCoordinatesImpl();
             Latitude maxLatitude;
             Latitude minLatitude;
             Longitude maxLongitude;
@@ -204,7 +203,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
 
             /*Time to inizialize the MaxCoordinates with the elaborated values*/
-            this.extremeCoordinates = new MaxCoordinatesImpl();
+            
             this.extremeCoordinates.SetMaxLatitude(maxLatitude); 
             this.extremeCoordinates.SetMinLatitude(minLatitude);
             this.extremeCoordinates.SetMaxLongitude(maxLongitude);
