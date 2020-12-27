@@ -50,22 +50,60 @@ namespace SatellitePermanente.LogicAndMath
         {
             if(this.firstRun || point.latitude.GetLatitude() > database.GetMaxLatitude().GetLatitude())
             {
-                database.SetMaxLatitude(point.latitude);
+                if(!this.firstRun && point.latitude.GetLatitude() < 0 && database.GetMinLatitude().GetLatitude() < 0)
+                {
+                    //database.SetMaxLatitude(point.latitude);
+                    database.SetMinLatitude(point.latitude);
+                }
+                else
+                {
+                    //database.SetMinLatitude(point.latitude);
+                    database.SetMaxLatitude(point.latitude);
+                }
+                
             }
 
             if (this.firstRun || point.latitude.GetLatitude() < database.GetMinLatitude().GetLatitude())
             {
-                database.SetMinLatitude(point.latitude);
+                if (!this.firstRun && point.latitude.GetLatitude() < 0 && database.GetMaxLatitude().GetLatitude() < 0)
+                {
+                    //database.SetMinLatitude(point.latitude);
+                    database.SetMaxLatitude(point.latitude);
+                }
+                else
+                {
+                    //database.SetMaxLatitude(point.latitude);
+                    database.SetMinLatitude(point.latitude);
+                }
             }
 
             if (this.firstRun || point.longitude.GetLongitude() > database.GetMaxLongitude().GetLongitude())
             {
-                database.SetMaxLongitude(point.longitude);
+                if(!this.firstRun && point.longitude.GetLongitude() < 0 && database.GetMinLongitude().GetLongitude() < 0)
+                {
+                    //database.SetMaxLongitude(point.longitude);
+                    database.SetMinLongitude(point.longitude);
+                }
+                else
+                {
+                    //database.SetMinLongitude(point.longitude);
+                    database.SetMaxLongitude(point.longitude);
+                }
+                
             }
 
             if (this.firstRun || point.longitude.GetLongitude() < database.GetMinLongitude().GetLongitude())
             {
-                database.SetMinLongitude(point.longitude);
+                if (!this.firstRun && point.longitude.GetLongitude() < 0 && database.GetMaxLongitude().GetLongitude() < 0)
+                {
+                    //database.SetMinLongitude(point.longitude);
+                    database.SetMaxLongitude(point.longitude);
+                }
+                else
+                {
+                    //database.SetMaxLongitude(point.longitude);
+                    database.SetMinLongitude(point.longitude);
+                }
             }
 
             this.firstRun = false;

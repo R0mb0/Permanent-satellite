@@ -21,7 +21,7 @@ namespace SatellitePermanente.LogicAndMath
             temp = temp + coordinate.degrees;
 
             /*controll of the sign of the values, usign the IT standard*/
-            if (coordinate.sign.ToLower() == "o" || coordinate.sign.ToLower() == "s")
+            if (coordinate.sign.ToLower() == "w" || coordinate.sign.ToLower() == "s")
             {
                 temp = (temp * (-1));
             }
@@ -32,9 +32,10 @@ namespace SatellitePermanente.LogicAndMath
         /*This method convert a decimal coordinate to a sexagesimal coordinate*/
         public static Origin ConvertToSexagesimal(decimal coordinate)
         {
-            int degrees = Convert.ToInt32(Math.Truncate(coordinate));
 
-            decimal n = coordinate - degrees;
+            int degrees = Convert.ToInt32(Math.Truncate(Math.Abs(coordinate)));
+
+            decimal n = Math.Abs(coordinate) - degrees;
             n = n * 60;
 
             int prime = Convert.ToInt32(Math.Truncate(n));
@@ -42,7 +43,7 @@ namespace SatellitePermanente.LogicAndMath
             n = n - prime;
             n = n * 60;
 
-            return new Origin("o", degrees, prime, n);
+            return new Origin("Temp", degrees, prime, n);
         }
 
 
@@ -73,9 +74,9 @@ namespace SatellitePermanente.LogicAndMath
             }
             else
             {
-                phi= DecimalMath.Log(
+                phi= DecimalMath.Log(Math.Abs(
                 (DecimalMath.Tan((pointB.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)))
-                / DecimalMath.Tan((pointA.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)));
+                / DecimalMath.Tan((pointA.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4))));
             }
 
             /*protection the formula in case that appear the same longitude*/

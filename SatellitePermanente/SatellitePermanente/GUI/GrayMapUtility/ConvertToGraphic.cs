@@ -49,9 +49,11 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             /*get the latitude extremes*/
             if (coordinates.GetMaxLatitude().sign.ToLower().Equals(coordinates.GetMinLatitude().sign.ToLower()))
             {
+
                 if(coordinates.GetMaxLatitude().degrees == coordinates.GetMinLatitude().degrees)
                 {
-                    if(coordinates.GetMaxLatitude().prime == coordinates.GetMinLatitude().prime)
+
+                    if (coordinates.GetMaxLatitude().prime == coordinates.GetMinLatitude().prime)
                     {
                         try
                         {
@@ -67,6 +69,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
                     }
                     else
                     {
+
                         try
                         {
                             maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees, coordinates.GetMaxLatitude().prime +1, 0000); 
@@ -90,6 +93,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
                 }
                 else
                 {
+
                     try
                     {
                         maxLatitude = new Latitude(coordinates.GetMaxLatitude().sign, coordinates.GetMaxLatitude().degrees +1, 00, 0000);

@@ -41,7 +41,7 @@ namespace SatellitePermanente.LogicAndMath
         public override Boolean SaveDatabase()
         {
             /*set the database values to salve*/
-           this.rescue = new Rescue(database.GetPointList(), database.GetNodeList(), database.GetMaxLatitude(), database.GetMinLatitude(), database.GetMaxLongitude(), database.GetMinLongitude());
+           this.rescue = new Rescue(database.GetPointList(), database.GetNodeList(), database.GetMinLatitude() , database.GetMaxLatitude(), database.GetMinLongitude() , database.GetMaxLongitude());
 
 
             String json = JsonConvert.SerializeObject(this.rescue);/*serialize the satabase*/
