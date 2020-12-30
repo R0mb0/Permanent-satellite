@@ -40,10 +40,10 @@ namespace SatellitePermanente
             this.Debug = new System.Windows.Forms.Button();
             this.GrayMap = new System.Windows.Forms.Panel();
             this.pictureBoxNord = new System.Windows.Forms.PictureBox();
-            this.TextBoxLatitude1 = new System.Windows.Forms.TextBox();
-            this.TextBoxLatitude2 = new System.Windows.Forms.TextBox();
-            this.TextBoxLongitude2 = new System.Windows.Forms.TextBox();
             this.TextBoxLongitude1 = new System.Windows.Forms.TextBox();
+            this.TextBoxLongitude2 = new System.Windows.Forms.TextBox();
+            this.TextBoxLatitude2 = new System.Windows.Forms.TextBox();
+            this.TextBoxLatitude1 = new System.Windows.Forms.TextBox();
             this.pictureBoxPoints = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -150,41 +150,41 @@ namespace SatellitePermanente
             this.pictureBoxNord.TabIndex = 0;
             this.pictureBoxNord.TabStop = false;
             // 
-            // TextBoxLatitude1
+            // TextBoxLongitude1
             // 
-            this.TextBoxLatitude1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.TextBoxLatitude1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxLatitude1.Location = new System.Drawing.Point(471, 495);
-            this.TextBoxLatitude1.Name = "TextBoxLatitude1";
-            this.TextBoxLatitude1.Size = new System.Drawing.Size(185, 26);
-            this.TextBoxLatitude1.TabIndex = 8;
-            // 
-            // TextBoxLatitude2
-            // 
-            this.TextBoxLatitude2.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.TextBoxLatitude2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxLatitude2.Location = new System.Drawing.Point(786, 495);
-            this.TextBoxLatitude2.Name = "TextBoxLatitude2";
-            this.TextBoxLatitude2.Size = new System.Drawing.Size(185, 26);
-            this.TextBoxLatitude2.TabIndex = 8;
+            this.TextBoxLongitude1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TextBoxLongitude1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxLongitude1.Location = new System.Drawing.Point(471, 495);
+            this.TextBoxLongitude1.Name = "TextBoxLongitude1";
+            this.TextBoxLongitude1.Size = new System.Drawing.Size(185, 26);
+            this.TextBoxLongitude1.TabIndex = 8;
             // 
             // TextBoxLongitude2
             // 
             this.TextBoxLongitude2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.TextBoxLongitude2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxLongitude2.Location = new System.Drawing.Point(1111, 313);
+            this.TextBoxLongitude2.Location = new System.Drawing.Point(786, 495);
             this.TextBoxLongitude2.Name = "TextBoxLongitude2";
-            this.TextBoxLongitude2.Size = new System.Drawing.Size(219, 26);
+            this.TextBoxLongitude2.Size = new System.Drawing.Size(185, 26);
             this.TextBoxLongitude2.TabIndex = 8;
             // 
-            // TextBoxLongitude1
+            // TextBoxLatitude2
             // 
-            this.TextBoxLongitude1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.TextBoxLongitude1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxLongitude1.Location = new System.Drawing.Point(1111, 160);
-            this.TextBoxLongitude1.Name = "TextBoxLongitude1";
-            this.TextBoxLongitude1.Size = new System.Drawing.Size(219, 26);
-            this.TextBoxLongitude1.TabIndex = 8;
+            this.TextBoxLatitude2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TextBoxLatitude2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxLatitude2.Location = new System.Drawing.Point(1111, 313);
+            this.TextBoxLatitude2.Name = "TextBoxLatitude2";
+            this.TextBoxLatitude2.Size = new System.Drawing.Size(219, 26);
+            this.TextBoxLatitude2.TabIndex = 8;
+            // 
+            // TextBoxLatitude1
+            // 
+            this.TextBoxLatitude1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.TextBoxLatitude1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxLatitude1.Location = new System.Drawing.Point(1111, 160);
+            this.TextBoxLatitude1.Name = "TextBoxLatitude1";
+            this.TextBoxLatitude1.Size = new System.Drawing.Size(219, 26);
+            this.TextBoxLatitude1.TabIndex = 8;
             // 
             // pictureBoxPoints
             // 
@@ -223,10 +223,10 @@ namespace SatellitePermanente
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBoxPoints);
-            this.Controls.Add(this.TextBoxLongitude1);
-            this.Controls.Add(this.TextBoxLongitude2);
-            this.Controls.Add(this.TextBoxLatitude2);
             this.Controls.Add(this.TextBoxLatitude1);
+            this.Controls.Add(this.TextBoxLatitude2);
+            this.Controls.Add(this.TextBoxLongitude2);
+            this.Controls.Add(this.TextBoxLongitude1);
             this.Controls.Add(this.GrayMap);
             this.Controls.Add(this.Debug);
             this.Controls.Add(this.Load);
@@ -259,10 +259,10 @@ namespace SatellitePermanente
         private new System.Windows.Forms.Button Load;
         private System.Windows.Forms.Button Debug;
         private System.Windows.Forms.Panel GrayMap;
-        private System.Windows.Forms.TextBox TextBoxLatitude1;
-        private System.Windows.Forms.TextBox TextBoxLatitude2;
-        private System.Windows.Forms.TextBox TextBoxLongitude2;
         private System.Windows.Forms.TextBox TextBoxLongitude1;
+        private System.Windows.Forms.TextBox TextBoxLongitude2;
+        private System.Windows.Forms.TextBox TextBoxLatitude2;
+        private System.Windows.Forms.TextBox TextBoxLatitude1;
         private System.Windows.Forms.PictureBox pictureBoxNord;
         private System.Windows.Forms.PictureBox pictureBoxPoints;
         private System.Windows.Forms.TextBox textBox1;

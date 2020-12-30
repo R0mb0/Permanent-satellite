@@ -183,10 +183,6 @@ namespace SatellitePermanente
             /*Local Fields*/
             Graphics dc = e.Graphics;
 
-            /*Rotate the panel coordinates*/
-            /*dc.ScaleTransform(1.0F, -1.0F);
-            dc.TranslateTransform(1.0F, -447);*/
-
             /*pen used to write the axes*/
             Pen pen = Pens.Gray;
                 /* With a private method get all the point to print (in graphocal scale)*/
@@ -200,10 +196,10 @@ namespace SatellitePermanente
                 /*if the program is in the first start don`t exist the database*/
             if(!status.databaseStatus)
             {
-                this.TextBoxLatitude1.Text = null;
-                this.TextBoxLatitude2.Text = null;
                 this.TextBoxLongitude1.Text = null;
                 this.TextBoxLongitude2.Text = null;
+                this.TextBoxLatitude1.Text = null;
+                this.TextBoxLatitude2.Text = null;
 
                 return;
             }
@@ -283,7 +279,7 @@ namespace SatellitePermanente
             decimal longitude = extremes.extremeCoordinates.GetMinLongitude().GetLongitude();
 
 
-            /*Operations for print the values of every axe*/
+            /*Operations to print the values of every axe*/
             latitude = latitude + latitudeUnit;
             decimal latitude2 = latitude + latitudeUnit;
             Origin coordinate1 = Utility.ConvertToSexagesimal(latitude);
@@ -291,26 +287,26 @@ namespace SatellitePermanente
 
             if (latitude < 0 && latitude2 < 0)
             {
-                this.TextBoxLatitude1.Text = "W " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
-                this.TextBoxLatitude2.Text = "W " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLatitude2.Text = "S " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "S " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
             }
 
             if (latitude > 0 && latitude2 > 0)
             {
-                this.TextBoxLatitude1.Text = "E " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
-                this.TextBoxLatitude2.Text = "E " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLatitude2.Text = "N " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "N " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
             }
 
             if (latitude > 0 && latitude2 < 0)
             {
-                this.TextBoxLatitude2.Text = "E " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
-                this.TextBoxLatitude1.Text = "W " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "N " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLatitude2.Text = "S " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
             }
 
             if (latitude < 0 && latitude2 > 0)
             {
-                this.TextBoxLatitude2.Text = "E " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
-                this.TextBoxLatitude1.Text = "W " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "N " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLatitude2.Text = "S " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
             }
 
             
@@ -321,29 +317,29 @@ namespace SatellitePermanente
 
             if (longitude < 0 && longitude2 < 0)
             {
-                this.TextBoxLongitude1.Text = "S " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
-                this.TextBoxLongitude2.Text = "S " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "W " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLongitude1.Text = "W " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
             }
 
             if (longitude > 0 && longitude2 > 0)
             {
-                this.TextBoxLongitude1.Text = "N " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
-                this.TextBoxLongitude2.Text = "N " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLongitude1.Text = "E " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "E " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
             }
 
             if (longitude > 0 && longitude2 < 0)
             {
-                this.TextBoxLongitude1.Text = "N " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
-                this.TextBoxLongitude2.Text = "S " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "E " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLongitude1.Text = "W " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
             }
 
             if (longitude < 0 && longitude2 > 0)
             {
-                this.TextBoxLongitude1.Text = "N " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
-                this.TextBoxLongitude2.Text = "S " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "E " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLongitude1.Text = "W " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
             }
             
-
+            
 
         }
 

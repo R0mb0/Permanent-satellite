@@ -28,10 +28,10 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             GetExtremes(coordinates);
 
             /*ΔLat*/
-            DLat = extremeCoordinates.GetMaxLatitude().GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude();
+            DLat = Math.Abs(extremeCoordinates.GetMaxLatitude().GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude());
 
             /*ΔLon*/
-            DLon = extremeCoordinates.GetMaxLongitude().GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude();
+            DLon = Math.Abs(extremeCoordinates.GetMaxLongitude().GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude());
         }
         
         /*this method return the elaborated extremes*/
@@ -208,7 +208,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
             /*Time to inizialize the MaxCoordinates with the elaborated values*/
             
-            this.extremeCoordinates.SetMaxLatitude(maxLatitude); 
+            this.extremeCoordinates.SetMaxLatitude(maxLatitude);
             this.extremeCoordinates.SetMinLatitude(minLatitude);
             this.extremeCoordinates.SetMaxLongitude(maxLongitude);
             this.extremeCoordinates.SetMinLongitude(minLongitude);
@@ -223,8 +223,18 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
             /*return the decimal coordinate in pixel coordinate -> using a drawing point*/
 
+            
             drawPoint.X = Convert.ToInt32((point.longitude.GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude()) * (this.X / this.DLon));
+            if(drawPoint.X < 0)
+            {
+                drawPoint.X = Convert.ToInt32(this.X + drawPoint.X);
+            }
+
             drawPoint.Y = Convert.ToInt32(this.Y - (point.latitude.GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude()) * (this.Y / this.DLat));
+            if (drawPoint.Y < 0)
+            {
+                drawPoint.Y = Convert.ToInt32(this.Y + drawPoint.Y);
+            }
 
             return drawPoint;
         }
