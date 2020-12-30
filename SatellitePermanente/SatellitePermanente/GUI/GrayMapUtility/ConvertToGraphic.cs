@@ -21,7 +21,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
         public MaxCoordinates extremeCoordinates { get; private set; }
 
         /*builder*/
-        public ConvertToGraphic(int Y, int X, MaxCoordinates coordinates)
+        public ConvertToGraphic(int X, int Y, MaxCoordinates coordinates)
         {
             this.Y = Y;
             this.X = X;
@@ -224,7 +224,7 @@ namespace SatellitePermanente.GUI.GrayMapUtility
             /*return the decimal coordinate in pixel coordinate -> using a drawing point*/
 
             drawPoint.X = Convert.ToInt32((point.longitude.GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude()) * (this.X / this.DLon));
-            drawPoint.Y = Convert.ToInt32((point.latitude.GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude()) * (this.Y / this.DLat));
+            drawPoint.Y = Convert.ToInt32(this.Y - (point.latitude.GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude()) * (this.Y / this.DLat));
 
             return drawPoint;
         }

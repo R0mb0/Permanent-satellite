@@ -7,7 +7,7 @@ public static class LatitudeLongitudePoints
     /*returned list with the points ready to be drawed*/
     private static List<System.Drawing.Point>? pointList;
 
-    public static List<System.Drawing.Point>? GetAxes(int yMax, int xMax)
+    public static List<System.Drawing.Point>? GetAxes(int xMax, int yMax)
     {
         /*if the point list was present, return it without do other work*/
         if(pointList != null)
@@ -38,7 +38,7 @@ public static class LatitudeLongitudePoints
             tempPoint2.X = tempX;
             pointList.Add(tempPoint2);
 
-        } while (tempX != xMax);
+        } while (tempX <= xMax);
 
 
         /*Generate the longitudes lines*/
@@ -58,7 +58,7 @@ public static class LatitudeLongitudePoints
             tempPoint2.X = 0;
             pointList.Add(tempPoint2);
 
-        } while (tempY != yMax);
+        } while (tempY <= yMax);
 
         return pointList;
 

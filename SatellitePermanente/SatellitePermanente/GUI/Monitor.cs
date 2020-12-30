@@ -179,23 +179,28 @@ namespace SatellitePermanente
         /*----------------------------------------------------------GREYMAP INITIALIZE PLACE--------------------------------------------*/
         private void GreyMap_Paint(object sender, PaintEventArgs e)
         {
+
             /*Local Fields*/
             Graphics dc = e.Graphics;
 
-                /*pen used for write the axes*/
-                Pen pen = Pens.Gray;
+            /*Rotate the panel coordinates*/
+            /*dc.ScaleTransform(1.0F, -1.0F);
+            dc.TranslateTransform(1.0F, -447);*/
+
+            /*pen used to write the axes*/
+            Pen pen = Pens.Gray;
                 /* With a private method get all the point to print (in graphocal scale)*/
-                List<System.Drawing.Point>? pointList = LatitudeLongitudePoints.GetAxes(456, 942);
+                List<System.Drawing.Point>? pointList = LatitudeLongitudePoints.GetAxes(938, 447);
             
                 for(int i=0; i< pointList.Count; i += 2)
                 {
                     dc.DrawLine(pen, pointList[i], pointList[i + 1]);
                 }
 
-                /*if the program is in the first start don`t exist the databse*/
+                /*if the program is in the first start don`t exist the database*/
             if(!status.databaseStatus)
             {
-                this.TextBoxLatutude1.Text = null;
+                this.TextBoxLatitude1.Text = null;
                 this.TextBoxLatitude2.Text = null;
                 this.TextBoxLongitude1.Text = null;
                 this.TextBoxLongitude2.Text = null;
@@ -211,7 +216,7 @@ namespace SatellitePermanente
             maxCoordinates.SetMinLongitude(DatabaseWithRescueImpl.GetIstance().GetMinLongitude());
             
             /*istance anew class that permit to have all scale values (form decimal to pixel)*/
-            ConvertToGraphic graphic = new ConvertToGraphic(456, 942, maxCoordinates);
+            ConvertToGraphic graphic = new ConvertToGraphic(938, 447, maxCoordinates);
 
             /*pass the extreme values to the database Form*/
             FormBridge.coordinates = graphic.extremeCoordinates;
@@ -270,8 +275,8 @@ namespace SatellitePermanente
         private void WriteAxesValue(ConvertToGraphic extremes)
         {
             /*find the distance from the axes*/
-            decimal latitudeUnit = (extremes.DLat /3);
-            decimal longitudeUnit = (extremes.DLon /3);
+            decimal latitudeUnit = Math.Abs((extremes.DLat / 3));
+            decimal longitudeUnit = Math.Abs((extremes.DLon / 3));
 
             /*find the start point*/
             decimal latitude = extremes.extremeCoordinates.GetMinLatitude().GetLatitude();
@@ -280,48 +285,64 @@ namespace SatellitePermanente
 
             /*Operations for print the values of every axe*/
             latitude = latitude + latitudeUnit;
-            Origin coordinate = Utility.ConvertToSexagesimal(latitude);
-            if (latitude > 0)
+            decimal latitude2 = latitude + latitudeUnit;
+            Origin coordinate1 = Utility.ConvertToSexagesimal(latitude);
+            Origin coordinate2 = Utility.ConvertToSexagesimal(latitude2);
+
+            if (latitude < 0 && latitude2 < 0)
             {
-                this.TextBoxLatutude1.Text = "N " + coordinate.degrees +"° " + coordinate.prime +"' " + Math.Round(coordinate.latter, 3) + "''";
-            }
-            else
-            {
-                this.TextBoxLatutude1.Text = "S " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "W " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLatitude2.Text = "W " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
             }
 
-            latitude = latitude + latitudeUnit;
-            coordinate = Utility.ConvertToSexagesimal(latitude);
-            if (latitude > 0)
+            if (latitude > 0 && latitude2 > 0)
             {
-                this.TextBoxLatitude2.Text = "N " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
-            }
-            else
-            {
-                this.TextBoxLatitude2.Text = "S " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "E " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLatitude2.Text = "E " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
             }
 
+            if (latitude > 0 && latitude2 < 0)
+            {
+                this.TextBoxLatitude2.Text = "E " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "W " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+            }
+
+            if (latitude < 0 && latitude2 > 0)
+            {
+                this.TextBoxLatitude2.Text = "E " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLatitude1.Text = "W " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+            }
+
+            
             longitude = longitude + longitudeUnit;
-            coordinate = Utility.ConvertToSexagesimal(longitude);
-            if(longitude > 0)
+            decimal longitude2 = longitude + longitudeUnit;
+            coordinate1 = Utility.ConvertToSexagesimal(longitude);
+            coordinate2 = Utility.ConvertToSexagesimal(longitude2);
+
+            if (longitude < 0 && longitude2 < 0)
             {
-                this.TextBoxLongitude1.Text = "E " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
-            }
-            else
-            {
-                this.TextBoxLongitude1.Text = "W " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
+                this.TextBoxLongitude1.Text = "S " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "S " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
             }
 
-            longitude = longitude + longitudeUnit;
-            coordinate = Utility.ConvertToSexagesimal(longitude);
-            if (longitude > 0)
+            if (longitude > 0 && longitude2 > 0)
             {
-                this.TextBoxLongitude2.Text = "E " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
+                this.TextBoxLongitude1.Text = "N " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "N " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
             }
-            else
+
+            if (longitude > 0 && longitude2 < 0)
             {
-                this.TextBoxLongitude2.Text = "W " + coordinate.degrees + "° " + coordinate.prime + "' " + Math.Round(coordinate.latter, 3) + "''";
+                this.TextBoxLongitude1.Text = "N " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "S " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
             }
+
+            if (longitude < 0 && longitude2 > 0)
+            {
+                this.TextBoxLongitude1.Text = "N " + coordinate2.degrees + "° " + coordinate2.prime + "' " + Math.Round(coordinate2.latter, 3) + "''";
+                this.TextBoxLongitude2.Text = "S " + coordinate1.degrees + "° " + coordinate1.prime + "' " + Math.Round(coordinate1.latter, 3) + "''";
+            }
+            
 
 
         }
