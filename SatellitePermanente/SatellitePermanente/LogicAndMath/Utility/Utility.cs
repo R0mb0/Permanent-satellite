@@ -10,6 +10,7 @@ namespace SatellitePermanente.LogicAndMath
     static class Utility
     {
         private const decimal eartRadius = 6372.795477598m;
+        private static readonly decimal Pg = Convert.ToDecimal(Math.PI);
 
         /*This method convert a sexagesimal coordinate to decimal coordinate*/
         public static decimal ConvertToDecimal(Origin coordinate)
@@ -52,9 +53,9 @@ namespace SatellitePermanente.LogicAndMath
          distance (A,B) = R * arccos(sin(latA) * sin(latB) + cos(latA) * cos(latB) * cos(lonA-lonB))*/
         public static decimal CalculateDistance(Point pointA, Point pointB)
         {
-            return (eartRadius * DecimalMath.Acos( DecimalMath.Sin(pointA.latitude.GetLatitude()) * DecimalMath.Sin(pointB.latitude.GetLatitude())
-                + DecimalMath.Cos(pointA.latitude.GetLatitude()) * DecimalMath.Cos(pointB.latitude.GetLatitude())
-                * DecimalMath.Cos(pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude())));
+            return (eartRadius * DecimalMath.Acos(DecimalMath.Sin(pointA.latitude.GetLatitude() * Pg /180) * DecimalMath.Sin( pointB.latitude.GetLatitude() * Pg / 180)
+                + DecimalMath.Cos( pointA.latitude.GetLatitude() * Pg / 180) * DecimalMath.Cos( pointB.latitude.GetLatitude()* Pg / 180)
+                * DecimalMath.Cos( (pointA.longitude.GetLongitude()  - pointB.longitude.GetLongitude()) * Pg / 180)));
         }
 
         /*This method implement this formula, that is usefull for calculate the direction from two geographic points:
@@ -75,8 +76,8 @@ namespace SatellitePermanente.LogicAndMath
             else
             {
                 phi= DecimalMath.Log(Math.Abs(
-                (DecimalMath.Tan((pointB.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)))
-                / DecimalMath.Tan((pointA.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4))));
+                (DecimalMath.Tan( ((pointB.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)) * Pg / 180))
+                / DecimalMath.Tan((pointA.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4) * Pg / 180)));
             }
 
             /*protection the formula in case that appear the same longitude*/
@@ -87,7 +88,7 @@ namespace SatellitePermanente.LogicAndMath
             }
             else
             {
-                lon = DecimalMath.Abs(pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude());
+                lon = DecimalMath.Abs((pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude()) * Pg / 180);
             }
 
             return DecimalMath.Atan2(lon, phi);
