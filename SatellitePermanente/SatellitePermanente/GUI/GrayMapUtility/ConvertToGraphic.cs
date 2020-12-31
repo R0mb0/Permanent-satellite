@@ -29,9 +29,11 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
             /*ΔLat*/
             DLat = Math.Abs(extremeCoordinates.GetMaxLatitude().GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude());
+            
 
             /*ΔLon*/
             DLon = Math.Abs(extremeCoordinates.GetMaxLongitude().GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude());
+           
         }
         
         /*this method return the elaborated extremes*/
@@ -223,17 +225,34 @@ namespace SatellitePermanente.GUI.GrayMapUtility
 
             /*return the decimal coordinate in pixel coordinate -> using a drawing point*/
 
-            
+            /*clalculate the longitude of the point*/
             drawPoint.X = Convert.ToInt32((point.longitude.GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude()) * (this.X / this.DLon));
-            if(drawPoint.X < 0)
+
+            if (drawPoint.X < 0 && this.extremeCoordinates.GetMaxLongitude().GetLongitude() >0)
+            {
+                drawPoint.X = Convert.ToInt32((point.longitude.GetLongitude() - extremeCoordinates.GetMinLongitude().GetLongitude()) * (this.X / this.DLon - this.extremeCoordinates.GetMaxLongitude().GetLongitude()));
+
+                drawPoint.X = Convert.ToInt32((this.DLon - this.extremeCoordinates.GetMaxLongitude().GetLongitude()) - drawPoint.X);
+            }
+
+            if (drawPoint.X < 0)
             {
                 drawPoint.X = Convert.ToInt32(this.X + drawPoint.X);
             }
 
+            /*claculate the latitude of the poit*/
             drawPoint.Y = Convert.ToInt32(this.Y - (point.latitude.GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude()) * (this.Y / this.DLat));
+
+            if (drawPoint.Y < 0 && this.extremeCoordinates.GetMaxLatitude().GetLatitude() >0)
+            {
+                drawPoint.Y = Convert.ToInt32(this.Y - (point.latitude.GetLatitude() - extremeCoordinates.GetMinLatitude().GetLatitude()) * (this.Y / this.DLat - this.extremeCoordinates.GetMaxLatitude().GetLatitude()));
+  
+                    drawPoint.Y = Convert.ToInt32((this.DLat - this.extremeCoordinates.GetMaxLatitude().GetLatitude()) - drawPoint.Y);
+            }
+
             if (drawPoint.Y < 0)
             {
-                drawPoint.Y = Convert.ToInt32(this.Y + drawPoint.Y);
+                drawPoint.Y = Convert.ToInt32(this.Y - drawPoint.Y);
             }
 
             return drawPoint;
