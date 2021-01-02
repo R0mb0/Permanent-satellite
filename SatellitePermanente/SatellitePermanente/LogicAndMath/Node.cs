@@ -30,15 +30,25 @@ namespace SatellitePermanente.LogicAndMath
             return Math.Round(GetDistance(), 2) + "Km";
         }
 
-        public decimal GetDirection()
+        public decimal GetDirection1()
         {
-            return Utility.CalculateDirection(this.pointA, this.pointB);
+            return Utility.CalculateDirection1(this.pointA, this.pointB);
+        }
+
+        public decimal GetDirection2()
+        {
+            return Utility.CalculateDirection2(this.pointA, this.pointB);
         }
 
         /*Get the direction in string way, ready to be printed into GrayMap*/
-        public string GetDirectionString()
+        public string GetDirection1String()
         {
-            return Math.Round(GetDirection(), 2) + "°";
+            return Math.Round(GetDirection1(), 2) + "°";
+        }
+
+        public string GetDirection2String()
+        {
+            return Math.Round(GetDirection2(), 2) + "°";
         }
 
         public decimal GetTimeDifference()
@@ -78,11 +88,11 @@ namespace SatellitePermanente.LogicAndMath
         {
             if(GetAltitudeDifference() != null)
             {
-                return GetDistanceString() + "\n" + GetDirectionString() + "\n" + GetTimeDifferenceString() + "\n" + GetSpeedString() + "\n" + GetAltitudeDifferenceString();
+                return GetDistanceString() + "\n" + GetDirection1String() + "\n" + GetDirection2String() + "\n" + GetTimeDifferenceString() + "\n" + GetSpeedString() + "\n" + GetAltitudeDifferenceString();
             }
 
 
-            return GetDistanceString() + "\n" + GetDirectionString() + "\n" + GetTimeDifferenceString() + "\n" + GetSpeedString();
+            return GetDistanceString() + "\n" + GetDirection1String() + "\n" + GetDirection2String() + "\n" + GetTimeDifferenceString() + "\n" + GetSpeedString();
         }
     }
 }

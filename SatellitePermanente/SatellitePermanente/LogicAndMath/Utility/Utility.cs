@@ -62,7 +62,7 @@ namespace SatellitePermanente.LogicAndMath
          Δφ = ln( tan( latB / 2 + π / 4 ) / tan( latA / 2 + π / 4) ) 
          Δlon = abs( lonA - lonB ) 
          direction :  θ = atan2( Δlon ,  Δφ ) */
-        public static decimal CalculateDirection(Point pointA, Point pointB)
+        public static decimal CalculateDirection1(Point pointA, Point pointB)
         {
             decimal phi;
             decimal lon;
@@ -72,12 +72,13 @@ namespace SatellitePermanente.LogicAndMath
             {
                 /*this is a arbitrary value (is the most small value that work with the final formula)*/
                 phi = 0.000000000000001M;
+                phi = phi * Pg / 180;
             }
             else
             {
-                phi= DecimalMath.Log(Math.Abs(
-                (DecimalMath.Tan( ((pointB.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4)) * Pg / 180))
-                / DecimalMath.Tan((pointA.latitude.GetLatitude() / 2) + (Convert.ToDecimal(Math.PI) / 4) * Pg / 180)));
+                phi = DecimalMath.Log(
+                    DecimalMath.Tan((pointB.latitude.GetLatitude()  * Pg / 180 ) /2 + Pg / 4) 
+                    / DecimalMath.Tan((pointA.latitude.GetLatitude()  * Pg / 180 ) / 2 + Pg / 4));              
             }
 
             /*protection the formula in case that appear the same longitude*/
@@ -85,18 +86,31 @@ namespace SatellitePermanente.LogicAndMath
             {
                 /*this is a arbitrary value (is the most small value that work with the final formula)*/
                 lon = 0.000000000000001M;
+                lon = lon * Pg / 180;
             }
             else
             {
-                lon = DecimalMath.Abs((pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude()) * Pg / 180);
-            }
+                lon = DecimalMath.Abs(pointA.longitude.GetLongitude() - pointB.longitude.GetLongitude());
 
-            return DecimalMath.Atan2(lon, phi);
+                if(lon * Pg / 180 > 180)
+                {
+                    lon = lon % 180;
+                }
+            }
+            
+            return DecimalMath.Atan2(lon * Pg / 180, DecimalMath.Abs(phi)) / Pg * 180;
            
         }
 
-        /*This method calculate the difference of time from two Points, it is usefull for calculate the Speed*/
-        public static decimal CalculateTimeDifference(Point pointA, Point pointB)
+        public static decimal CalculateDirection2(Point pointA, Point pointB)
+        {
+            return CalculateDirection1(pointA, pointB) + 180;
+        }
+
+
+
+            /*This method calculate the difference of time from two Points, it is usefull for calculate the Speed*/
+            public static decimal CalculateTimeDifference(Point pointA, Point pointB)
         {
            return Math.Abs(Convert.ToDecimal(pointA.dateTime.Subtract(pointB.dateTime).TotalHours));
         }

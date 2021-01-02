@@ -37,7 +37,7 @@ namespace SatellitePermanente.GUI
                 DatabaseWithRescueImpl.GetIstance().GetPointList().IndexOf(PointUtility.GetCorrespondingPoint(DatabaseWithRescueImpl.GetIstance().GetPointList(),myNode.pointB)).ToString(),
                 myNode.pointB.name, 
                 
-                myNode.GetDistanceString(), myNode.GetDirectionString(),
+                myNode.GetDistanceString(), myNode.GetDirection1String(), myNode.GetDirection2String(),
                 myNode.GetTimeDifferenceString(), myNode.GetSpeedString(),
                 myNode.GetAltitudeDifferenceString()}) ;
 
