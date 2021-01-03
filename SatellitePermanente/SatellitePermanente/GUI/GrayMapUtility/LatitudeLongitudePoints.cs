@@ -32,7 +32,7 @@ public static class LatitudeLongitudePoints
             tempPoint1.X = tempX;
             pointList.Add(tempPoint1);
 
-            /*Create the couple of the last pointe create for create a straight from the two points*/
+            /*Create the couple of the last point created to create a straight from the two points*/
             System.Drawing.Point tempPoint2 = new System.Drawing.Point();
             tempPoint2.Y = 0;
             tempPoint2.X = tempX;
@@ -52,7 +52,7 @@ public static class LatitudeLongitudePoints
             tempPoint1.X = xMax;
             pointList.Add(tempPoint1);
 
-            /*Create the couple of the last pointe create for create a straight from the two points*/
+            /*Create the couple of the last point created to create a straight from the two points*/
             System.Drawing.Point tempPoint2 = new System.Drawing.Point();
             tempPoint2.Y = tempY;
             tempPoint2.X = 0;

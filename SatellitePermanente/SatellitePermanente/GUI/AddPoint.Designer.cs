@@ -74,9 +74,9 @@
             this.Latitude.ForeColor = System.Drawing.Color.Purple;
             this.Latitude.Location = new System.Drawing.Point(11, 10);
             this.Latitude.Name = "Latitude";
-            this.Latitude.Size = new System.Drawing.Size(91, 25);
+            this.Latitude.Size = new System.Drawing.Size(116, 25);
             this.Latitude.TabIndex = 0;
-            this.Latitude.Text = "Latitude:";
+            this.Latitude.Text = "LATITUDE:";
             // 
             // LatitudeSign
             // 
@@ -447,7 +447,7 @@
             this.Controls.Add(this.Latitude);
             this.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddPoint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ADD POINT";
