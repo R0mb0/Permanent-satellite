@@ -5,7 +5,75 @@
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "EnvDTE/16.8.30705.32": {
+        "dependencies": {
+          "stdole": "16.8.30705.32"
+        },
+        "runtime": {
+          "lib/netstandard2.0/EnvDTE.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.50727.932"
+          }
+        }
+      },
+      "EnvDTE80/16.8.30705.32": {
+        "dependencies": {
+          "EnvDTE": "16.8.30705.32"
+        },
+        "runtime": {
+          "lib/netstandard2.0/EnvDTE80.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.50727.932"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "stdole/16.8.30705.32": {
+        "runtime": {
+          "lib/netstandard2.0/stdole.dll": {
+            "assemblyVersion": "7.0.3300.0",
+            "fileVersion": "7.0.9466.1"
+          }
+        }
+      }
+    }
   },
-  "libraries": {}
+  "libraries": {
+    "EnvDTE/16.8.30705.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TqEMUaNrLmbXz/JRnM33Ljz6UANUfT1s/dImLoW1BAdCyFAyHcrrWBltSWM/C0Z950mpY5anetcgpNZ9YwHFfA==",
+      "path": "envdte/16.8.30705.32",
+      "hashPath": "envdte.16.8.30705.32.nupkg.sha512"
+    },
+    "EnvDTE80/16.8.30705.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-s9DmZZ8X0jYuoB9omWTM0e+ZZh8O8T7K9LHvH5NXH+V7wNqjkcyUsHVWDoKsPzKiD4Vq0US9Vhp50uvwyy5AOA==",
+      "path": "envdte80/16.8.30705.32",
+      "hashPath": "envdte80.16.8.30705.32.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "stdole/16.8.30705.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8ay8dVnDnqzqp0qr82OdNrOdnIng5laEnlxg1Flm9X8uX5jTesBL5O28l8LLWHI+ikG9e+4QBcu3eZ7TQVEyLw==",
+      "path": "stdole/16.8.30705.32",
+      "hashPath": "stdole.16.8.30705.32.nupkg.sha512"
+    }
+  }
 }

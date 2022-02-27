@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\DOCUMENTI\\UNIVERSITÀ\\URBINO\\PROGRAMMAZIONE AD OGGETTI\\PROGETTO\\SatellitePermanente\\SatellitePermanente\\SatellitePermanente.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "restore": {
         "projectUniqueName": "D:\\DOCUMENTI\\UNIVERSITÀ\\URBINO\\PROGRAMMAZIONE AD OGGETTI\\PROGETTO\\SatellitePermanente\\SatellitePermanente\\SatellitePermanente.csproj",
         "projectName": "SatellitePermanente",
@@ -37,6 +37,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "EnvDTE80": {
+              "target": "Package",
+              "version": "[16.8.30705.32, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

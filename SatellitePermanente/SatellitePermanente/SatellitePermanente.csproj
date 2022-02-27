@@ -4,6 +4,39 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject>SatellitePermanente.Program</StartupObject>
+    <PackageIcon>Miniature.jpg</PackageIcon>
+    <ApplicationIcon>ICO Miniature.ico</ApplicationIcon>
+    <Authors>Francesco Rombaldoni</Authors>
+    <Company>University of Urbino Carlo Bo</Company>
+    <Product>Relative system of orientation to permanent satellite</Product>
+    <Description>A program that do some operation usefull for orientation during the exploration travel.</Description>
+    <Copyright>RomboUrbex</Copyright>
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/RomboUrbex/SatellitePermanente.git</RepositoryUrl>
+    <PackageReleaseNotes>This version implements the design pattern, in particular into the database classes.</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <PackageTags>#Rombo #Urbex #RomboUrbex</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EnvDTE80" Version="16.8.30705.32" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>

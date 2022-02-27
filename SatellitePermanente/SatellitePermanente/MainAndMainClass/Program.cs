@@ -1,3 +1,4 @@
+using SatellitePermanente.LogicAndMath;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +9,16 @@ namespace SatellitePermanente
 {
     static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        
+        /*  The main entry point for the application.*/
         [STAThread]
         static void Main()
         {
+            /*automatically generated*/
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-
-            
-
-            
+            Application.Run(new Home());
 
         }
     }
