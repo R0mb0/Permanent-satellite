@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "j00nQky5YZRmLpGu6RbNs3rqi4nzAt2lxkBHeaBgBBZobcmuPI7REC9r1MrHDP1UA96q20KFztjI3Ci44Rj5pw==",
+  "success": true,
+  "projectFilePath": "D:\\DOCUMENTI\\PROGETTI GIT\\PROGRAMMAZIONE AD OGGETTI\\PROGETTO\\PermanentSatellite\\PermanentSatellite\\PermanentSatellite.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rombo\\.nuget\\packages\\envdte\\16.8.30705.32\\envdte.16.8.30705.32.nupkg.sha512",
+    "C:\\Users\\Rombo\\.nuget\\packages\\envdte80\\16.8.30705.32\\envdte80.16.8.30705.32.nupkg.sha512",
+    "C:\\Users\\Rombo\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Rombo\\.nuget\\packages\\stdole\\16.8.30705.32\\stdole.16.8.30705.32.nupkg.sha512"
+  ],
+  "logs": []
+}
