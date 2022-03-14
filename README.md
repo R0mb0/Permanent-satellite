@@ -1,11 +1,6 @@
 Urbino`s University - Applied computer science - P.M.O
 
 # P.M.O-Project
-
-### Student Information:
-Name:             Francesco<br>
-Surname:          Romaldoni<br>
-Roll List:        #306249<br>
 Project Title:    Relative system of orientation to permanent satellite.<br>
 
 ## Project Specifications:
