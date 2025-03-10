@@ -1,11 +1,14 @@
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/R0mb0/Permanent-satellite)
-[![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/R0mb0/Permanent-satellite)
-[![Donate](https://img.shields.io/badge/PayPal-Donate%20to%20Author-blue.svg)](http://paypal.me/R0mb0)
-
 Urbino`s University - Applied computer science - P.M.O
 
 # P.M.O-Project
+
 Project Title:    Relative system of orientation to permanent satellite.<br>
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e8176b3130eb4b2f857331d7491aa595)](https://app.codacy.com/gh/R0mb0/Permanent-satellite/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/R0mb0/Permanent-satellite)
+[![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/R0mb0/Permanent-satellite)
+[![Donate](https://img.shields.io/badge/PayPal-Donate%20to%20Author-blue.svg)](http://paypal.me/R0mb0)
 
 ## Project Specifications:
 
@@ -14,6 +17,7 @@ This programm will be able to register the surveys into a database, auomatically
 represent graphically into a gray map all properties calculated and save into a file the current status of the program.
 
 ____
+
 ## Project Problems: 
 
 ### The problems of this project are:<br>
@@ -59,6 +63,7 @@ and the nodes (in scale compareted to the extremes of the latitudes and longitud
 The gray map has been created using Windows Form.
 
 ____
+
 ## Architectural choices
 
 ### Logic And Math classes
@@ -115,24 +120,38 @@ This program was created to solve the problem of orientation into the not mapped
 The user should does a detection every twenty minutes (max every half of a hour), in way to have more precision dates (in every time is possible to delete a error detection), the programm going to calculate all the properties that are usefull for the orientation, in case of user perplexity he can whatch the calculated dates.
 
 #### USE CASE
+
 Normal program use
+
 #### ID
+
 UC1
+
 #### ACTOR
+
 User
+
 #### PRECONDITION
+
 - User launch the programm.
+
 #### BASIC COURSE OF EVENTS
+
 1. User do a detection or load the last database.
 2. User add a detection or remove a wrong/useless detection.
 3. User save the Program status.
+4. 
 #### POSTCONDITION
+
 - User gets all trip properties for every detection.
+  
 #### ALTERNATIVE PATHS
+
 1. User use the calculate propterties to sing into a paper map the detections.
 2. User use the registered dates to make a map of the place.
 
 ____
+
 ## Feedback
 
 The program has been survey by some professionist of cartography, they have contributed to the programm checking the correct implementation of the formulas used and the correct rappresentation of the detection into a scales grey map.<br>
