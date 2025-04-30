@@ -160,3 +160,9 @@ ____
 
 The program has been survey by some professionist of cartography, they have contributed to the programm checking the correct implementation of the formulas used and the correct rappresentation of the detection into a scales grey map.<br>
 In conclusion this programm respect the GPS standard and it could be used how a orientation strument together a professional strument support.
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)"srcset="https://github.com/R0mb0/Not_made_by_AI/blob/main/Badge/SVG/NotMadeByAIDark.svg">
+    <source media="(prefers-color-scheme: light)"srcset="https://github.com/R0mb0/Not_made_by_AI/blob/main/Badge/SVG/NotMadeByAILight.svg">
+    <img alt="Not made by AI" src="https://github.com/R0mb0/Not_made_by_AI/blob/main/Badge/SVG/NotMadeByAIDefault.svg">
+  </picture>
